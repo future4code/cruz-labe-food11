@@ -1,0 +1,23 @@
+import React from 'react'
+import { BASE_URL } from '../constants/url'
+import axios from 'axios'
+
+const loginOrSignUp = async (func, body, history, routerFunction,evt) => {
+evt.preventDefault()
+    try {
+        const response = await axios.post(`${BASE_URL}${func}`, body)
+        let token = response.data.token
+        window.localStorage.setItem('token',token)
+        if(response.data.user.hasAddress){
+            console.log("goToHomePage")
+        }else{
+            console.log("goToAddressPage")
+        }
+
+    } catch (error) {
+        console.log("Erro encontrado: ", error)
+    }
+
+}
+
+export default loginOrSignUp
