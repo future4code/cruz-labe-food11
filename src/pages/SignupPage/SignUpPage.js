@@ -27,8 +27,17 @@ const SignUpPage = () => {
     const checkPassword = (event) => {
         console.log("event.target.value: ", event.target.value)
         setConfirmPassword(event.target.value)
+        
     }
-
+const check = (event) => {
+    console.log("onInput check: ",event.target.value)
+    console.log('form : ',form)
+    if(confirmPassword!==form.password){
+        event.target.setCustomValidity("As senhas não são iguais.")
+    }else{
+        event.target.setCustomValidity('')
+    }
+}
 
 
 
@@ -39,11 +48,11 @@ const SignUpPage = () => {
             </BoxLogo>
             <H4>Entrar</H4>
             <Form onSubmit={signUp}>
-                <Input name="name" value={form.name} onChange={onChange} placeholder="Nome e sobrenome" />
-                <Input name="email" value={form.email} onChange={onChange} placeholder="email@email.com" />
-                <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" />
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Mínimo 6 caracteres" />
-                <Input name="password" value={confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" />
+                <Input name="name" value={form.name} onChange={onChange} placeholder="Nome e sobrenome" type='text' required pattern={"^.{6,}"}/>
+                <Input name="email" value={form.email} onChange={onChange} placeholder="email@email.com" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"}/>
+                <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" type='text' required pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'}/>
+                <Input name="password" value={form.password} onChange={onChange} placeholder="Mínimo 6 caracteres" type='password' required pattern={"^.{6,}"}/>
+                <Input name="password" value={confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type='password' required pattern={"^.{6,}"} onInput={check}/>
                 <Button>Criar</Button>
             </Form>
 
