@@ -1,5 +1,5 @@
 export const headersConfig = {
-  headersConfig: {
+  headers: {
     auth: localStorage.getItem('token')
   }
 }
