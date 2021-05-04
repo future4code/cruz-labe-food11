@@ -2,11 +2,10 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import HomePage from '../pages/HomePage/HomePage'
 import LoginPage from '../pages/LoginPage/LoginPage'
-import SignupPage from '../pages/SignupPage/SignupPage'
+import SignUpPage from '../pages/SignupPage/SignUpPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
-
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 
 function Router() {
@@ -22,10 +21,10 @@ function Router() {
         </Route>
 
         <Route exact path='/cadastro'>
-          <SignupPage />
+          <SignUpPage />
         </Route>
 
-        <Route exact path='/perfil'>
+        {/* <Route exact path='/perfil'>
           <ProfilePage />
         </Route>
 
@@ -35,11 +34,11 @@ function Router() {
 
         <Route exact path='/carrinho'>
           <CartPage />
-        </Route>
+        </Route> */}
 
-        <Route>
+        {/* <Route>
           <ErrorPage />
-        </Route>
+        </Route> */}
       </Switch>
     </BrowserRouter>
   )
