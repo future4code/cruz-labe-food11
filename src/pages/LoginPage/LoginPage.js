@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
 import styled from 'styled-components'
+import { BASE_URL } from '../../constants/url'
+import axios from 'axios'
 
 const LoginPage = () => {
 
@@ -12,7 +14,11 @@ const LoginPage = () => {
     useEffect(() => {
 
     }, [])
-
+    const login = async () => {
+        const body = form
+        const response = await axios.post(`${BASE_URL}login`)
+        console.log("Response: ", response)
+    }
 
 
     return (
