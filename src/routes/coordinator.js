@@ -16,6 +16,9 @@ export const goToProfilePage = (history) => {
 export const goToCartPage = (history) => {
     history.push('/carrinho')
 }
+export const goToRegisterAddressPage = (history) => {
+    history.push('/address')
+}
 export const goToRestaurantDetailsPage = (history, id) => {
     history.push(`/restaurante/${id}`)
 }

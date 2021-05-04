@@ -24,10 +24,10 @@ const LoginPage = () => {
 
             </BoxLogo>
             <H4>Entrar</H4>
-            <Form onSubmit={(evt) => loginOrSignUp('login', form, history, 'routerFunc', evt)}>
+            <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>
                 <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} />
                 <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type='password' required pattern={"^.{6,}"} />
-                <Button>Entrar</Button>
+                <Button type='submit'>Entrar</Button>
             </Form>
 
             <Button onClick={() => gotoSignUpPage(history)}>Nao possui cadastro? Clique aqui</Button>
