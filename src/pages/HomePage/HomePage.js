@@ -1,8 +1,14 @@
 import { Box } from '@chakra-ui/layout'
-import React from 'react'
+import React, { useEffect } from 'react'
+import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 
 function HomePage(){
+  useEffect( () => {
+
+  },[])
+  useProtectedPage()
+
   const restaurants = useRequestData([], 'restaurants')
 
   const listRestaurants = restaurants.restaurants && restaurants.restaurants.map((restaurant) => {

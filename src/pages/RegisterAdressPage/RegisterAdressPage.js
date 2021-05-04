@@ -2,6 +2,8 @@ import React from 'react'
 import { Input, Button } from '@chakra-ui/react'
 import useForm from '../../hooks/useForm'
 import addAdress from '../../function/addAdress'
+import { goToHomePage } from '../../routes/coordinator'
+import { useHistory } from 'react-router'
 
 function RegisterAdressPage() {
   const initialState = {
@@ -13,12 +15,13 @@ function RegisterAdressPage() {
     complement: ''
   }
   const [form, handleInputChange, clear] = useForm(initialState)
-
+  const history= useHistory()
   const onSubmitForm = (event) => {
     event.preventDefault()
 
     addAdress(form)
     clear()
+    goToHomePage(history)
   }
   
   return (
@@ -63,7 +66,7 @@ function RegisterAdressPage() {
           value={form.state}
           onChange={handleInputChange}
           required
-          pattern={"[a-z]{2}"}
+          pattern={"[a-zA-z]{2}"}
         />
         <Input
           placeholder={'Complemento'}
