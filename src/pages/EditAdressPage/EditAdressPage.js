@@ -1,13 +1,13 @@
 import React from 'react'
 import AdressForm from '../../components/AdressForm/AdressForm'
 
-function RegisterAdressPage() {
+function EditAdressPage(){
   return (
     <div>
-      <p>RegisterAdressPage</p>
+      <p>Editar endereço</p>
       <AdressForm />
-    </div >
+    </div>
   )
 }
 
-export default RegisterAdressPage
+export default EditAdressPage
