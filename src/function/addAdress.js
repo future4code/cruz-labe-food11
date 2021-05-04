@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/url'
 
-function addAdress(finalUrl, body) {
-  axios.put(`${BASE_URL}${finalUrl}`, body, {
+function addAdress(body) {
+  axios.put(`${BASE_URL}address`, body, {
     headers: {
       auth: localStorage.getItem('token')
     }
