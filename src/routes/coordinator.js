@@ -1,3 +1,6 @@
+export const goToEditProfilePage = (history) => {
+  history.push('/perfil/editar')
+}
 
 export const gotoSignUpPage = (history) => {
     history.push('/cadastro')

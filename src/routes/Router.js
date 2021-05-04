@@ -4,10 +4,11 @@ import HomePage from '../pages/HomePage/HomePage'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import SignUpPage from '../pages/SignupPage/SignUpPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
-import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
-import CartPage from '../pages/CartPage/CartPage'
-import ErrorPage from '../pages/ErrorPage/ErrorPage'
+// import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
+// import CartPage from '../pages/CartPage/CartPage'
+// import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
+import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 
 function Router() {
   return (
@@ -31,6 +32,10 @@ function Router() {
 
         <Route exact path='/perfil'>
           <ProfilePage />
+        </Route>
+
+        <Route exact path='/perfil/editar'>
+          <EditProfilePage />
         </Route>
         
         {/*
