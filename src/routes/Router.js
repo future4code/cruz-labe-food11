@@ -9,6 +9,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 // import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
+import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
 
 function Router() {
   return (
@@ -26,7 +27,7 @@ function Router() {
           <SignUpPage />
         </Route>
 
-        <Route exact path='/address'>
+        <Route exact path='/cadastro/endereco'>
           <RegisterAddressPage />
         </Route>
 
@@ -38,6 +39,9 @@ function Router() {
           <EditProfilePage />
         </Route>
         
+        <Route exact path='/perfil/editar/endereco'>
+          <EditAdressPage />
+        </Route>
         {/*
         <Route exact path='/restaurante/:id'>
           <RestaurantDetailsPage />

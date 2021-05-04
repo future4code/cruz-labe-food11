@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
-import { goToEditProfilePage } from '../../routes/coordinator'
+import { goToEditProfilePage, goToEditAdressPage } from '../../routes/coordinator'
 
 function ProfilePage() {
   const profile = useRequestData({}, 'profile')
@@ -17,6 +17,7 @@ function ProfilePage() {
       <br /><br />
       <b>Endereço: </b>
       <p>{profile.user && profile.user.address}</p>
+      <Button bg={'#c4c4c4'} onClick={() => goToEditAdressPage(history)}>Editar endereço</Button>
     </div>
   )
 }
