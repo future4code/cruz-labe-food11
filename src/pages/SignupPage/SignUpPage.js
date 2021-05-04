@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
 import styled from 'styled-components'
-import loginOrSignUp from '../../function/useLoginOrSignUp'
+import loginOrSignUp from '../../functions/loginOrSignUp'
 import { EyeFill } from '@styled-icons/bootstrap/EyeFill'
 import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
@@ -20,15 +20,13 @@ const SignUpPage = () => {
 
 
     useEffect(() => {
-        console.log('useEffect', hidePassword)
-    }, [hidePassword])
+    }, [])
 
 
     const checkPassword = (event) => {
         setConfirmPassword(event.target.value)
     }
     const check = (event) => {
-        console.log("onInput check: ", event.target.value)
         if (confirmPassword !== form.password) {
             event.target.setCustomValidity("As senhas não são iguais.")
 
@@ -38,7 +36,6 @@ const SignUpPage = () => {
     }
 
     const changeTypePassword = () => {
-        console.log('entrando no changeTypePassword: ', hidePassword)
         setHidePassword(!hidePassword)
         if (hidePassword) {
             setPasswordType('text')
@@ -48,7 +45,6 @@ const SignUpPage = () => {
     }
 
     const changeTypeCheckPassword = () => {
-        console.log('entrando no hydeCheck: ', hideCheckPassword)
         setHideCheckPassword(!hideCheckPassword)
         if (hideCheckPassword) {
             setConfirmCheckPasswordType('text')

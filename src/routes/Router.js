@@ -5,9 +5,11 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import SignUpPage from '../pages/SignupPage/SignUpPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
-import CartPage from '../pages/CartPage/CartPage'
-import ErrorPage from '../pages/ErrorPage/ErrorPage'
+// import CartPage from '../pages/CartPage/CartPage'
+// import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
+import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
+import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
 
 function Router() {
   return (
@@ -25,19 +27,27 @@ function Router() {
           <SignUpPage />
         </Route>
 
-        <Route exact path='/address'>
+        <Route exact path='/cadastro/endereco'>
           <RegisterAddressPage />
         </Route>
 
         <Route exact path='/perfil'>
           <ProfilePage />
         </Route>
-        
-        {/*
+
+        <Route exact path='/perfil/editar'>
+          <EditProfilePage />
+        </Route>
+
+        <Route exact path='/perfil/editar/endereco'>
+          <EditAdressPage />
+        </Route>
+
         <Route exact path='/restaurante/:id'>
           <RestaurantDetailsPage />
         </Route>
-
+        
+        {/*
         <Route exact path='/carrinho'>
           <CartPage />
         </Route> */}
