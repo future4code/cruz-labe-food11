@@ -13,7 +13,6 @@ const SignUpPage = () => {
     const history = useHistory()
     const [confirmPassword, setConfirmPassword] = useState('')
     const [passwordType, setPasswordType] = useState('password')
-    const [confirmPasswordType, setConfirmPasswordType] = useState('password')
     const [hidePassword, setHidePassword] = useState(true)
     const [confirmCheckPasswordType, setConfirmCheckPasswordType] = useState('password')
     const [hideCheckPassword, setHideCheckPassword] = useState(true)
@@ -94,13 +93,9 @@ const SignUpPage = () => {
 
         </Container>
     )
-
-
 }
 
-
 export default SignUpPage
-
 
 
 const Container = styled.div`
