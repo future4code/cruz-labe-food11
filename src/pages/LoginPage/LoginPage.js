@@ -14,10 +14,16 @@ const LoginPage = () => {
     useEffect(() => {
 
     }, [])
-    const login = async () => {
+    const login = async (event) => {
+        event.preventDefault()
         const body = form
-        const response = await axios.post(`${BASE_URL}login`)
-        console.log("Response: ", response)
+        try{
+            const response = await axios.post(`${BASE_URL}login`,body)
+            console.log("Response: ", response)
+        }catch(error){
+            console.log('Erro encontrado: ',error)
+        }
+       
     }
 
 
@@ -27,7 +33,7 @@ const LoginPage = () => {
 
             </BoxLogo>
             <H4>Entrar</H4>
-            <Form>
+            <Form onSubmit={login}>
                 <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" />
                 <Input name="password" value={form.password} onChange={onChange} placeholder="Password" />
                 <Button>Entrar</Button>

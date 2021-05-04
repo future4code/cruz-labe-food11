@@ -14,10 +14,15 @@ const SignUpPage = () => {
     useEffect(() => {
 
     }, [])
-    const signUp = async () => {
+    const signUp = async (event) => {
+        event.preventDefault()
         const body = form
-        const response = await axios.post(`${BASE_URL}signup`)
+        try{
+        const response = await axios.post(`${BASE_URL}signup`,body)
         console.log("Response: ", response)
+        }catch(error){
+            console.log("erro encontrado: ",error)
+        }
     }
     const checkPassword = (event) => {
         console.log("event.target.value: ", event.target.value)
