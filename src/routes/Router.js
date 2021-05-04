@@ -25,13 +25,15 @@ function Router() {
           <SignUpPage />
         </Route>
 
-        <Route exact path ='/address'>
-          <RegisterAddressPage/>
-        </Route>
-        {/* <Route exact path='/perfil'>
-          <ProfilePage />
+        <Route exact path='/address'>
+          <RegisterAddressPage />
         </Route>
 
+        <Route exact path='/perfil'>
+          <ProfilePage />
+        </Route>
+        
+        {/*
         <Route exact path='/restaurante/:id'>
           <RestaurantDetailsPage />
         </Route>
