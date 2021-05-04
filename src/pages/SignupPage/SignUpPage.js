@@ -15,25 +15,7 @@ const SignUpPage = () => {
     useEffect(() => {
 
     }, [])
-    const signUp = async (event) => {
-        event.preventDefault()
-        const body = form
-
-        try {
-            const response = await axios.post(`${BASE_URL}signup`, body)
-            console.log("Response: ", response)
-            const token = response.data.token
-            window.localStorage.setItem('token', token)
-            if (response.data.user.hasAddress) {
-                console.log("goToHomePage")
-            } else {
-                console.log("goToAddressPage")
-            }
-        } catch (error) {
-            console.log("erro encontrado: ", error)
-
-        }
-    }
+    
 
 
 

@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
 import loginOrSignUp from '../../hooks/useLoginOrSignUp'
+import useRequestData from '../../hooks/useRequestData'
+import { Button } from '@chakra-ui/button'
+import { gotoSignUpPage } from '../../routes/coordinator'
 
 const LoginPage = () => {
 
@@ -15,27 +18,6 @@ const LoginPage = () => {
     useEffect(() => {
 
     }, [])
-    const login = async (event) => {
-        event.preventDefault()
-        const body = form
-        try {
-            const response = await axios.post(`${BASE_URL}login`, body)
-            console.log("Response: ", response)
-            const token = response.data.token
-            window.localStorage.setItem('token', token)
-            if (response.data.user.hasAddress) {
-                console.log("goToHomePage")
-            } else {
-                console.log("goToAddressPage")
-            }
-
-        } catch (error) {
-            console.log('Erro encontrado: ', error)
-        }
-
-    }
-
-
     return (
         <Container>
             <BoxLogo>
@@ -48,8 +30,7 @@ const LoginPage = () => {
                 <Button>Entrar</Button>
             </Form>
 
-            <Button>Nao possui cadastro? Clique aqui</Button>
-
+            <Button onClick={() => gotoSignUpPage(history)}>Nao possui cadastro? Clique aqui</Button>
         </Container>
     )
 
@@ -87,5 +68,5 @@ display:flex;
 flex-direction:column;
 `
 
-const Button = styled.button`
-`
+// const Button = styled.button`
+// `
