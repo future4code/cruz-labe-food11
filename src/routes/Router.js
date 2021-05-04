@@ -7,6 +7,7 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
+import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 
 function Router() {
   return (
@@ -24,6 +25,9 @@ function Router() {
           <SignUpPage />
         </Route>
 
+        <Route exact path ='/address'>
+          <RegisterAddressPage/>
+        </Route>
         {/* <Route exact path='/perfil'>
           <ProfilePage />
         </Route>
