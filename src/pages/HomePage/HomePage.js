@@ -16,6 +16,7 @@ function HomePage(){
   return(
     <div>{listRestaurants}</div>
   )
+
 }
 
 export default HomePage
