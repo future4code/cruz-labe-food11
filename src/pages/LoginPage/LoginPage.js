@@ -19,7 +19,7 @@ const LoginPage = () => {
         const body = form
         try{
             const response = await axios.post(`${BASE_URL}login`,body)
-            console.log("Response: ", response)
+            localStorage.setItem('token', response.data.token)
         }catch(error){
             console.log('Erro encontrado: ',error)
         }
