@@ -4,6 +4,7 @@ import useForm from '../../hooks/useForm'
 import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
+import loginOrSignUp from '../../hooks/useLoginOrSignUp'
 
 const LoginPage = () => {
 
@@ -17,13 +18,21 @@ const LoginPage = () => {
     const login = async (event) => {
         event.preventDefault()
         const body = form
-        try{
-            const response = await axios.post(`${BASE_URL}login`,body)
-            localStorage.setItem('token', response.data.token)
-        }catch(error){
-            console.log('Erro encontrado: ',error)
+        try {
+            const response = await axios.post(`${BASE_URL}login`, body)
+            console.log("Response: ", response)
+            const token = response.data.token
+            window.localStorage.setItem('token', token)
+            if (response.data.user.hasAddress) {
+                console.log("goToHomePage")
+            } else {
+                console.log("goToAddressPage")
+            }
+
+        } catch (error) {
+            console.log('Erro encontrado: ', error)
         }
-       
+
     }
 
 
@@ -33,9 +42,9 @@ const LoginPage = () => {
 
             </BoxLogo>
             <H4>Entrar</H4>
-            <Form onSubmit={login}>
-                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" />
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" />
+            <Form onSubmit={(evt) => loginOrSignUp('login', form, history, 'routerFunc', evt)}>
+                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} />
+                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type='password' required pattern={"^.{6,}"} />
                 <Button>Entrar</Button>
             </Form>
 
@@ -69,6 +78,7 @@ text-align:center;
 `
 
 const Input = styled.input`
+border:1px solid black;
 
 `
 
