@@ -17,11 +17,11 @@ const SignUpPage = () => {
     const signUp = async (event) => {
         event.preventDefault()
         const body = form
-        try{
-        const response = await axios.post(`${BASE_URL}signup`,body)
-        console.log("Response: ", response)
-        }catch(error){
-            console.log("erro encontrado: ",error)
+        try {
+            const response = await axios.post(`${BASE_URL}signup`, body)
+            localStorage.setItem('token', response.data.token)
+        } catch (error) {
+            console.log("erro encontrado: ", error)
         }
     }
     const checkPassword = (event) => {
