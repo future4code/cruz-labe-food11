@@ -36,9 +36,9 @@ function Router() {
           <CartPage />
         </Route> */}
 
-        <Route>
+        {/* <Route>
           <ErrorPage />
-        </Route>
+        </Route> */}
       </Switch>
     </BrowserRouter>
   )

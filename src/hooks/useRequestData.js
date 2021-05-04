@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../constants/url'
 import { headersConfig } from '../constants/headersConfig'
@@ -13,7 +13,7 @@ function useRequestData(initialState, finalUrl) {
     }).catch((err) => {
       alert(err)
     })
-  }, [finalUrl, data])
+  }, [finalUrl])
 
   return data
 }
