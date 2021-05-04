@@ -8,6 +8,7 @@ import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDeta
 import CartPage from '../pages/CartPage/CartPage'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
+import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 
 function Router() {
   return (
@@ -31,6 +32,10 @@ function Router() {
 
         <Route exact path='/perfil'>
           <ProfilePage />
+        </Route>
+
+        <Route exact path='/perfil/editar'>
+          <EditProfilePage />
         </Route>
         
         {/*
