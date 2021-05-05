@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
 import useProtectedPage from '../../hooks/useProtectedPage'
-
+import logout from '../../functions/logout'
 function HomePage() {
   useProtectedPage()
 
@@ -25,8 +25,16 @@ function HomePage() {
       </Box>
     )
   })
-  return (
-    <div>{listRestaurants}</div>
+  // return (
+  //   <div>{listRestaurants}</div>
+  // )
+
+   return (
+     <div>
+       <button onClick={() => logout(history)}> logout </button>
+       <div>{listRestaurants}</div>
+     </div>
+    
   )
 
 }
