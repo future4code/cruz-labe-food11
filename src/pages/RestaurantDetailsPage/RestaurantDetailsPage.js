@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
@@ -10,9 +10,12 @@ function RestaurantDetailsPage() {
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)  
   
   const [listOfRequests, setListOfRequests] = useState([])
-  localStorage.setItem('cart',JSON.stringify(listOfRequests))
 
-  const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
+  useEffect(() => {
+    localStorage.setItem('cart',JSON.stringify(listOfRequests))
+  })
+  
+  const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => { 
     return (
       <Box border={'1px solid black'} key={product.id}>
         <p>{product.name}</p>

@@ -18,7 +18,12 @@ const addToCart = (productAddedToCart, productsCart, setProductsCart) => {
 
   } else {
     const newProductAdded = {
+      category: productAddedToCart.category,
       id: productAddedToCart.id,
+      description: productAddedToCart.description,
+      name: productAddedToCart.name,
+      photoUrl: productAddedToCart.photoUrl,
+      price: productAddedToCart.price,
       quantity: 1
     }
 
