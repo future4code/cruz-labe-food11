@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, Button } from '@chakra-ui/react'
 import useForm from '../../hooks/useForm'
-import addAdress from '../../functions/addAdress'
+import addAdress from '../../requests/addAdress'
 
 function RegisterAdressPage() {
   const initialState = {
