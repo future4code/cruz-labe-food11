@@ -2,8 +2,11 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 function HomePage() {
+  useProtectedPage()
+
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
 

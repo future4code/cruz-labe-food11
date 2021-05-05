@@ -16,24 +16,40 @@ const SignUpPage = () => {
     const [hidePassword, setHidePassword] = useState(true)
     const [confirmCheckPasswordType, setConfirmCheckPasswordType] = useState('password')
     const [hideCheckPassword, setHideCheckPassword] = useState(true)
-
-
+    const [validity,setValidity] = useState('')
     useEffect(() => {
-    }, [])
+        console.log("useEffect")
+        console.log('form.password: ', form.password)
+        console.log('checkpassword: ', confirmPassword)
+    }, [form.password])
 
 
     const checkPassword = (event) => {
         setConfirmPassword(event.target.value)
-    }
-    const check = (event) => {
-        if (confirmPassword !== form.password) {
-            event.target.setCustomValidity("As senhas não são iguais.")
 
+        // console.log('form : ', form.password)
+        // console.log("confirmPassword: ", confirmPassword)
+        // console.log('validity: ', validity)
+        if (event.target.value.length > 5 && form.password.length > 5 && event.target.value !== form.password) {
+            event.target.setCustomValidity("As senhas não são iguais.")
+            // setValidity('As senhas não são iguais.')
+            // setValidity(event.target.value)
+            // console.log("la dentrooooooooooo!")
+            // console.log('validity: ',validity)
         } else {
-            event.target.setCustomValidity('')
         }
     }
 
+    const check = (event) => {
+        console.log("onInput check: ", event.target.value)
+        // console.log('form : ',form)
+        if (event.target.value !== form.password) {
+            event.target.setCustomValidity("As senhas não são iguais.")
+    }else{
+        event.target.setCustomValidity("")
+        console.log('entrei no else')
+    }}
+    
     const changeTypePassword = () => {
         setHidePassword(!hidePassword)
         if (hidePassword) {
@@ -72,7 +88,8 @@ const SignUpPage = () => {
                             />
                         }
                     />
-                    <Input name="password" value={form.password} onChange={onChange} placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"} />
+                    <Input name="password" value={form.password} onChange={onChange} placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"} setCustomValidity={validity} />
+                    {/* onInput={check2} */}
                 </InputGroup>
 
                 <InputGroup>
@@ -85,7 +102,9 @@ const SignUpPage = () => {
                             />
                         }
                     />
-                    <Input name="checkPassword" value={confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"} onInput={check} />
+                    <Input name="checkPassword" value={confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"} 
+                    onInput={check}
+                    />
                 </InputGroup>
 
                 <Button type='submit'>Criar</Button>
