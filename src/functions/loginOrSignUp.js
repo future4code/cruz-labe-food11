@@ -5,7 +5,6 @@ import { goToHomePage, goToRegisterAddressPage } from '../routes/coordinator'
 
 const loginOrSignUp = async (func, body, history, evt) => {
     evt.preventDefault()
-    console.log('entrei no submitt')
     try {
         const response = await axios.post(`${BASE_URL}${func}`, body)
         let token = response.data.token
