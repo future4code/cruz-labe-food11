@@ -25,10 +25,6 @@ function HomePage() {
       </Box>
     )
   })
-  // return (
-  //   <div>{listRestaurants}</div>
-  // )
-
    return (
      <div>
        <button onClick={() => logout(history)}> logout </button>
