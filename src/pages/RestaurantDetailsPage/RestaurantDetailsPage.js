@@ -1,21 +1,30 @@
-import { Box } from '@chakra-ui/layout'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
+import { Box } from '@chakra-ui/layout'
+import { Button } from '@chakra-ui/react'
+import addToCart from '../../functions/addToCart'
 
 function RestaurantDetailsPage() {
   const params = useParams()
-  const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
-  console.log(restaurantDetails.restaurant)
+  const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)  
+  
+  const [listOfRequests, setListOfRequests] = useState([])
 
-  const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
+  useEffect(() => {
+    localStorage.setItem('cart',JSON.stringify(listOfRequests))
+  })
+  
+  const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => { 
     return (
       <Box border={'1px solid black'} key={product.id}>
         <p>{product.name}</p>
         <p>{product.description}</p>
+        <Button onClick={() => addToCart(product, listOfRequests, setListOfRequests)} bg={'#c4c4c4'}>Adicionar ao carrinho</Button>
       </Box>
     )
   })
+
   return (
     <div>
       <img src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
