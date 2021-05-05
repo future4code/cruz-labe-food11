@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Button } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
-import addAdress from '../../functions/addAdress'
+import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
 
 function RegisterAdressPage() {

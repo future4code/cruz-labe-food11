@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
 import styled from 'styled-components'
-import loginOrSignUp from '../../functions/loginOrSignUp'
-import { EyeFill } from '@styled-icons/bootstrap/EyeFill'
-import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
+import loginOrSignUp from '../../requests/loginOrSignUp'
+// import { EyeFill } from '@styled-icons/bootstrap/EyeFill'
+// import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
 import { IconButton } from '@chakra-ui/button'
 const SignUpPage = () => {
@@ -79,7 +79,7 @@ const SignUpPage = () => {
                     <InputRightElement
                         children={
                             <IconButton onClick={changeTypePassword}
-                                icon={hidePassword ? <SlashEye /> : <Eye />}
+                                // icon={hidePassword ? <SlashEye /> : <Eye />}
                                 size='lg'
                                 aria-label="Call Segun"
                             />
@@ -96,7 +96,7 @@ const SignUpPage = () => {
                     <InputRightElement
                         children={
                             <IconButton onClick={changeTypeCheckPassword}
-                                icon={hideCheckPassword ? <SlashEye /> : <Eye />}
+                                // icon={hideCheckPassword ? <SlashEye /> : <Eye />}
                                 size='lg'
                                 aria-label="Call Segun"
                             />
@@ -143,16 +143,16 @@ flex-direction:column;
 
 const Button = styled.button`
 `
-const Eye = styled(EyeFill)`
-color:orange;
-height:70px;
-/* display:flex; */
-/* align-items:center; */
-/* height:100% */
-`
+// const Eye = styled(EyeFill)`
+// color:orange;
+// height:70px;
+// /* display:flex; */
+// /* align-items:center; */
+// /* height:100% */
+// `
 
-const SlashEye = styled(EyeSlashFill)`
-color:rebeccapurple;
-height:60px;
-`
+// const SlashEye = styled(EyeSlashFill)`
+// color:rebeccapurple;
+// height:60px;
+// `
 

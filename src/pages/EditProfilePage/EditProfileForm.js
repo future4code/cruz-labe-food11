@@ -2,7 +2,7 @@ import React from 'react'
 import { Input, Button } from '@chakra-ui/react'
 import useForm from '../../hooks/useForm'
 import useRequestData from '../../hooks/useRequestData'
-import updateProfile from '../../functions/updateProfile'
+import updateProfile from '../../requests/updateProfile'
 
 function EditProfileForm() {
   const profile = useRequestData({}, 'profile')

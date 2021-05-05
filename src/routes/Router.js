@@ -5,7 +5,7 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import SignUpPage from '../pages/SignupPage/SignUpPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
-// import CartPage from '../pages/CartPage/CartPage'
+import CartPage from '../pages/CartPage/CartPage'
 // import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
@@ -47,10 +47,9 @@ function Router() {
           <RestaurantDetailsPage />
         </Route>
         
-        {/*
         <Route exact path='/carrinho'>
           <CartPage />
-        </Route> */}
+        </Route>
 
         {/* <Route>
           <ErrorPage />
