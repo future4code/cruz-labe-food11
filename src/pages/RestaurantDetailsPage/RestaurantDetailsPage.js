@@ -9,7 +9,6 @@ function RestaurantDetailsPage() {
   const params = useParams()
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)  
-  
   const [listOfRequests, setListOfRequests] = useState([])
 
   useEffect(() => {
@@ -29,7 +28,7 @@ function RestaurantDetailsPage() {
       </Box>
     )
   })
-
+  console.log(listOfRequests)
   return (
     <div>
       <img src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />

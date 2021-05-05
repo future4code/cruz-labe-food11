@@ -26,7 +26,6 @@ function CartPage() {
     products: productsToOrder,
     paymentMethod: paymentMethod
   }
-  console.log(bodyApi)
 
   const cartProductsList = cartProducts.map((product) => {
     return <Box border={'1px solid black'} key={product.id}>

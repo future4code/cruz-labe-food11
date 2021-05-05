@@ -7,11 +7,7 @@ const removeToCart = (id, listProducts, setListProducts) => {
 
   for (let i = 0; i < copyCartProducts.length; i++) {
     if (i === index) {
-      if (copyCartProducts[i].quantity > 1) {
-        copyCartProducts[i].quantity -= 1
-      } else {
-        copyCartProducts.splice(index, 1)
-      }
+      copyCartProducts.splice(index, 1)
     }
   }
 
