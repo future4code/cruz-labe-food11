@@ -6,9 +6,11 @@ import { Button } from '@chakra-ui/react'
 import addToCart from '../../functions/addToCart'
 
 function RestaurantDetailsPage() {
-  const [listOfRequests, setListOfRequests] = useState([])
   const params = useParams()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)  
+  
+  const [listOfRequests, setListOfRequests] = useState([])
+  localStorage.setItem('cart',JSON.stringify(listOfRequests))
 
   const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
     return (
