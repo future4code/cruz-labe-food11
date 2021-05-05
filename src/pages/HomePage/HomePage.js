@@ -7,11 +7,11 @@ import logout from '../../functions/logout'
 import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
+import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 function HomePage() {
-
   useProtectedPage()
-
-
+  const activeOrder = useRequestData({}, 'active-order')
+  console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
 
   const restaurants = useRequestData([], 'restaurants')
@@ -73,6 +73,7 @@ function HomePage() {
       <button onClick={() => logout(history)}> logout </button>
       <Input onChange={filterFunc} type='text' placeholder="Busca por restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
+      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
     </div>
   )
 }
