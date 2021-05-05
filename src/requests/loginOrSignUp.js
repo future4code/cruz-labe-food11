@@ -1,4 +1,3 @@
-import React from 'react'
 import { BASE_URL } from '../constants/url'
 import axios from 'axios'
 import { goToHomePage, goToRegisterAddressPage } from '../routes/coordinator'
