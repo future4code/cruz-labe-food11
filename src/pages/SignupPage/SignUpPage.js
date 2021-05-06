@@ -13,6 +13,7 @@ import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
+import Header from '../../components/Header/Header'
 
 const SignUpPage = () => {
 
@@ -74,6 +75,7 @@ const SignUpPage = () => {
 
     return (
         <Container>
+            <Header/>
             <Logo />
             <Title text={'Cadastrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>
