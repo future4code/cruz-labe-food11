@@ -76,22 +76,57 @@ const SignUpPage = () => {
             <Logo />
             <Title text={'Cadastrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>
-                <Input name="name" value={form.name} onChange={check} placeholder="Nome e sobrenome" type='text' required pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"} 
-                text={'Nome*'}
+                <Input
+                    name="name"
+                    value={form.name}
+                    onChange={check}
+                    placeholder="Nome e sobrenome" type='text'
+                    required
+                    pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
+                    text={'Nome*'}
                 />
-                <Input name="email" value={form.email} onChange={onChange} placeholder="Email@email.com" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} 
-                text={"E-mail*"}
+                <Input
+                    name="email"
+                    value={form.email}
+                    onChange={onChange}
+                    placeholder="Email@email.com"
+                    type='email'
+                    required
+                    pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"}
+                    text={"E-mail*"}
                 />
 
-                <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" type='text' required pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'} 
-                text={'CPF*'}
+                <Input
+                    name="cpf"
+                    value={form.cpf}
+                    onChange={onChange}
+                    placeholder="000.000.000-00" type='text'
+                    required
+                    pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'}
+                    text={'CPF*'}
                 />
 
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} 
-                text={'Senha*'}
+                <Input
+                    name="password"
+                    value={form.password}
+                    onChange={onChange}
+                    placeholder="Password"
+                    type={passwordType}
+                    required
+                    pattern={"^.{6,}"}
+                    icon={hidePassword ? <SlashEye /> : <Eye />}
+                    onClick={changeTypePassword}
+                    text={'Senha*'}
                 />
-                
-                <Input name="confirmPassword" value={formPassword.confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"}
+
+                <Input
+                    name="confirmPassword"
+                    value={formPassword.confirmPassword}
+                    onChange={checkPassword}
+                    placeholder="Confirme a senha anterior"
+                    type={confirmCheckPasswordType}
+                    required
+                    pattern={"^.{6,}"}
                     onClick={changeTypeCheckPassword}
                     icon={hideCheckPassword ? <SlashEye /> : <Eye />}
                     text={'Confirmar*'}
