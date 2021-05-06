@@ -14,9 +14,10 @@ const loginOrSignUp = async (func, body, history, evt, isCompletedData) => {
             let token = response.data.token
             window.localStorage.setItem('token', token)
             if (response.data.user.hasAddress) {
-                console.log('gotoHome')
+                alert("Usuário logado")
                 goToHomePage(history)
             } else {
+                alert('Usuário criado, agora falta preencher suas informações básicas')
                 goToRegisterAddressPage(history)
             }
         } catch (error) {

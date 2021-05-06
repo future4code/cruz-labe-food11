@@ -51,9 +51,10 @@ function Router() {
           <CartPage />
         </Route>
 
-        {/* <Route>
-          <ErrorPage />
-        </Route> */}
+        <Route>
+        <div>Pagina Nao encontrada</div>
+          {/* <ErrorPage /> */}
+        </Route>
       </Switch>
     </BrowserRouter>
   )

@@ -1,12 +1,14 @@
 import React from 'react'
 import AdressForm from '../../components/AdressForm/AdressForm'
+import { Container } from '../../components/Container/Container'
+import Title from '../../components/Title/Title'
 
 function EditAdressPage(){
   return (
-    <div>
-      <p>Editar endereço</p>
+    <Container>
+      <Title text="Editar Endereço"/>
       <AdressForm />
-    </div>
+    </Container>
   )
 }
 
