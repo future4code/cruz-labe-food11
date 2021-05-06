@@ -1,9 +1,11 @@
 import React from 'react'
-import { Input, Button } from '@chakra-ui/react'
+// import { Input, Button } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
+import { Input } from '../Inputs/inputForm'
 
 function RegisterAdressPage() {
   const initialState = {
@@ -23,7 +25,6 @@ const history = useHistory()
     clear()
     goToHomePage(history)
   }
-
   return (
     <form onSubmit={onSubmitForm}>
       <Input
