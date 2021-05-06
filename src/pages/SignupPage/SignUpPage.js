@@ -85,6 +85,7 @@ const SignUpPage = () => {
                     required
                     pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
                     text={'Nome*'}
+                    title="Ex: Jorge da Silva, nomes sem acentos."
                 />
                 <Input
                     name="email"
@@ -95,6 +96,7 @@ const SignUpPage = () => {
                     required
                     pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"}
                     text={"E-mail*"}
+                    title="Ex: jorgenicola@gmail.com"
                 />
 
                 <Input
@@ -105,6 +107,7 @@ const SignUpPage = () => {
                     required
                     pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'}
                     text={'CPF*'}
+                    title="000.000.000.00 , Os pontos(.) e o traço(-) são obrigatórios"
                 />
 
                 <Input
@@ -118,6 +121,7 @@ const SignUpPage = () => {
                     icon={hidePassword ? <SlashEye /> : <Eye />}
                     onClick={changeTypePassword}
                     text={'Senha*'}
+                    title=""
                 />
 
                 <Input
@@ -131,6 +135,7 @@ const SignUpPage = () => {
                     onClick={changeTypeCheckPassword}
                     icon={hideCheckPassword ? <SlashEye /> : <Eye />}
                     text={'Confirmar*'}
+                    title=""
                 />
                 <div style={{ display: `${display}` }}>As senhas não são iguais.</div>
 

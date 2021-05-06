@@ -8,7 +8,9 @@ const Button = props => {
 
     return (
         <Container>
-            <ButtonSubmit onClick={props.onClick}  type={props.type}>{props.text}</ButtonSubmit>
+            <ButtonSubmit onClick={props.onClick}  type={props.type}>
+                {props.text}
+                </ButtonSubmit>
         </Container>
     )
 }

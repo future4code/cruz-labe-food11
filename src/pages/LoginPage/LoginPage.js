@@ -11,6 +11,8 @@ import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
+import Footer from '../../components/Footer/Footer'
+import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
 
 
 const LoginPage = () => {
@@ -34,10 +36,13 @@ const LoginPage = () => {
             <Logo />
             <Title text={'Entrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>
-                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} text="E-mail*"/>
+                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} text="E-mail*"
+                 title="Ex: jorgenicola@gmail.com"/>
                 <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} text="Senha*"/>
-                <Button onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />
+                <Button type="submit" text="Entrar"/>
             </Form>
+            <ButtonCadastro onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />
+            <Footer activeCart="true" />
         </Container>
     )
 }
