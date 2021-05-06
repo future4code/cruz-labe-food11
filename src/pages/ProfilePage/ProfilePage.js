@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@chakra-ui/react'
+import { Button, Box } from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import { goToEditProfilePage, goToEditAdressPage } from '../../routes/coordinator'
@@ -10,10 +10,10 @@ function ProfilePage() {
   const history = useHistory() 
 
   const listOrderHistory = ordersHistory.orders && ordersHistory.orders.map((order) => {
-    return <div> 
+    return <Box border={'1px solid black'}> 
       <p>{order.restaurantName}</p>
       <p>R${order.totalPrice.toFixed(2)}</p>
-    </div>
+    </Box>
   })
 
   return (
@@ -28,7 +28,7 @@ function ProfilePage() {
       <p>{profile.user && profile.user.address}</p>
       <Button bg={'#c4c4c4'} onClick={() => goToEditAdressPage(history)}>Editar endereço</Button>
       <br /><br />
-      
+
       <b>Histórico de pedidos</b> 
       {listOrderHistory}
     </div>
