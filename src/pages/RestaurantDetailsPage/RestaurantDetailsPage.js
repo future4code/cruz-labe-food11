@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
 import { Button } from '@chakra-ui/react'
@@ -7,13 +7,17 @@ import addToCart from '../../functions/addToCart'
 
 function RestaurantDetailsPage() {
   const params = useParams()
+  const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)  
-  
   const [listOfRequests, setListOfRequests] = useState([])
 
   useEffect(() => {
     localStorage.setItem('cart',JSON.stringify(listOfRequests))
   })
+
+  const goToCart = (id) => {
+    history.push(`/carrinho/${id}`)
+  }
   
   const products = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => { 
     return (
@@ -24,7 +28,7 @@ function RestaurantDetailsPage() {
       </Box>
     )
   })
-
+  console.log(listOfRequests)
   return (
     <div>
       <img src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
@@ -33,6 +37,8 @@ function RestaurantDetailsPage() {
       <br />
       <b>Cárdapio</b>
       {products}
+
+      <Button onClick={() => goToCart(params.id)}bg={"red"} color={'white'}>Carrinho</Button>
     </div>
   )
 }
