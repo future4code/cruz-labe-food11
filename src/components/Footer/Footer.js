@@ -32,14 +32,17 @@ const Footer = (props) => {
 export default Footer
 
 const ContainerFooter = styled(Container)`
-position:fixed;
-bottom:0;
+/* position:fixed; */
+/* bottom:0; */
+width:22.5rem;
 `
 
 const ContainerIcons = styled.div`
 display:flex;
-width:100%;
-border:1px solid black;
+/* width:100%; */
+/* border:1px solid black; */
+position:fixed;
+bottom:0;
 `
 
 const BoxComponent = styled.div`
