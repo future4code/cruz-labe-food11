@@ -5,6 +5,7 @@ import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
 export const Input = (props) => {
     return (
         <Container>
+                <BoxText>{props.text}</BoxText>
 
             <ContainerInput>
                 <InputForm
@@ -27,8 +28,6 @@ export const Input = (props) => {
 
 
 export const InputForm = styled.input`
-/* border:1px solid #b8b8b8; */
-
 width:16.5rem;
 height:1.125rem;
 `
@@ -43,7 +42,6 @@ margin: 0.5rem 0 0;
 const DivIcon = styled.div`
 width:1.5rem;
 height:1.5rem;
-/* background-color:orange; */
 margin-left:0.5rem;
 `
 
@@ -51,23 +49,18 @@ const ContainerInput = styled.div`
 border:1px solid #b8b8b8;
 width:20.5rem;
 height:3.5rem;
-margin:1rem 0.5rem;
+/* margin:1rem 0.5rem; */
 padding: 1.188rem 3rem 1.188rem 1rem;
 border-radius:2px;
 display:flex;
 `
-
-
-
-const Eye = styled(EyeFill)`
-color:orange;
-height:70px;
-/* display:flex; */
-/* align-items:center; */
-/* height:100% */
-`
-
-const SlashEye = styled(EyeSlashFill)`
-color:rebeccapurple;
-height:60px;
+const BoxText= styled.div`
+position:relative;
+left:1rem;
+bottom:4.5rem;
+color:#b8b8b8;
+background-color:white;
+height:1.125rem;
+width:5.175rem;
+padding-left:0.3rem;
 `

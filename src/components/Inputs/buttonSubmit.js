@@ -21,6 +21,7 @@ height: 2.625rem;
 padding: 0.75rem 1rem;
 border-radius: 2px; 
 background-color: #e8222e;
+margin-top:0.5rem;
 `
 
 const ButtonSubmit = styled.button`

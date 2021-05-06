@@ -1,10 +1,12 @@
 import React from 'react'
 // import { Input, Button } from '@chakra-ui/react'
-import { Button } from '@chakra-ui/react'
+// import { Button } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
+import { Form } from '../Form/Form'
+import Button from '../Inputs/buttonSubmit'
 import { Input } from '../Inputs/inputForm'
 
 function RegisterAdressPage() {
@@ -26,7 +28,7 @@ const history = useHistory()
     goToHomePage(history)
   }
   return (
-    <form onSubmit={onSubmitForm}>
+    <Form onSubmit={onSubmitForm}>
       <Input
         placeholder={'Rua Ex: Rua dos comerciantes'}
         name={'street'}
@@ -78,8 +80,8 @@ const history = useHistory()
         value={form.complement}
         onChange={handleInputChange}
       />
-      <Button type={'submit'}>Cadastrar</Button>
-    </form>
+      <Button type={'submit'} text={'Cadastrar'}/>
+    </Form>
   )
 }
 

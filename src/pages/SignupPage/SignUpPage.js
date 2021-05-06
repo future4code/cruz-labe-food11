@@ -3,24 +3,27 @@ import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
 import styled from 'styled-components'
 import loginOrSignUp from '../../requests/loginOrSignUp'
-
-import { EyeFill } from '@styled-icons/bootstrap/EyeFill'
-import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
+import { Eye } from '../../assets/icons/Eye'
+import { SlashEye } from '../../assets/icons/SlashEye'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
 import { IconButton } from '@chakra-ui/button'
 import { Input } from '../../components/Inputs/inputForm'
 import Button from '../../components/Inputs/buttonSubmit'
+import Title from '../../components/Title/Title'
+import Logo from '../../components/Logo/Logo'
+import { Form } from '../../components/Form/Form'
+
 const SignUpPage = () => {
 
     const [form, onChange, clear] = useForm({ name: '', email: '', password: '', cpf: '' })
-    const [formPassword,onChangePassword,clearPassword] = useForm({ confirmPassword: ''})
+    const [formPassword, onChangePassword, clearPassword] = useForm({ confirmPassword: '' })
     const history = useHistory()
     const [passwordType, setPasswordType] = useState('password')
     const [hidePassword, setHidePassword] = useState(true)
     const [confirmCheckPasswordType, setConfirmCheckPasswordType] = useState('password')
     const [hideCheckPassword, setHideCheckPassword] = useState(true)
     const [display, setDisplay] = useState('none')
-    const [isCompletedData,setIsCompletedData] = useState(false)
+    const [isCompletedData, setIsCompletedData] = useState(false)
     useEffect(() => {
         console.log("useEffect")
     }, [form.password])
@@ -28,7 +31,7 @@ const SignUpPage = () => {
 
     const checkPassword = (event) => {
         onChangePassword(event)
-            setIsCompletedData(true)
+        setIsCompletedData(true)
         if (event.target.value.length > 5 && form.password.length > 5 && event.target.value !== form.password) {
             setIsCompletedData(false)
             setDisplay('block')
@@ -70,23 +73,32 @@ const SignUpPage = () => {
 
     return (
         <Container>
-            <BoxLogo>
+            <Logo />
+            <Title text={'Cadastrar'} />
+            <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>
+                <Input name="name" value={form.name} onChange={check} placeholder="Nome e sobrenome" type='text' required pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"} 
+                text={'Nome*'}
+                />
+                <Input name="email" value={form.email} onChange={onChange} placeholder="Email@email.com" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} 
+                text={"E-mail*"}
+                />
 
-            </BoxLogo>
-            <H4>Cadastrar</H4>
-            <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt,isCompletedData)}>
-                <Input name="name" value={form.name} onChange={check} placeholder="Nome e sobrenome" type='text' required pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"} />
-                <Input name="email" value={form.email} onChange={onChange} placeholder="Email@email.com" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} />
-                <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" type='text' required pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'} />
+                <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" type='text' required pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'} 
+                text={'CPF*'}
+                />
+
+                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} 
+                text={'Senha*'}
+                />
                 
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} />
                 <Input name="confirmPassword" value={formPassword.confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"}
-                onClick={changeTypeCheckPassword}
-                icon={hidePassword ? <SlashEye /> : <Eye />}
-                / >
+                    onClick={changeTypeCheckPassword}
+                    icon={hideCheckPassword ? <SlashEye /> : <Eye />}
+                    text={'Confirmar*'}
+                />
                 <div style={{ display: `${display}` }}>As senhas não são iguais.</div>
-                
-                
+
+
                 {/* <InputGroup>
                     <InputRightElement
                         children={
@@ -126,33 +138,12 @@ const SignUpPage = () => {
 
 export default SignUpPage
 
-
 const Container = styled.div`
 display:flex;
 flex-direction:column;
-width:max(50%,350px);
-/* background-color:orange; */
 margin:10vh auto;
+align-items:center;
 `
 
-const BoxLogo = styled.div`
 
-`
-
-const H4 = styled.div`
-text-align:center;
-`
-
-const Form = styled.form`
-display:flex;
-flex-direction:column;
-`
-
-{/* const Button = styled.button`
-` */}
-const Eye = styled(EyeFill)`
-`
-
-const SlashEye = styled(EyeSlashFill)`
-`
 
