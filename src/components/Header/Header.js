@@ -2,13 +2,16 @@ import styled from 'styled-components'
 // import { Container } from '../Container/Container'
 import backIcon from '../../assets/back.svg'
 import React from 'react'
+import { useHistory } from 'react-router'
 
 const Header = (props) => {
 
-    return (
-        <Container>
+    const history = useHistory()
 
-            <GoBackIcon>
+    return (
+        <Container style={props.needHeader !== 'true' ? { boxShadow: 'none' } : { boxShadow: '0 0.5px 0 0 rgba(0, 0, 0, 0.25)' }}>
+
+            <GoBackIcon onClick={history.goBack} style={props.needHeader !== 'true' ? {display:'none'} : {display:'flex'}}>
 
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>

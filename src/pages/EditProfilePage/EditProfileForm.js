@@ -29,7 +29,7 @@ function EditProfileForm() {
 
   return (
     <Container>
-      <Title text="Editar"/>
+      {/* <Title /> */}
       <Form onSubmit={onSubmitForm}>
         <Input
           placeholder={'Nome e Sobrenome'}

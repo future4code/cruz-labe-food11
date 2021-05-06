@@ -75,7 +75,7 @@ const SignUpPage = () => {
 
     return (
         <Container>
-            <Header/>
+            <Header needHeader="true"/>
             <Logo />
             <Title text={'Cadastrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>

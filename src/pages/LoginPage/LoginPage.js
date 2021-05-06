@@ -13,6 +13,7 @@ import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
 import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
+import Header from '../../components/Header/Header'
 
 
 const LoginPage = () => {
@@ -33,6 +34,7 @@ const LoginPage = () => {
 
     return (
         <Container>
+            <Header/>
             <Logo />
             <Title text={'Entrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>

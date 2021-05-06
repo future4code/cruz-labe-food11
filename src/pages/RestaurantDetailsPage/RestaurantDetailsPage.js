@@ -4,6 +4,8 @@ import useRequestData from '../../hooks/useRequestData'
 import addToCart from '../../functions/addToCart'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import { CardRestaurant, Main, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ButtonCart } from './styled'
+import Header from '../../components/Header/Header'
+import { Container } from '../../components/Container/Container'
 
 function RestaurantDetailsPage() {
   const params = useParams()
@@ -84,7 +86,8 @@ function RestaurantDetailsPage() {
   })
 
   return (
-    <Main>
+    <Container>
+      <Header needHeader="true" text="Restaurante"/>
       <CardRestaurant>
         <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
         <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>
@@ -112,7 +115,7 @@ function RestaurantDetailsPage() {
       {dessert}
 
       <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
-    </Main >
+    </Container >
   )
 }
 
