@@ -30,55 +30,61 @@ const history = useHistory()
   return (
     <Form onSubmit={onSubmitForm}>
       <Input
-        placeholder={'Rua Ex: Rua dos comerciantes'}
+        placeholder={'Rua/ Av'}
         name={'street'}
         value={form.street}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
         title="Mínimo 6 caracteres. Ex: Rua dos comerciantes"
+        text={'Logradouro*'}
       />
       <Input
-        placeholder={'Número Ex: 99'}
+        placeholder={'Número'}
         name={'number'}
         value={form.number}
         onChange={handleInputChange}
         required
         type='number'
         title="Mínimo 6 caracteres. Ex: 99"
+        text={'Número*'}
       />
       <Input
-        placeholder={'Bairro Ex: Santa Matilde'}
+        placeholder={'Bairro'}
         name={'neighbourhood'}
         value={form.neighbourhood}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
         title="Mínimo 6 caracteres. Ex: Bairro Castelo"
+        text={'Bairro*'}
       />
       <Input
-        placeholder={'Cidade Ex: Santa Matilde'}
+        placeholder={'Cidade'}
         name={'city'}
         value={form.city}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
         title="Mínimo 6 caracteres.Ex: Santa Matilde"
+        text={'Cidade*'}
       />
       <Input
-        placeholder={'Estado em sigla: EX: MG, SP , RJ '}
+        placeholder={'Estado(Sigla) Ex: MG, SP , RJ '}
         name={'state'}
         value={form.state}
         onChange={handleInputChange}
         required
         pattern={"[A-Za-z]{2}"}
         title="Sigla apenas, com 2 letras: MT , RS ,BA"
+        text={'Estado*'}
       />
       <Input
         placeholder={'Complemento ( Opcional)'}
         name={'complement'}
         value={form.complement}
         onChange={handleInputChange}
+        text={''}
       />
       <Button type={'submit'} text={'Cadastrar'}/>
     </Form>

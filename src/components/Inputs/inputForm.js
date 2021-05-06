@@ -37,6 +37,7 @@ width:22.5em;
 height:4.5rem;
 padding: 0 1rem 0.5rem;
 margin: 0.5rem 0 0;
+/* background-color:pink; */
 `
 
 const DivIcon = styled.div`
@@ -57,10 +58,10 @@ display:flex;
 const BoxText= styled.div`
 position:relative;
 left:1rem;
-bottom:4.5rem;
+top:0.5rem;
 color:#b8b8b8;
 background-color:white;
 height:1.125rem;
-width:5.175rem;
-padding-left:0.3rem;
+width:4.875rem;
+/* padding-left:0.3rem; */
 `
