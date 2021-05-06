@@ -12,6 +12,7 @@ import Button from '../../components/Inputs/buttonSubmit'
 import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
+import { Container } from '../../components/Container/Container'
 
 const SignUpPage = () => {
 
@@ -173,12 +174,12 @@ const SignUpPage = () => {
 
 export default SignUpPage
 
-const Container = styled.div`
-display:flex;
-flex-direction:column;
-margin:10vh auto;
-align-items:center;
-`
+// const Container = styled.div`
+// display:flex;
+// flex-direction:column;
+// margin:10vh auto;
+// align-items:center;
+// `
 
 
 

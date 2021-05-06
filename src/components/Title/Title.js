@@ -3,14 +3,8 @@ import styled from 'styled-components'
 
 
 const Title = props => {
-
-
     return (
-
         <ContainerTitle>{props.text}</ContainerTitle>
-
-
-
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import AdressForm from '../../components/AdressForm/AdressForm'
 import Title from '../../components/Title/Title'
-import styled from 'styled-components'
+import { Container } from '../../components/Container/Container'
 function RegisterAdressPage() {
   return (
     <Container>
@@ -13,10 +13,3 @@ function RegisterAdressPage() {
 
 export default RegisterAdressPage
 
-
-const Container = styled.div`
-display:flex;
-flex-direction:column;
-margin:10vh auto;
-align-items:center;
-`

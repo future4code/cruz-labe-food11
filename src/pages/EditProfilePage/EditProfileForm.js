@@ -7,7 +7,9 @@ import { useHistory } from 'react-router'
 import { Form } from '../../components/Form/Form'
 import { Input } from '../../components/Inputs/inputForm'
 import Button from '../../components/Inputs/buttonSubmit'
-
+import Title from '../../components/Title/Title'
+import styled from 'styled-components'
+import { Container } from '../../components/Container/Container'
 function EditProfileForm() {
   const profile = useRequestData({}, 'profile')
   const history = useHistory()
@@ -26,8 +28,8 @@ function EditProfileForm() {
   }
 
   return (
-    <div>
-      <p>Editar perfil</p>
+    <Container>
+      <Title text="Editar"/>
       <Form onSubmit={onSubmitForm}>
         <Input
           placeholder={'Nome e Sobrenome'}
@@ -62,7 +64,7 @@ function EditProfileForm() {
         {/* <Button bg={'#c4c4c4'} type={'submit'}>Editar</Button> */}
         <Button bg={'#c4c4c4'} type={'submit'} text="Editar"></Button>
       </Form>
-    </div>
+    </Container>
   )
 }
 

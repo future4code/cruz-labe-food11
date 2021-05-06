@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
-import styled from 'styled-components'
 import { Eye } from '../../assets/icons/Eye'
 import { SlashEye } from '../../assets/icons/SlashEye'
 import loginOrSignUp from '../../requests/loginOrSignUp'
@@ -11,6 +10,7 @@ import Button from '../../components/Inputs/buttonSubmit'
 import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
+import { Container } from '../../components/Container/Container'
 
 
 const LoginPage = () => {
@@ -43,10 +43,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-
-const Container = styled.div`
-display:flex;
-flex-direction:column;
-margin:10vh auto;
-align-items:center;
-`
