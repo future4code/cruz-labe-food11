@@ -46,8 +46,15 @@ const history = useHistory()
         onChange={handleInputChange}
         required
         type='number'
-        title="Mínimo 6 caracteres. Ex: 99"
+        title="Ex: 99"
         text={'Número*'}
+      />
+       <Input
+        placeholder={'Apto / Bloco'}
+        name={'complement'}
+        value={form.complement}
+        onChange={handleInputChange}
+        text={'Complemento'}
       />
       <Input
         placeholder={'Bairro'}
@@ -79,13 +86,7 @@ const history = useHistory()
         title="Sigla apenas, com 2 letras: MT , RS ,BA"
         text={'Estado*'}
       />
-      <Input
-        placeholder={'Complemento ( Opcional)'}
-        name={'complement'}
-        value={form.complement}
-        onChange={handleInputChange}
-        text={''}
-      />
+     
       <Button type={'submit'} text={'Cadastrar'}/>
     </Form>
   )
