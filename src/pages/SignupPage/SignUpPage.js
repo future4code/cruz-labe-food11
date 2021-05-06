@@ -113,7 +113,7 @@ const SignUpPage = () => {
                 <Input
                     name="password"
                     value={form.password}
-                    onChange={onChange}
+                    onChange={check}
                     placeholder="Password"
                     type={passwordType}
                     required
@@ -150,8 +150,12 @@ const SignUpPage = () => {
                             />
                         }
                     />
+
+
                     <Input name="password" value={form.password} 
-                     placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"}  
+                 
+                 
+                    placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"}  
                     onChange={check} 
                     />
                 </InputGroup>
@@ -168,10 +172,14 @@ const SignUpPage = () => {
                             />
                         }
                     />
+                
+                
                     <Input name="confirmPassword" value={formPassword.confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"}
+                  
+                  
                     />
                 </InputGroup> */}
-                <Button type='submit' text={'Criar'}>Criar</Button>
+                <Button type='submit' text={'Criar'}/>
             </Form>
         </Container>
     )
