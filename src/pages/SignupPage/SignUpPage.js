@@ -72,7 +72,7 @@ const SignUpPage = () => {
             </BoxLogo>
             <H4>Cadastrar</H4>
             <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt,isCompletedData)}>
-                <Input name="name" value={form.name} onChange={onChange} placeholder="Nome e sobrenome" type='text' required pattern={"^.{6,}"} />
+                <Input name="name" value={form.name} onChange={onChange} placeholder="Nome e sobrenome" type='text' required pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"} />
                 <Input name="email" value={form.email} onChange={onChange} placeholder="email@email.com" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} />
                 <Input name="cpf" value={form.cpf} onChange={onChange} placeholder="000.000.000-00" type='text' required pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'} />
                 <InputGroup>
