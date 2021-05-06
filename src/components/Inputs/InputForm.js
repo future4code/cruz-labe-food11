@@ -30,7 +30,7 @@ export const InputForm = styled.input`
 height:1.125rem;
 font-size:1rem; */
 width:20.5rem;
-height:3.5rem;
+height:3.4rem;
 padding: 0.5rem 1rem;
 /* background-color:purple; */
 

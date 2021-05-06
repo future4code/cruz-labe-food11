@@ -137,7 +137,7 @@ const SignUpPage = () => {
                     text={'Confirmar*'}
                     title=""
                 />
-                <div style={{ display: `${display}` }}>As senhas não são iguais.</div>
+                <DivIsDifferentPassword style={{ display: `${display}` }}>Deve ser a mesma que a anterior.</DivIsDifferentPassword>
 
 
                 {/* <InputGroup>
@@ -188,3 +188,11 @@ export default SignUpPage
 
 
 
+
+const DivIsDifferentPassword = styled.div`
+height:1.125rem;
+width:12.063rem;
+color:#e02020;
+margin-left:2rem;
+font-size:0.75rem;
+`
