@@ -27,51 +27,55 @@ const history = useHistory()
   return (
     <form onSubmit={onSubmitForm}>
       <Input
-        placeholder={'Rua'}
+        placeholder={'Rua Ex: Rua dos comerciantes'}
         name={'street'}
         value={form.street}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres. Ex: Rua dos comerciantes"
       />
       <Input
-        placeholder={'Número'}
+        placeholder={'Número Ex: 99'}
         name={'number'}
         value={form.number}
         onChange={handleInputChange}
         required
         type='number'
+        title="Mínimo 6 caracteres. Ex: 99"
       />
       <Input
-        placeholder={'Bairro'}
+        placeholder={'Bairro Ex: Santa Matilde'}
         name={'neighbourhood'}
         value={form.neighbourhood}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres. Ex: Bairro Castelo"
       />
       <Input
-        placeholder={'Cidade'}
+        placeholder={'Cidade Ex: Santa Matilde'}
         name={'city'}
         value={form.city}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres.Ex: Santa Matilde"
       />
       <Input
-        placeholder={'Estado'}
+        placeholder={'Estado em sigla: EX: MG, SP , RJ '}
         name={'state'}
         value={form.state}
         onChange={handleInputChange}
         required
         pattern={"[A-Za-z]{2}"}
+        title="Sigla apenas, com 2 letras: MT , RS ,BA"
       />
       <Input
-        placeholder={'Complemento'}
+        placeholder={'Complemento ( Opcional)'}
         name={'complement'}
         value={form.complement}
         onChange={handleInputChange}
-
       />
       <Button type={'submit'}>Cadastrar</Button>
     </form>
