@@ -5,8 +5,8 @@ import useRequestData from '../../hooks/useRequestData'
 import updateProfile from '../../requests/updateProfile'
 import { useHistory } from 'react-router'
 import { Form } from '../../components/Form/Form'
-import { Input } from '../../components/Inputs/inputForm'
-import Button from '../../components/Inputs/buttonSubmit'
+import { Input } from '../../components/Inputs/InputForm'
+import Button from '../../components/Inputs/ButtonSubmit'
 import Title from '../../components/Title/Title'
 import styled from 'styled-components'
 import { Container } from '../../components/Container/Container'
@@ -29,7 +29,7 @@ function EditProfileForm() {
 
   return (
     <Container>
-      <Title text="Editar"/>
+      {/* <Title /> */}
       <Form onSubmit={onSubmitForm}>
         <Input
           placeholder={'Nome e Sobrenome'}

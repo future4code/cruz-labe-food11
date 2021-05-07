@@ -21,4 +21,5 @@ font-style: normal;
 line-height: normal;
 letter-spacing: -0.39px;
 text-align: center;
+margin-top:1rem;
 `
