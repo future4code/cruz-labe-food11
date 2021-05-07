@@ -14,7 +14,7 @@ background-color: #ffffff;
 display:flex;
 
 `
-export const GoBackIcon = styled.div`
+export const GoBackIcon = styled.button`
 background-image:url(${backIcon});
 width:1.5rem;
 height:1.44rem;

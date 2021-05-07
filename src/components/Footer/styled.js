@@ -37,31 +37,31 @@ height:1.688rem;
 width:1.688rem;
 `
 
-export const HomePageActive = styled.div`
+export const HomePageActive = styled.button`
 background-image:url(${homePageActive});
 height:1.688rem;
 width:1.688rem;
 `
 
-export const ShoppingCart = styled.div`
+export const ShoppingCart = styled.button`
 background-image:url(${shoppingCart});
 height: 1.812rem;
 width:1.688rem;
 `
 
-export const ShoppingCartActive = styled.div`
+export const ShoppingCartActive = styled.button`
 background-image:url(${shoppingCartActive});
 height: 1.812rem;
 width:1.688rem;
 `
 
-export const Avatar = styled.div`
+export const Avatar = styled.button`
 background-image:url(${avatar});
 height: 1.875rem;
 width:1.688rem;
 `
 
-export const AvatarActive = styled.div`
+export const AvatarActive = styled.button`
 background-image:url(${avatarActive});
 height: 1.875rem;
 width:1.688rem;
