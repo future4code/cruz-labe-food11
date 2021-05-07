@@ -20,6 +20,7 @@ export const NameRestaurant = styled.h2`
   color: #e8222f;
   margin-top: .75rem;
 `
+
 const description = styled.p`
   font-size: 1.3rem;
   margin: 0.1rem 0;
