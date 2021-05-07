@@ -4,6 +4,7 @@ import useRequestData from '../../hooks/useRequestData'
 import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, ButtonCart } from './styled'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
+import { goToCartPage } from '../../routes/coordinator'
 import Loading from '../../components/Loading/Loading'
 import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
 import useForm from '../../hooks/useForm'
@@ -19,9 +20,6 @@ function RestaurantDetailsPage() {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
   })
 
-  const goToCart = (id) => {
-    history.push(`/carrinho/${id}`)
-  }
 
 
   return (
@@ -56,7 +54,7 @@ function RestaurantDetailsPage() {
             onChange={onChangeInput}
           />
 
-          <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+          <ButtonCart onClick={() => goToCartPage(history)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
         </div>
       }
     </Container >
