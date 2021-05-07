@@ -1,17 +1,21 @@
-const addToCart = (productAddedToCart, productsCart, setProductsCart) => {
-  const quantity = Number(prompt('Quantidade'))
-  const newProductAdded = {
-    category: productAddedToCart.category,
-    id: productAddedToCart.id,
-    description: productAddedToCart.description,
-    name: productAddedToCart.name,
-    photoUrl: productAddedToCart.photoUrl,
-    price: productAddedToCart.price,
-    quantity: quantity
+const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart) => {
+  if (quantity > 0) {
+    const newProductAdded = {
+      category: productAddedToCart.category,
+      id: productAddedToCart.id,
+      description: productAddedToCart.description,
+      name: productAddedToCart.name,
+      photoUrl: productAddedToCart.photoUrl,
+      price: productAddedToCart.price,
+      quantity: quantity
+    }
+
+    setProductsCart([...productsCart, newProductAdded])
+    alert('Adicionado ao carrinho')
+  } else {
+    alert('Adicione quantidade válida (acima de 0)')
   }
 
-  setProductsCart([...productsCart, newProductAdded])
-  alert('Adicionado ao carrinho')
 }
 
 export default addToCart
