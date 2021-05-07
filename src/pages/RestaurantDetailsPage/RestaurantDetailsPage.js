@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
-import addToCart from '../../functions/addToCart'
-import CardProduct from '../../components/CardProduct/CardProduct'
-import { CardRestaurant, Main, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ButtonCart } from './styled'
+import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, ButtonCart } from './styled'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
+import listProductByCategory from '../../functions/listProductsByCategory'
 
 function RestaurantDetailsPage() {
   const params = useParams()
@@ -21,73 +20,18 @@ function RestaurantDetailsPage() {
     history.push(`/carrinho/${id}`)
   }
 
-  const mainProducts = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
-    if (product.category !== 'Acompanhamento' && product.category !== 'Bebida' && product.category !== 'Sorvete'){
-      return (
-        <CardProduct 
-          key={product.id}
-          photoUrl={product.photoUrl}
-          name={product.name}
-          description={product.description}
-          price={product.price.toFixed(2)}
-          onClick={() => addToCart(product, listOfRequests, setListOfRequests)}
-        />
-      )
-    }
-      
-  })
+  const mainProducts = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests)
 
-  const accompaniments = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
-    if (product.category === 'Acompanhamento'){
-      return (
-        <CardProduct 
-          key={product.id}
-          photoUrl={product.photoUrl}
-          name={product.name}
-          description={product.description}
-          price={product.price.toFixed(2)}
-          onClick={() => addToCart(product, listOfRequests, setListOfRequests)}
-        />
-      )
-    }
-      
-  })
+  const accompaniments = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Acompanhamento')
 
-  const drinks = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
-    if (product.category === 'Bebida'){
-      return (
-        <CardProduct 
-          key={product.id}
-          photoUrl={product.photoUrl}
-          name={product.name}
-          description={product.description}
-          price={product.price.toFixed(2)}
-          onClick={() => addToCart(product, listOfRequests, setListOfRequests)}
-        />
-      )
-    }
-      
-  })
+  const drinks = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Bebida')
 
-  const dessert = restaurantDetails.restaurant && restaurantDetails.restaurant.products.map((product) => {
-    if (product.category === 'Sorvete'){
-      return (
-        <CardProduct 
-          key={product.id}
-          photoUrl={product.photoUrl}
-          name={product.name}
-          description={product.description}
-          price={product.price.toFixed(2)}
-          onClick={() => addToCart(product, listOfRequests, setListOfRequests)}
-        />
-      )
-    }
-      
-  })
+  const dessert = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Sorvete')
+
 
   return (
     <Container>
-      <Header needHeader="true" text="Restaurante"/>
+      <Header needHeader="true" text="Restaurante" />
       <CardRestaurant>
         <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
         <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>
