@@ -1,8 +1,8 @@
 import React from 'react'
-import { Input, Button } from '@chakra-ui/react'
 import useForm from '../../hooks/useForm'
 import useRequestData from '../../hooks/useRequestData'
 import updateProfile from '../../requests/updateProfile'
+import {StyledButton, StyledInput,Form} from './styled' 
 
 function EditProfileForm() {
   const profile = useRequestData({}, 'profile')
@@ -23,28 +23,27 @@ function EditProfileForm() {
 
   return (
     <div>
-      <p>Editar perfil</p>
-      <form onSubmit={onSubmitForm}>
-        <Input
+      <Form onSubmit={onSubmitForm}>
+        <StyledInput
           placeholder={'Nome'}
           name={'name'}
           value={form.name}
           onChange={onChangeInput}
         />
-        <Input
+        <StyledInput
           placeholder={'CPF'}
           name={'email'}
           value={form.email}
           onChange={onChangeInput}
         />
-        <Input
+        <StyledInput
           placeholder={'E-mail'}
           name={'cpf'}
           value={form.cpf}
           onChange={onChangeInput}
         />
-        <Button bg={'#c4c4c4'} type={'submit'}>Editar</Button>
-      </form>
+        <StyledButton bg={'#e8222e'} width={"100%"}type={'submit'}>Salvar</StyledButton>
+      </Form>
     </div>
   )
 }

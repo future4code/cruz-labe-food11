@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
+import {Form, StyledInput, StyledButton} from './styled'
+
 
 function RegisterAdressPage() {
   const initialState = {
@@ -25,8 +27,8 @@ const history = useHistory()
   }
 
   return (
-    <form onSubmit={onSubmitForm}>
-      <Input
+    <Form onSubmit={onSubmitForm}>
+      <StyledInput
         placeholder={'Rua'}
         name={'street'}
         value={form.street}
@@ -34,7 +36,7 @@ const history = useHistory()
         required
         pattern={"^.{6,}"}
       />
-      <Input
+      <StyledInput
         placeholder={'Número'}
         name={'number'}
         value={form.number}
@@ -42,7 +44,7 @@ const history = useHistory()
         required
         type='number'
       />
-      <Input
+      <StyledInput
         placeholder={'Bairro'}
         name={'neighbourhood'}
         value={form.neighbourhood}
@@ -50,7 +52,7 @@ const history = useHistory()
         required
         pattern={"^.{6,}"}
       />
-      <Input
+      <StyledInput
         placeholder={'Cidade'}
         name={'city'}
         value={form.city}
@@ -58,7 +60,7 @@ const history = useHistory()
         required
         pattern={"^.{6,}"}
       />
-      <Input
+      <StyledInput
         placeholder={'Estado'}
         name={'state'}
         value={form.state}
@@ -66,15 +68,15 @@ const history = useHistory()
         required
         pattern={"[A-Za-z]{2}"}
       />
-      <Input
+      <StyledInput
         placeholder={'Complemento'}
         name={'complement'}
         value={form.complement}
         onChange={handleInputChange}
 
       />
-      <Button type={'submit'}>Cadastrar</Button>
-    </form>
+      <StyledButton bg={'#e8222e'} width={"100%"}  type={'submit'}>Cadastrar</StyledButton>
+    </Form>
   )
 }
 

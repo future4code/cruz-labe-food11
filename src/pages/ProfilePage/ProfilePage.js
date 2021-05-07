@@ -1,24 +1,61 @@
 import React from 'react'
-import { Button } from '@chakra-ui/react'
+import { MdEdit } from 'react-icons/md'
+import {IconButton, Divider} from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import { goToEditProfilePage, goToEditAdressPage } from '../../routes/coordinator'
+import { PageDiv,
+        TextStyle,
+        SubText, 
+        HeaderText, 
+        HeaderDiv,
+        InfoDiv,
+        Adressdiv,
+        HistoryDiv, 
+        CardsHistoryDiv,
+        EditDiv,
+        TextHistoryStyle } from './styled'
+
 
 function ProfilePage() {
   const profile = useRequestData({}, 'profile')
   const history = useHistory() 
 
   return (
-    <div>
-      <p>{profile.user && profile.user.name}</p>
-      <p>{profile.user && profile.user.cpf}</p>
-      <p>{profile.user && profile.user.email}</p>
-      <Button bg={'#c4c4c4'} onClick={() => goToEditProfilePage(history)}>Editar perfil</Button>
-      <br /><br />
-      <b>Endereço: </b>
-      <p>{profile.user && profile.user.address}</p>
-      <Button bg={'#c4c4c4'} onClick={() => goToEditAdressPage(history)}>Editar endereço</Button>
-    </div>
+    <PageDiv>
+      <HeaderDiv>
+        <HeaderText>Meu Perfil</HeaderText>
+      </HeaderDiv>
+      <InfoDiv>
+        <EditDiv>
+          <TextStyle >{profile.user && profile.user.name}</TextStyle> 
+          <IconButton 
+            bg={'none'} 
+            onClick={() => goToEditProfilePage(history)} 
+            icon={< MdEdit/>} />
+            </EditDiv>
+        <TextStyle>{profile.user && profile.user.email}</TextStyle> 
+        <TextStyle >{profile.user && profile.user.cpf}</TextStyle>
+       
+      </InfoDiv>
+      <Adressdiv>
+          <EditDiv>
+            <SubText >  Endereço Cadastrado: </SubText>
+            <IconButton
+              bg={'none'} 
+              onClick={() => goToEditAdressPage(history)}   
+              icon={< MdEdit/>} />
+          </EditDiv>
+          <TextStyle>{profile.user && profile.user.address}</TextStyle>
+          
+        </Adressdiv>
+        <HistoryDiv>
+          <TextHistoryStyle>Histórico de Pedidos</TextHistoryStyle>
+        </HistoryDiv>
+        <CardsHistoryDiv>
+
+        </CardsHistoryDiv>
+    </PageDiv>
   )
 }
 

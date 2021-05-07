@@ -1,5 +1,6 @@
 export const goToEditProfilePage = (history) => {
     history.push('/perfil/editar')
+    
 }
 
 export const goToEditAdressPage = (history) => {
