@@ -47,9 +47,6 @@ function HomePage() {
     }else{
       setIsSearching(true)
     }
-    console.log('isSearching: ',isSearching)
-    // console.log("event.target.value: ",event.target.value)
-    console.log('evt.target.value.length',event.target.value.length)
   }
 
 
