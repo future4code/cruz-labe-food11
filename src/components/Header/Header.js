@@ -8,7 +8,7 @@ const Header = (props) => {
     return (
         <Container style={props.needHeader !== 'true' ? { boxShadow: 'none' } : { boxShadow: '0 0.5px 0 0 rgba(0, 0, 0, 0.25)' }}>
             <GoBackIcon onClick={history.goBack} 
-            style={props.needHeader !== 'true' ? { display: 'none' } : { display: 'flex' }}>
+            style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>
         </Container>

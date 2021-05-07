@@ -15,7 +15,6 @@ import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
 import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
 import Header from '../../components/Header/Header'
-import Loading from '../../components/Loading/Loading'
 
 
 const LoginPage = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContainerLogo, LoadingLogo } from './styled'
 
-const Loading = () => {
+const TelaInicial = () => {
 
     return (
         <ContainerLogo>
@@ -10,5 +10,5 @@ const Loading = () => {
     )
 }
 
-export default Loading
+export default TelaInicial
 
