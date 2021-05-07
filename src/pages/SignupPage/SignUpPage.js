@@ -7,6 +7,9 @@ import { Eye } from '../../assets/icons/Eye'
 import { SlashEye } from '../../assets/icons/SlashEye'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
 import { IconButton } from '@chakra-ui/button'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+
+
 import { Input } from '../../components/Inputs/InputForm'
 import Button from '../../components/Inputs/ButtonSubmit'
 import Title from '../../components/Title/Title'
@@ -16,6 +19,7 @@ import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
 
 const SignUpPage = () => {
+    useUnprotectedPage()
 
     const [form, onChange, clear] = useForm({ name: '', email: '', password: '', cpf: '' })
     const [formPassword, onChangePassword, clearPassword] = useForm({ confirmPassword: '' })

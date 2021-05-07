@@ -1,15 +1,19 @@
 import React from 'react'
-// import { Input, Button } from '@chakra-ui/react'
 import useForm from '../../hooks/useForm'
 import useRequestData from '../../hooks/useRequestData'
 import updateProfile from '../../requests/updateProfile'
-import { useHistory } from 'react-router'
-import { Form } from '../../components/Form/Form'
-import { Input } from '../../components/Inputs/InputForm'
-import Button from '../../components/Inputs/ButtonSubmit'
-import Title from '../../components/Title/Title'
-import styled from 'styled-components'
-import { Container } from '../../components/Container/Container'
+import {StyledButton, StyledInput,Form} from './styled' 
+// import { Input, Button } from '@chakra-ui/react'
+// import useForm from '../../hooks/useForm'
+// import useRequestData from '../../hooks/useRequestData'
+// import updateProfile from '../../requests/updateProfile'
+// import { useHistory } from 'react-router'
+// import { Form } from '../../components/Form/Form'
+// import { Input } from '../../components/Inputs/InputForm'
+// import Button from '../../components/Inputs/ButtonSubmit'
+// import Title from '../../components/Title/Title'
+// import styled from 'styled-components'
+// import { Container } from '../../components/Container/Container'
 function EditProfileForm() {
   const profile = useRequestData({}, 'profile')
   const history = useHistory()
@@ -28,11 +32,15 @@ function EditProfileForm() {
   }
 
   return (
-    <Container>
-      {/* <Title /> */}
+    <div>
       <Form onSubmit={onSubmitForm}>
-        <Input
-          placeholder={'Nome e Sobrenome'}
+        <StyledInput
+          placeholder={'Nome'}
+//     <Container>
+//       {/* <Title /> */}
+//       <Form onSubmit={onSubmitForm}>
+//         <Input
+//           placeholder={'Nome e Sobrenome'}
           name={'name'}
           value={form.name}
           onChange={onChangeInput}
@@ -41,6 +49,9 @@ function EditProfileForm() {
           title="Ex: Jorge da Silva, nomes sem acentos."
           text="Nome*"
         />
+       
+          placeholder={'CPF'}
+       <StyledInput
         <Input
           placeholder={'email@email.com'}
           name={'email'}
@@ -51,7 +62,10 @@ function EditProfileForm() {
           title="Ex: jorgenicola@gmail.com"
           text="E-mail*"
         />
-        <Input
+     
+          placeholder={'E-mail'}
+         <StyledInput
+//         <Input
           placeholder={'Formato: 000.000.000-00'}
           name={'cpf'}
           value={form.cpf}
@@ -61,10 +75,13 @@ function EditProfileForm() {
           title="000.000.000.00 , Os pontos(.) e o traço(-) são obrigatórios"
           text="CPF*"
         />
-        {/* <Button bg={'#c4c4c4'} type={'submit'}>Editar</Button> */}
-        <Button bg={'#c4c4c4'} type={'submit'} text="Editar"></Button>
+        <StyledButton bg={'#e8222e'} width={"100%"}type={'submit'}>Salvar</StyledButton>
       </Form>
-    </Container>
+    </div>
+//         {/* <Button bg={'#c4c4c4'} type={'submit'}>Editar</Button> */}
+//         <Button bg={'#c4c4c4'} type={'submit'} text="Editar"></Button>
+//       </Form>
+//     </Container>
   )
 }
 
