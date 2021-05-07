@@ -14,9 +14,9 @@ import Footer from '../../components/Footer/Footer'
 function HomePage() {
   useProtectedPage()
   const activeOrder = useRequestData({}, 'active-order')
-  console.log(activeOrder)
+  // console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
-
+  const[isSearching,setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
 
@@ -42,6 +42,11 @@ function HomePage() {
     const search = event.target.value.toLowerCase()
     const newRestaurants = restaurants.restaurants.filter((restaurant) => restaurant.name.toLowerCase().indexOf(search) >= 0)
     setFilteredRestaurants(newRestaurants)
+    if(event.target.value.length===0){
+      setIsSearching(false)
+    }else{
+      setIsSearching(true)
+    }
   }
 
 
@@ -74,11 +79,11 @@ function HomePage() {
   return (
     <Container>
       {/* <button onClick={() => logout(history)}> logout </button> */}
-      <Header  text="Ifuture"/>
-      <Input onChange={filterFunc} type='text' placeholder="Busca por restaurantes" />
+      {isSearching  ? <Header    text="Busca" /> :  <Header    text="Ifuture" />}
+      <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
       {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
-    <Footer activeHome="true"/>
+   { isSearching ?  <></> : <Footer activeHome="true"/> }
     </Container>
   )
 }
