@@ -3,11 +3,13 @@ import styled from 'styled-components'
 
 export const StyledBox = styled.div`
 width: 22.5rem;
-height: 12rem;
+/* height: 12rem; */
 padding: 0 0 1rem;
 border-radius: 8px;
 margin-top: 0.5rem;
 transition: transform 0.5s linear;
+/* background-color:orange; */
+
 &:hover{
   transform: scale(1.1, 1);
 }
@@ -16,9 +18,12 @@ transition: transform 0.5s linear;
 export const LogoRestaurant = styled.img`
 width: 20.5rem;
 height: 7.5rem;
-border:1px solid #b8b8b8;
+/* border:1px solid #b8b8b8; */
 border-bottom:none;
 margin:auto;
+/* padding-top:1rem; */
+border-radius:  8px 8px 0 0;
+
 `
 
 export const OverFlowContainer = styled.div`
@@ -31,6 +36,7 @@ border-radius: 0 0 8px 8px;
 border: solid 1px #b8b8b8;
 width:20.5rem;
 margin:auto;
+padding-bottom:1rem;
 `
 
 export const Div = styled.div`
