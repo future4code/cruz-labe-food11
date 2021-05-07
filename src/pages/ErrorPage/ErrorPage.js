@@ -1,15 +1,15 @@
 import React from 'react';
-import { Header, Logo, ContainerImg, LogoChef, ContainerButtons, ContainerTexto } from './styled'
-import logo_img from '../../assets/logo-future-eats.png';
+import { Header,  ContainerImg, LogoChef, ContainerButtons, ContainerTexto } from './styled'
+// import logo_img from '../../assets/logo-future-eats.png';
 import { goToHomePage, gotoSignUpPage, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router-dom';
-
+import {LoadingLogo} from '../../components/TelaInicial/styled'
 const ErrorPage = () => {
     const history = useHistory()
     return (
         <div>
             <Header>
-                <Logo onClick={() => goToHomePage(history)} src={logo_img} />
+                <LoadingLogo/>
                 <ContainerButtons>
                     <button onClick={() => gotoSignUpPage(history)}>Sign Up</button>
                     <button onClick={() => goToLoginPage(history)}>Login</button>

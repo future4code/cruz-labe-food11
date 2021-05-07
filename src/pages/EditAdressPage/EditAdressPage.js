@@ -1,12 +1,15 @@
 import React from 'react'
 import AdressForm from '../../components/AdressForm/AdressForm'
+import { Container } from '../../components/Container/Container'
+import Header from '../../components/Header/Header'
 
 function EditAdressPage(){
   return (
-    <div>
-      <p>Editar endereço</p>
+   
+    <Container>
+      <Header needHeader="true" text="Endereço"/>
       <AdressForm />
-    </div>
+    </Container>
   )
 }
 

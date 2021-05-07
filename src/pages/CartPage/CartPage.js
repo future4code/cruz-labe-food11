@@ -4,7 +4,9 @@ import { Box, Button } from '@chakra-ui/react'
 import { Radio, RadioGroup } from "@chakra-ui/react"
 import removeToCart from '../../functions/removeToCart'
 import placeOrder from '../../requests/placeOrder'
-
+import { Container } from '../../components/Container/Container'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 function CartPage() {
   const params = useParams()
   const [cartProducts, setCartProducts] = useState([])
@@ -36,7 +38,8 @@ function CartPage() {
     </Box>
   })
 
-  return <div>
+  return <Container>
+    <Header text="Meu carrinho" needHeader="true"/>
     <b>Carrinho</b>
     {cartProductsList}
 
@@ -46,7 +49,8 @@ function CartPage() {
       <Radio value="money">Dinheiro</Radio>
     </RadioGroup>
     <Button onClick={() => placeOrder(params.id, bodyApi)} bg={'red'} color={'white'}> Realizar pedido </Button>
-  </div>
+  <Footer activeCart="true"/>
+  </Container>
 }
 
 export default CartPage
