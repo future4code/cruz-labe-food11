@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
 import useProtectedPage from '../../hooks/useProtectedPage'
+import logout from '../../functions/logout'
 import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
@@ -10,12 +11,14 @@ import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
+import { LogoRestaurant, StyledBox, H2Nome, H2, Div } from './styled'
+
 function HomePage() {
   useProtectedPage()
   const activeOrder = useRequestData({}, 'active-order')
   // console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
-  const [isSearching, setIsSearching] = useState(false)
+  const[isSearching,setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
 
@@ -41,34 +44,42 @@ function HomePage() {
     const search = event.target.value.toLowerCase()
     const newRestaurants = restaurants.restaurants.filter((restaurant) => restaurant.name.toLowerCase().indexOf(search) >= 0)
     setFilteredRestaurants(newRestaurants)
-    if (event.target.value.length === 0) {
+    if(event.target.value.length===0){
       setIsSearching(false)
-    } else {
+    }else{
       setIsSearching(true)
     }
   }
 
+
+
+
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
-      <Box border='1px solid black'
+      <StyledBox
         key={restaurant.key}
         onClick={() => goToDetails(restaurant.id)}
       >
-        <img src={restaurant.logoUrl} alt={'logo do restaurante'} />
-        <h3>{restaurant.name}</h3>
+        <LogoRestaurant  src={restaurant.logoUrl} alt={'logo do restaurante'} />
+        <H2Nome>{restaurant.name}</H2Nome>
+        <Div>
+        <H2>{restaurant.deliveryTime} min</H2>
+        <H2> Frete R$ {restaurant.shipping},00</H2>
+        </Div>
 
-      </Box>
+      </StyledBox>
     )
   })
 
   return (
     <Container>
-      {isSearching ? <Header text="Busca" /> : <Header text="Ifuture" />}
+      <Header  text="Ifuture"/>
+
       <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
-      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
-      { isSearching ? <></> : <Footer activeHome="true" />}
+      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
+   { isSearching ?  <></> : <Footer activeHome="true"/> }
     </Container>
   )
 }
