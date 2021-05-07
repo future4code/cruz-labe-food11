@@ -6,7 +6,7 @@ import SignUpPage from '../pages/SignupPage/SignUpPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import RestaurantDetailsPage from '../pages/RestaurantDetailsPage/RestaurantDetailsPage'
 import CartPage from '../pages/CartPage/CartPage'
-// import ErrorPage from '../pages/ErrorPage/ErrorPage'
+import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
@@ -52,9 +52,8 @@ function Router() {
         </Route>
 
         <Route>
-        <div>Pagina Nao encontrada</div>
-          {/* <ErrorPage /> */}
-        </Route>
+          <ErrorPage />
+        </Route> 
       </Switch>
     </BrowserRouter>
   )
