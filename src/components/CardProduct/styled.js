@@ -56,3 +56,17 @@ export const Button = styled.button`
   border-radius: 10px 0 10px 0;
   padding: .5rem 1.5rem;
 `
+
+//Provover
+export const ContainerButton = styled.div `
+  text-align: right;
+`
+export const ButtonProvover = styled.button `
+  color: #4f81a8;
+`
+
+export const Input = styled.input `
+  border: 1px solid #b8b8b8;
+  padding: .8rem;
+  margin: .8rem;
+`

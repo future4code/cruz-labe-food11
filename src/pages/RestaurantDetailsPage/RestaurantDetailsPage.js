@@ -4,14 +4,16 @@ import useRequestData from '../../hooks/useRequestData'
 import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, ButtonCart } from './styled'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
-import listProductByCategory from '../../functions/listProductsByCategory'
 import Loading from '../../components/Loading/Loading'
+import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
+import useForm from '../../hooks/useForm'
 
 function RestaurantDetailsPage() {
   const params = useParams()
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
   const [listOfRequests, setListOfRequests] = useState([])
+  const [form, onChangeInput] = useForm({quantity: 0})
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
@@ -21,19 +23,13 @@ function RestaurantDetailsPage() {
     history.push(`/carrinho/${id}`)
   }
 
-  const mainProducts = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests)
-
-  const accompaniments = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Acompanhamento')
-
-  const drinks = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Bebida')
-
-  const dessert = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Sorvete')
-
 
   return (
     <Container>
       {!restaurantDetails.restaurant ? <Loading /> :
         <div>
+
+
           <restaurantDetails>
             <Header needHeader="true" text="Restaurante" />
             <CardRestaurant>
@@ -51,17 +47,14 @@ function RestaurantDetailsPage() {
             </CardRestaurant>
           </restaurantDetails>
 
-          <Title>Principais</Title>
-          {mainProducts}
-
-          <Title>Acompanhamentos</Title>
-          {accompaniments}
-
-          <Title>Bebidas</Title>
-          {drinks}
-
-          <Title>Sobremesas</Title>
-          {dessert}
+          <ProductsByCategory
+            restaurantDetails={restaurantDetails}
+            listOfRequests={listOfRequests}
+            setListOfRequests={setListOfRequests}
+            name={'quantity'}
+            value={form.quantity}
+            onChange={onChangeInput}
+          />
 
           <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
         </div>

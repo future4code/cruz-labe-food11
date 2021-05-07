@@ -40,18 +40,7 @@ export const Shipping = styled(description)``
 export const Address = styled(description)``
 
 
-// Cardápio
-export const Title = styled.p`
-  width: 100%;
-  padding: .2rem 0;
-  margin-bottom: .5rem;
-  font-weight: 500;
-  font-size: 1.2rem;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  
-`
-
-
+// Botão
 export const ButtonCart = styled.button `
   background: #e8222f;
   border-radius: 100%;
