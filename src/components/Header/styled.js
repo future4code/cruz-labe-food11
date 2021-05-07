@@ -23,7 +23,7 @@ margin:1.85rem 0 0.625rem 1rem;
 `
 
 export const TitleHeader = styled.div`
-  width: 100%;
+  width: 10.938rem; 
   height: 2.75rem;
   margin: 2rem 6rem 0rem 5rem; 
   padding: 0.813rem 2.844rem 0.75rem;
