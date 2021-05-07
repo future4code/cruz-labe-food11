@@ -25,5 +25,5 @@ margin:1.85rem 0 0.625rem 1rem;
 export const TitleHeader = styled.div`
   height: 2.75rem;
   margin: 2rem 6rem 0rem 5rem; 
-  padding: 0.813rem 2.844rem 0.75rem;
+  padding: 0.813rem 1.844rem 0.75rem;
 `

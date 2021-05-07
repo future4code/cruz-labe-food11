@@ -7,13 +7,15 @@ export const StyledBox = styled.div`
   padding: 0 0 1rem;
   border-radius: 8px;
   border: solid 1px grey;
-  margin-top: 3rem;
+  margin-top: 0.5rem;
 `
 
 export const LogoRestaurant = styled.img`
 display:flex;
 height: 70%;
 width: 100%;
+border-radius: 8px 8px 0 0;
+
 `
 
 export const Div =styled.div`

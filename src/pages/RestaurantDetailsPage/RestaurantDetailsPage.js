@@ -5,6 +5,7 @@ import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import listProductByCategory from '../../functions/listProductsByCategory'
+import { goToCartPage } from '../../routes/coordinator'
 
 function RestaurantDetailsPage() {
   const params = useParams()
@@ -16,9 +17,6 @@ function RestaurantDetailsPage() {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
   })
 
-  const goToCart = (id) => {
-    history.push(`/carrinho/${id}`)
-  }
 
   const mainProducts = listProductByCategory(restaurantDetails, listOfRequests, setListOfRequests)
 
@@ -58,7 +56,7 @@ function RestaurantDetailsPage() {
       <Title>Sobremesas</Title>
       {dessert}
 
-      <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+      <ButtonCart onClick={() => goToCartPage(history)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
     </Container >
   )
 }

@@ -37,6 +37,7 @@ function HomePage() {
       }
     })
     setFilteredRestaurants(response.data.restaurants)
+    console.log('res.data: ',response.data)
   }
 
 
