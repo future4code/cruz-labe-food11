@@ -7,12 +7,13 @@ import { Eye } from '../../assets/icons/Eye'
 import { SlashEye } from '../../assets/icons/SlashEye'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
 import { IconButton } from '@chakra-ui/button'
-import { Input } from '../../components/Inputs/inputForm'
-import Button from '../../components/Inputs/buttonSubmit'
+import { Input } from '../../components/Inputs/InputForm'
+import Button from '../../components/Inputs/ButtonSubmit'
 import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
+import Header from '../../components/Header/Header'
 
 const SignUpPage = () => {
 
@@ -74,6 +75,7 @@ const SignUpPage = () => {
 
     return (
         <Container>
+            <Header needHeader="true"/>
             <Logo />
             <Title text={'Cadastrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>
@@ -85,6 +87,7 @@ const SignUpPage = () => {
                     required
                     pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
                     text={'Nome*'}
+                    title="Ex: Jorge da Silva, nomes sem acentos."
                 />
                 <Input
                     name="email"
@@ -95,6 +98,7 @@ const SignUpPage = () => {
                     required
                     pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"}
                     text={"E-mail*"}
+                    title="Ex: jorgenicola@gmail.com"
                 />
 
                 <Input
@@ -105,12 +109,13 @@ const SignUpPage = () => {
                     required
                     pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'}
                     text={'CPF*'}
+                    title="000.000.000.00 , Os pontos(.) e o traço(-) são obrigatórios"
                 />
 
                 <Input
                     name="password"
                     value={form.password}
-                    onChange={onChange}
+                    onChange={check}
                     placeholder="Password"
                     type={passwordType}
                     required
@@ -118,6 +123,7 @@ const SignUpPage = () => {
                     icon={hidePassword ? <SlashEye /> : <Eye />}
                     onClick={changeTypePassword}
                     text={'Senha*'}
+                    title=""
                 />
 
                 <Input
@@ -131,8 +137,9 @@ const SignUpPage = () => {
                     onClick={changeTypeCheckPassword}
                     icon={hideCheckPassword ? <SlashEye /> : <Eye />}
                     text={'Confirmar*'}
+                    title=""
                 />
-                <div style={{ display: `${display}` }}>As senhas não são iguais.</div>
+                <DivIsDifferentPassword style={{ display: `${display}` }}>Deve ser a mesma que a anterior.</DivIsDifferentPassword>
 
 
                 {/* <InputGroup>
@@ -145,8 +152,12 @@ const SignUpPage = () => {
                             />
                         }
                     />
+
+
                     <Input name="password" value={form.password} 
-                     placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"}  
+                 
+                 
+                    placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"}  
                     onChange={check} 
                     />
                 </InputGroup>
@@ -163,10 +174,14 @@ const SignUpPage = () => {
                             />
                         }
                     />
+                
+                
                     <Input name="confirmPassword" value={formPassword.confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"}
+                  
+                  
                     />
                 </InputGroup> */}
-                <Button type='submit' text={'Criar'}>Criar</Button>
+                <Button type='submit' text={'Criar'}/>
             </Form>
         </Container>
     )
@@ -183,3 +198,17 @@ export default SignUpPage
 
 
 
+
+const DivIsDifferentPassword = styled.div`
+height:1.125rem;
+width:13.063rem;
+color:#e02020;
+margin: 0.313rem 7.438rem 0 1rem;
+font-size:0.75rem;
+font-family: Roboto;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: -0.29px
+`

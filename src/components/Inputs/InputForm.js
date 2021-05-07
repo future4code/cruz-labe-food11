@@ -16,9 +16,9 @@ export const Input = (props) => {
                     pattern={props.pattern}
                     title={props.title}
                 />
-                <DivIcon onClick={props.onClick}>{props.icon}</DivIcon>
 
             </ContainerInput>
+            <DivIcon onClick={props.onClick}>{props.icon}</DivIcon>
 
         </Container>
     )
@@ -26,9 +26,14 @@ export const Input = (props) => {
 
 
 export const InputForm = styled.input`
-width:16.5rem;
+/* width:16.5rem;
 height:1.125rem;
-font-size:1rem;
+font-size:1rem; */
+width:20.5rem;
+height:3.4rem;
+padding: 0.5rem 1rem;
+/* background-color:purple; */
+
 `
 
 const Container = styled.div`
@@ -42,13 +47,16 @@ const DivIcon = styled.div`
 width:1.5rem;
 height:1.5rem;
 margin-left:0.5rem;
+position:relative;
+bottom:2.225rem;
+left:18rem;
 `
 
 const ContainerInput = styled.div`
 border:1px solid #b8b8b8;
 width:20.5rem;
 height:3.5rem;
-padding: 1.188rem 3rem 1.188rem 1rem;
+/* padding: 1.188rem 3rem 1.188rem 1rem; */
 border-radius:2px;
 display:flex;
 `

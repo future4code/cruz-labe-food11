@@ -6,8 +6,8 @@ import useForm from '../../hooks/useForm'
 import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
 import { Form } from '../Form/Form'
-import Button from '../Inputs/buttonSubmit'
-import { Input } from '../Inputs/inputForm'
+import Button from '../Inputs/ButtonSubmit'
+import { Input } from '../Inputs/InputForm'
 
 function RegisterAdressPage() {
   const initialState = {
