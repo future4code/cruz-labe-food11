@@ -18,7 +18,7 @@ transition: transform 0.5s linear;
 export const LogoRestaurant = styled.img`
 width: 20.5rem;
 height: 7.5rem;
-/* border:1px solid #b8b8b8; */
+border:1px solid #b8b8b8;
 border-bottom:none;
 margin:auto;
 /* padding-top:1rem; */
