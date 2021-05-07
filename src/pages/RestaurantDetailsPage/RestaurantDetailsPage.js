@@ -5,6 +5,7 @@ import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import listProductByCategory from '../../functions/listProductsByCategory'
+import Loading from '../../components/Loading/Loading'
 
 function RestaurantDetailsPage() {
   const params = useParams()
@@ -31,34 +32,40 @@ function RestaurantDetailsPage() {
 
   return (
     <Container>
-      <Header needHeader="true" text="Restaurante" />
-      <CardRestaurant>
-        <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
-        <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>
+      {!restaurantDetails.restaurant ? <Loading /> :
+        <div>
+          <restaurantDetails>
+            <Header needHeader="true" text="Restaurante" />
+            <CardRestaurant>
+              <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
+              <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>
 
-        <Category>{restaurantDetails.restaurant && restaurantDetails.restaurant.category}</Category>
+              <Category>{restaurantDetails.restaurant && restaurantDetails.restaurant.category}</Category>
 
-        <FlexContainer>
-          <DeliveryTime>{restaurantDetails.restaurant && restaurantDetails.restaurant.deliveryTime - 10} - {restaurantDetails.restaurant && restaurantDetails.restaurant.deliveryTime} min</DeliveryTime>
+              <FlexContainer>
+                <DeliveryTime>{restaurantDetails.restaurant && restaurantDetails.restaurant.deliveryTime - 10} - {restaurantDetails.restaurant && restaurantDetails.restaurant.deliveryTime} min</DeliveryTime>
 
-          <Shipping>Frete R${restaurantDetails.restaurant && restaurantDetails.restaurant.shipping.toFixed(2)}</Shipping>
-        </FlexContainer>
-        <Address>{restaurantDetails.restaurant && restaurantDetails.restaurant.address}</Address>
-      </CardRestaurant>
+                <Shipping>Frete R${restaurantDetails.restaurant && restaurantDetails.restaurant.shipping.toFixed(2)}</Shipping>
+              </FlexContainer>
+              <Address>{restaurantDetails.restaurant && restaurantDetails.restaurant.address}</Address>
+            </CardRestaurant>
+          </restaurantDetails>
 
-      <Title>Principais</Title>
-      {mainProducts}
+          <Title>Principais</Title>
+          {mainProducts}
 
-      <Title>Acompanhamentos</Title>
-      {accompaniments}
+          <Title>Acompanhamentos</Title>
+          {accompaniments}
 
-      <Title>Bebidas</Title>
-      {drinks}
+          <Title>Bebidas</Title>
+          {drinks}
 
-      <Title>Sobremesas</Title>
-      {dessert}
+          <Title>Sobremesas</Title>
+          {dessert}
 
-      <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+          <ButtonCart onClick={() => goToCart(params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+        </div>
+      }
     </Container >
   )
 }
