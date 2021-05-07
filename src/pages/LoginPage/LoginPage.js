@@ -5,6 +5,7 @@ import { Eye } from '../../assets/icons/Eye'
 import { SlashEye } from '../../assets/icons/SlashEye'
 import loginOrSignUp from '../../requests/loginOrSignUp'
 import { gotoSignUpPage } from '../../routes/coordinator'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 import { Input } from '../../components/Inputs/InputForm'
 import Button from '../../components/Inputs/ButtonSubmit'
 import Title from '../../components/Title/Title'
@@ -17,6 +18,7 @@ import Header from '../../components/Header/Header'
 
 
 const LoginPage = () => {
+    useUnprotectedPage ()
 
     const [form, onChange, clear] = useForm({ email: '', password: '' })
     const history = useHistory()

@@ -9,9 +9,10 @@ const history = useHistory()
 
     return (
         <ContainerFooter>
-            <ContainerIcons onClick={props.activeHome}>
+            <ContainerIcons >
                 <BoxComponent onClick={() => goToHomePage(history)} >
                     {props.activeHome === 'true' ? <HomePageActive /> : <HomePage />}
+                    
                 </BoxComponent>
 
                 <BoxComponent onClick={() =>goToCartPage(history)}>
