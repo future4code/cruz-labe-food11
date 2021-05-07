@@ -1,5 +1,4 @@
 import React from 'react'
-// import { MdEdit } from 'react-icons/md'
 import { IconButton } from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
@@ -20,6 +19,7 @@ import { Box } from '@chakra-ui/react'
 import Footer from '../../components/Footer/Footer'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
+import EditIcon from '../../components/EditIcon/EditIcon'
 import Loading from '../../components/Loading/Loading'
 
 function ProfilePage() {
@@ -46,7 +46,7 @@ function ProfilePage() {
               <IconButton
                 bg={'none'}
                 onClick={() => goToEditProfilePage(history)}
-              // icon={< MdEdit />} 
+              icon={< EditIcon />} 
               />
             </EditDiv>
             <TextStyle>{profile.user && profile.user.email}</TextStyle>
@@ -59,7 +59,7 @@ function ProfilePage() {
               <IconButton
                 bg={'none'}
                 onClick={() => goToEditAdressPage(history)}
-              // icon={< MdEdit />} 
+              icon={< EditIcon />} 
               />
             </EditDiv>
             <TextStyle>{profile.user && profile.user.address}</TextStyle>
