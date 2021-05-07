@@ -35,15 +35,35 @@ export const Logo = styled.img`
    width: 6.5rem;
   `
 
+  export const ContainerTexto = styled.h1`
+  
+  font-size: 35px;
+  padding-left:15%;
+  `
+
 
 export const ContainerButtons = styled.div`
    button { 
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 0 10px;
-    margin-left: 5px;
+    margin-left: 18px;
     font-size: 16px;
+    border: 1px solid white;
+    background-color: white;
+    color: red;
+    width: 70px;
+    height: 35px;
+    border-radius: 6px;
    }
   `
+  //export const ContainerTexto = styled.div`
+  //h1{
+  //    float: right;
+  //    padding-right: 100px;
+  //    font-size: 35px;
+  //    margin-top: 3px;
+  //}
+  //`
 
 
