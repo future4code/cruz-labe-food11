@@ -21,9 +21,9 @@ const LoginPage = () => {
     useUnprotectedPage ()
 
     const [form, onChange, clear] = useForm({ email: '', password: '' })
-    const history = useHistory()
     const [hidePassword, setHidePassword] = useState(true)
     const [passwordType, setPasswordType] = useState('password')
+    const history = useHistory()
 
     const changeTypePassword = () => {
         setHidePassword(!hidePassword)
