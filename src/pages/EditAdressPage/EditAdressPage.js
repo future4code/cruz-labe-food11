@@ -8,6 +8,9 @@ import { PageDiv,
   StyledBackButton} from './styled'
 import { useHistory } from 'react-router-dom'
 import {goToProfilePage} from '../../routes/coordinator'
+// import { Container } from '../../components/Container/Container'
+// import Header from '../../components/Header/Header'
+// import Title from '../../components/Title/Title'
 
 function EditAdressPage(){
   const history = useHistory() 
@@ -24,6 +27,11 @@ function EditAdressPage(){
       </HeaderDiv>
       <AdressForm />
     </PageDiv>
+//     <Container>
+//       <Header needHeader="true" text="Endereço"/>
+//       {/* <Title text="Editar Endereço"/> */}
+//       <AdressForm />
+//     </Container>
   )
 }
 

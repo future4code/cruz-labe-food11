@@ -8,6 +8,9 @@ import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
 import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
+import Header from '../../components/Header/Header'
+import { Container } from '../../components/Container/Container'
+import Footer from '../../components/Footer/Footer'
 function HomePage() {
   useProtectedPage()
   const activeOrder = useRequestData({}, 'active-order')
@@ -69,12 +72,14 @@ function HomePage() {
   })
 
   return (
-    <div>
-      <button onClick={() => logout(history)}> logout </button>
+    <Container>
+      {/* <button onClick={() => logout(history)}> logout </button> */}
+      <Header  text="Ifuture"/>
       <Input onChange={filterFunc} type='text' placeholder="Busca por restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
       {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
-    </div>
+    <Footer activeHome="true"/>
+    </Container>
   )
 }
 

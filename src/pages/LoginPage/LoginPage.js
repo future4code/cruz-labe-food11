@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
-import styled from 'styled-components'
-import { BASE_URL } from '../../constants/url'
-import axios from 'axios'
+import { Eye } from '../../assets/icons/Eye'
+import { SlashEye } from '../../assets/icons/SlashEye'
 import loginOrSignUp from '../../requests/loginOrSignUp'
-import useRequestData from '../../hooks/useRequestData'
-import { Button } from '@chakra-ui/button'
 import { gotoSignUpPage } from '../../routes/coordinator'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+import { Input } from '../../components/Inputs/InputForm'
+import Button from '../../components/Inputs/ButtonSubmit'
+import Title from '../../components/Title/Title'
+import Logo from '../../components/Logo/Logo'
+import { Form } from '../../components/Form/Form'
+import { Container } from '../../components/Container/Container'
+import Footer from '../../components/Footer/Footer'
+import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
+import Header from '../../components/Header/Header'
 
 
 const LoginPage = () => {
@@ -16,60 +22,33 @@ const LoginPage = () => {
 
     const [form, onChange, clear] = useForm({ email: '', password: '' })
     const history = useHistory()
+    const [hidePassword, setHidePassword] = useState(true)
+    const [passwordType, setPasswordType] = useState('password')
 
+    const changeTypePassword = () => {
+        setHidePassword(!hidePassword)
+        if (hidePassword) {
+            setPasswordType('text')
+        } else {
+            setPasswordType('password')
+        }
+    }
 
-    useEffect(() => {
-
-    }, [])
     return (
         <Container>
-            <BoxLogo>
-
-            </BoxLogo>
-            <H4>Entrar</H4>
+            <Header/>
+            <Logo />
+            <Title text={'Entrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>
-                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} />
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type='password' required pattern={"^.{6,}"} />
-                <Button type='submit'>Entrar</Button>
+                <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} text="E-mail*"
+                 title="Ex: jorgenicola@gmail.com"/>
+                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} text="Senha*"/>
+                <Button type="submit" text="Entrar"/>
             </Form>
-
-            <Button onClick={() => gotoSignUpPage(history)}>Nao possui cadastro? Clique aqui</Button>
+            <ButtonCadastro onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />
+            <Footer activeCart="true" />
         </Container>
     )
-
-
 }
 
-
 export default LoginPage
-
-
-
-const Container = styled.div`
-display:flex;
-flex-direction:column;
-width:max(50%,350px);
-/* background-color:orange; */
-margin:10vh auto;
-`
-
-const BoxLogo = styled.div`
-
-`
-
-const H4 = styled.div`
-text-align:center;
-`
-
-const Input = styled.input`
-border:1px solid black;
-
-`
-
-const Form = styled.form`
-display:flex;
-flex-direction:column;
-`
-
-// const Button = styled.button`
-// `

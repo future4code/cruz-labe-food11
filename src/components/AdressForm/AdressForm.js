@@ -1,11 +1,15 @@
 import React from 'react'
-import { Input, Button } from '@chakra-ui/react'
+// import { Input, Button } from '@chakra-ui/react'
+// import { Button } from '@chakra-ui/react'
 import { useHistory } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
 import addAdress from '../../requests/addAdress'
 import { goToHomePage } from '../../routes/coordinator'
 import {Form, StyledInput, StyledButton} from './styled'
 
+// import { Form } from '../Form/Form'
+// import Button from '../Inputs/ButtonSubmit'
+// import { Input } from '../Inputs/InputForm'
 
 function RegisterAdressPage() {
   const initialState = {
@@ -25,16 +29,19 @@ const history = useHistory()
     clear()
     goToHomePage(history)
   }
-
   return (
     <Form onSubmit={onSubmitForm}>
-      <StyledInput
-        placeholder={'Rua'}
+     
+       <StyledInput
+//       <Input
+        placeholder={'Rua/ Av'}
         name={'street'}
         value={form.street}
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres. Ex: Rua dos comerciantes"
+        text={'Logradouro*'}
       />
       <StyledInput
         placeholder={'Número'}
@@ -43,6 +50,15 @@ const history = useHistory()
         onChange={handleInputChange}
         required
         type='number'
+        title="Ex: 99"
+        text={'Número*'}
+      />
+       <Input
+        placeholder={'Apto / Bloco'}
+        name={'complement'}
+        value={form.complement}
+        onChange={handleInputChange}
+        text={'Complemento'}
       />
       <StyledInput
         placeholder={'Bairro'}
@@ -51,6 +67,8 @@ const history = useHistory()
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres. Ex: Bairro Castelo"
+        text={'Bairro*'}
       />
       <StyledInput
         placeholder={'Cidade'}
@@ -59,14 +77,19 @@ const history = useHistory()
         onChange={handleInputChange}
         required
         pattern={"^.{6,}"}
+        title="Mínimo 6 caracteres.Ex: Santa Matilde"
+        text={'Cidade*'}
       />
-      <StyledInput
-        placeholder={'Estado'}
+         <StyledInput
+//       <Input
+        placeholder={'Estado(Sigla) Ex: MG, SP , RJ '}
         name={'state'}
         value={form.state}
         onChange={handleInputChange}
         required
         pattern={"[A-Za-z]{2}"}
+        title="Sigla apenas, com 2 letras: MT , RS ,BA"
+        text={'Estado*'}
       />
       <StyledInput
         placeholder={'Complemento'}
@@ -76,6 +99,8 @@ const history = useHistory()
 
       />
       <StyledButton bg={'#e8222e'} width={"100%"}  type={'submit'}>Cadastrar</StyledButton>
+     
+//       <Button type={'submit'} text={'Cadastrar'}/>
     </Form>
   )
 }
