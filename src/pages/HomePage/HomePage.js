@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
 import { Box } from '@chakra-ui/layout'
 import useProtectedPage from '../../hooks/useProtectedPage'
-import logout from '../../functions/logout'
 import styled from 'styled-components'
 import { BASE_URL } from '../../constants/url'
 import axios from 'axios'
@@ -16,7 +15,7 @@ function HomePage() {
   const activeOrder = useRequestData({}, 'active-order')
   // console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
-  const[isSearching,setIsSearching] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
 
@@ -42,25 +41,12 @@ function HomePage() {
     const search = event.target.value.toLowerCase()
     const newRestaurants = restaurants.restaurants.filter((restaurant) => restaurant.name.toLowerCase().indexOf(search) >= 0)
     setFilteredRestaurants(newRestaurants)
-    if(event.target.value.length===0){
+    if (event.target.value.length === 0) {
       setIsSearching(false)
-    }else{
+    } else {
       setIsSearching(true)
     }
   }
-
-
-  // const listRestaurants = restaurants.restaurants && restaurants.restaurants.map((restaurant) => {
-  //   return (
-  //     <Box border='1px solid black'
-  //       key={restaurant.id}
-  //       onClick={() => goToDetails(restaurant.id)}
-  //     >
-  //       <img src={restaurant.logoUrl} alt={'logo do restaurante'} />
-  //       <h3>{restaurant.name}</h3>
-  //     </Box>
-  //   )
-  // })
 
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
@@ -78,12 +64,11 @@ function HomePage() {
 
   return (
     <Container>
-      {/* <button onClick={() => logout(history)}> logout </button> */}
-      {isSearching  ? <Header    text="Busca" /> :  <Header    text="Ifuture" />}
+      {isSearching ? <Header text="Busca" /> : <Header text="Ifuture" />}
       <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
-      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
-   { isSearching ?  <></> : <Footer activeHome="true"/> }
+      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
+      { isSearching ? <></> : <Footer activeHome="true" />}
     </Container>
   )
 }

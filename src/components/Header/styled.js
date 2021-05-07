@@ -14,7 +14,7 @@ background-color: #ffffff;
 display:flex;
 
 `
-export const GoBackIcon = styled.div`
+export const GoBackIcon = styled.button`
 background-image:url(${backIcon});
 width:1.5rem;
 height:1.44rem;
@@ -24,6 +24,6 @@ margin:1.85rem 0 0.625rem 1rem;
 
 export const TitleHeader = styled.div`
   height: 2.75rem;
-  margin: 1.25rem 5.75rem 0 3.373rem;
+  margin: 2rem 6rem 0rem 5rem; 
   padding: 0.813rem 2.844rem 0.75rem;
 `
