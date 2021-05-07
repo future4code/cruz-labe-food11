@@ -11,7 +11,7 @@ import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
-import { LogoRestaurant, StyledBox, H2Nome, H2, Div } from './styled'
+import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer } from './styled'
 import Loading from '../../components/Loading/Loading'
 
 function HomePage() {
@@ -38,7 +38,7 @@ function HomePage() {
       }
     })
     setFilteredRestaurants(response.data.restaurants)
-    console.log('res.data: ',response.data)
+    console.log('res.data: ', response.data)
   }
 
 
@@ -59,18 +59,26 @@ function HomePage() {
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
-      <StyledBox
-        key={restaurant.key}
-        onClick={() => goToDetails(restaurant.id)}
-      >
-        <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
-        <H2Nome>{restaurant.name}</H2Nome>
-        <Div>
-          <H2>{restaurant.deliveryTime} min</H2>
-          <H2> Frete R$ {restaurant.shipping},00</H2>
-        </Div>
+      <OverFlowContainer>
 
-      </StyledBox>
+        <StyledBox
+          key={restaurant.key}
+          onClick={() => goToDetails(restaurant.id)}
+        >
+          <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
+          <DivInfos>
+            <H2Nome>{restaurant.name}</H2Nome>
+            <Div>
+              <H2>{restaurant.deliveryTime} min</H2>
+              <H2> Frete R$ {restaurant.shipping},00</H2>
+            </Div>
+          </DivInfos>
+
+
+
+        </StyledBox>
+      </OverFlowContainer>
+
     )
   })
 
