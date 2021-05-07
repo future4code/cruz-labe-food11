@@ -21,7 +21,7 @@ function ProfilePage() {
       <b>Endereço: </b>
       <p>{profile.user && profile.user.address}</p>
       <Button  onClick={() => goToEditAdressPage(history)}>Editar endereço</Button>
-      <Footer activeHome='true'/>
+      <Footer activeAvatar='true'/>
       {/* onSubmit={(evt) => loginOrSignUp('login', form, history, evt) */}
     </Container>
   )

@@ -21,6 +21,7 @@ display:flex;
 position:fixed;
 bottom:0;
 box-shadow: 0 -1.5px 0 0 rgba(0, 0, 0, 0.25);
+background-color:white;
 `
 
 export const BoxComponent = styled.div`
