@@ -13,18 +13,19 @@ import avatarActive from '../../assets/avatar-active.svg'
 
 export const ContainerFooter = styled(Container)`
 width:22.5rem;
+box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
 `
 
 export const ContainerIcons = styled.div`
 display:flex;
 position:fixed;
 bottom:0;
+box-shadow: 0 -1.5px 0 0 rgba(0, 0, 0, 0.25);
 `
 
 export const BoxComponent = styled.div`
 width: 7.5rem;
 height: 3.062rem;
-border:1px solid red;
 padding: 0.625rem 2.875rem 0.563rem 2.938rem;
 display:flex;
 `
@@ -43,24 +44,24 @@ width:1.688rem;
 
 export const ShoppingCart = styled.div`
 background-image:url(${shoppingCart});
-height:1.688rem;
+height: 1.812rem;
 width:1.688rem;
 `
 
 export const ShoppingCartActive = styled.div`
 background-image:url(${shoppingCartActive});
-height:1.688rem;
+height: 1.812rem;
 width:1.688rem;
 `
 
 export const Avatar = styled.div`
 background-image:url(${avatar});
-height:1.688rem;
+height: 1.875rem;
 width:1.688rem;
 `
 
 export const AvatarActive = styled.div`
 background-image:url(${avatarActive});
-height:1.688rem;
+height: 1.875rem;
 width:1.688rem;
 `

@@ -6,7 +6,7 @@ import removeToCart from '../../functions/removeToCart'
 import placeOrder from '../../requests/placeOrder'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
-
+import Footer from '../../components/Footer/Footer'
 function CartPage() {
   const params = useParams()
   const [cartProducts, setCartProducts] = useState([])
@@ -49,6 +49,7 @@ function CartPage() {
       <Radio value="money">Dinheiro</Radio>
     </RadioGroup>
     <Button onClick={() => placeOrder(params.id, bodyApi)} bg={'red'} color={'white'}> Realizar pedido </Button>
+  <Footer activeCart="true"/>
   </Container>
 }
 
