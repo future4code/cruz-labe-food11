@@ -9,10 +9,10 @@ width: 90%;
 `
 
 export const StyledInput = styled(Input)`
-  display: block;
+  display: flex;
   margin-left: 1.5rem;
   margin-top: 1.5rem;
-  padding: 2rem;
+  padding: 1rem;
   font-family: Roboto;
   font-size: 3rem;
   font-weight: normal;
