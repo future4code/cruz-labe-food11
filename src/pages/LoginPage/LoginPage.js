@@ -8,8 +8,11 @@ import loginOrSignUp from '../../requests/loginOrSignUp'
 import useRequestData from '../../hooks/useRequestData'
 import { Button } from '@chakra-ui/button'
 import { gotoSignUpPage } from '../../routes/coordinator'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+
 
 const LoginPage = () => {
+    useUnprotectedPage ()
 
     const [form, onChange, clear] = useForm({ email: '', password: '' })
     const history = useHistory()

@@ -7,7 +7,12 @@ import loginOrSignUp from '../../requests/loginOrSignUp'
 // import { EyeSlashFill } from '@styled-icons/bootstrap/EyeSlashFill'
 import { InputGroup, InputRightElement } from '@chakra-ui/input'
 import { IconButton } from '@chakra-ui/button'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+
+
+
 const SignUpPage = () => {
+    useUnprotectedPage()
 
     const [form, onChange, clear] = useForm({ name: '', email: '', password: '', cpf: '' })
     const [formPassword,onChangePassword,clearPassword] = useForm({ confirmPassword: ''})
