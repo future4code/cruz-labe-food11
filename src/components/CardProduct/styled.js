@@ -27,7 +27,7 @@ export const ContainerInfoProducts = styled.div`
 export const NameProduct = styled.p`
   margin: 2rem 0 0 1rem;
   color: #e8222f;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 `
 export const DescriptionProduct = styled.p`
@@ -35,6 +35,7 @@ export const DescriptionProduct = styled.p`
   margin-left: 1rem;
   color: #b8b8b8;
   margin-top: .5rem;
+  font-size:0.75rem;
 `
 
 export const Flex = styled.div`
@@ -46,7 +47,7 @@ export const Flex = styled.div`
 
 export const Price = styled.p`
   margin: 0 0 1.2rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
 `
 
