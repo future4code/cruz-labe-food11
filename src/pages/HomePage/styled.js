@@ -2,26 +2,47 @@ import styled from 'styled-components'
 
 
 export const StyledBox = styled.div`
-  width: 20.5rem;
-  height: 12rem;
-  padding: 0 0 1rem;
-  border-radius: 8px;
-  border: solid 1px grey;
-  margin-top: 0.5rem;
+width: 22.5rem;
+/* height: 12rem; */
+padding: 0 0 1rem;
+border-radius: 8px;
+margin-top: 0.5rem;
+transition: transform 0.5s linear;
+/* background-color:orange; */
+
+&:hover{
+  transform: scale(1.1, 1);
+}
 `
 
 export const LogoRestaurant = styled.img`
-display:flex;
-height: 70%;
-width: 100%;
-border-radius: 8px 8px 0 0;
+width: 20.5rem;
+height: 7.5rem;
+border:1px solid #b8b8b8;
+border-bottom:none;
+margin:auto;
+/* padding-top:1rem; */
+border-radius:  8px 8px 0 0;
 
 `
 
-export const Div =styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+export const OverFlowContainer = styled.div`
+overflow:hidden;
+width: 22.5rem;
+`
+
+export const DivInfos = styled.div`
+border-radius: 0 0 8px 8px;
+border: solid 1px #b8b8b8;
+width:20.5rem;
+margin:auto;
+padding-bottom:1rem;
+`
+
+export const Div = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `
 
 export const H2Nome = styled.h2`
