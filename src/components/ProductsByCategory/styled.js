@@ -6,6 +6,6 @@ export const Title = styled.p`
   margin-bottom: .5rem;
   font-weight: 500;
   font-size: 1.2rem;
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 0.14rem solid rgb(0, 0, 0);
   
 `
