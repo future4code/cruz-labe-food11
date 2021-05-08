@@ -13,12 +13,28 @@ function RestaurantDetailsPage() {
   const params = useParams()
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
-  const [listOfRequests, setListOfRequests] = useState([])
-  const [form, onChangeInput] = useForm({quantity: 0})
+  // const [listOfRequests, setListOfRequests] = useState([])
+  const [listOfRequests, setListOfRequests] = useState([localStorage.getItem('cart')])
+  
+  const [form, onChangeInput] = useForm({quantity: 1})
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(listOfRequests))
-  })
+    // localStorage.setItem('cart',listOfRequests)
+    console.log('entrei no effect')
+    // localStorage.setItem('cart', JSON.stringify(listOfRequests)) //ESSE DA RUIM< DA STRINGIFY toda hora
+    // localStorage.setItem('cart', listOfRequests) //ESSE DA RUIM< DA STRINGIFY toda hora
+    console.log('cart dentro de resdetailspage: ',localStorage.getItem('cart'))
+    // setListOfRequests(localStorage.getItem('cart'))
+    teste()
+    // setCart()
+  },[listOfRequests])
+const teste = () => {
+  // const testete2 = localStorage.setItem('cart', JSON.parse(listOfRequests))
+  const testete = localStorage.setItem('cart', JSON.stringify(listOfRequests))
+
+  // console.log('testetete.lenght: ',testete.length)
+// console.log(localStorage.setItem('cart', JSON.stringify(listOfRequests)).lenght)
+}
 
 
 
