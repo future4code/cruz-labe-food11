@@ -14,7 +14,7 @@ function RestaurantDetailsPage() {
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
   const [listOfRequests, setListOfRequests] = useState([])
-  const [form, onChangeInput] = useForm({quantity: 0})
+  const [form, onChangeInput] = useForm({quantity: 1})
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))

@@ -12,7 +12,6 @@ import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
-import Footer from '../../components/Footer/Footer'
 import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
 import Header from '../../components/Header/Header'
 
@@ -46,7 +45,6 @@ const LoginPage = () => {
                 <Button type="submit" text="Entrar"/>
             </Form>
             <ButtonCadastro onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />
-            <Footer activeCart="true" />
         </Container>
     )
 }
