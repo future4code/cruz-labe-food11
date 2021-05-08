@@ -18,7 +18,7 @@ function HomePage() {
   const activeOrder = useRequestData({}, 'active-order')
   // console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
-  const[isSearching,setIsSearching] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
 
@@ -44,9 +44,9 @@ function HomePage() {
     const search = event.target.value.toLowerCase()
     const newRestaurants = restaurants.restaurants.filter((restaurant) => restaurant.name.toLowerCase().indexOf(search) >= 0)
     setFilteredRestaurants(newRestaurants)
-    if(event.target.value.length===0){
+    if (event.target.value.length === 0) {
       setIsSearching(false)
-    }else{
+    } else {
       setIsSearching(true)
     }
   }
@@ -57,15 +57,16 @@ function HomePage() {
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
+
       <StyledBox
         key={restaurant.key}
         onClick={() => goToDetails(restaurant.id)}
       >
-        <LogoRestaurant  src={restaurant.logoUrl} alt={'logo do restaurante'} />
+        <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
         <H2Nome>{restaurant.name}</H2Nome>
         <Div>
-        <H2>{restaurant.deliveryTime} min</H2>
-        <H2> Frete R$ {restaurant.shipping},00</H2>
+          <H2>{restaurant.deliveryTime} min</H2>
+          <H2> Frete R$ {restaurant.shipping},00</H2>
         </Div>
 
       </StyledBox>
@@ -73,14 +74,18 @@ function HomePage() {
   })
 
   return (
+
+
     <Container>
-      <Header  text="Ifuture"/>
+      <Header text="Ifuture" />
 
       <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
       {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
-      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice}/>}
-   { isSearching ?  <></> : <Footer activeHome="true"/> }
+      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
+      { isSearching ? <></> : <Footer activeHome="true" />}
     </Container>
+
+
   )
 }
 
