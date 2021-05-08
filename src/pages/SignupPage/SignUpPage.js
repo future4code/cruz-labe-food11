@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
-import styled from 'styled-components'
 import loginOrSignUp from '../../requests/loginOrSignUp'
 import { Eye } from '../../assets/icons/Eye'
 import { SlashEye } from '../../assets/icons/SlashEye'
-import { InputGroup, InputRightElement } from '@chakra-ui/input'
-import { IconButton } from '@chakra-ui/button'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage';
-
-
 import { Input } from '../../components/Inputs/InputForm'
 import Button from '../../components/Inputs/ButtonSubmit'
 import Title from '../../components/Title/Title'
@@ -17,6 +12,7 @@ import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
+import { DivIsDifferentPassword } from './styled'
 
 const SignUpPage = () => {
     useUnprotectedPage()
@@ -145,47 +141,7 @@ const SignUpPage = () => {
                 />
                 <DivIsDifferentPassword style={{ display: `${display}` }}>Deve ser a mesma que a anterior.</DivIsDifferentPassword>
 
-
-                {/* <InputGroup>
-                    <InputRightElement
-                        children={
-                            <IconButton onClick={changeTypePassword}
-                                icon={hidePassword ? <SlashEye /> : <Eye />}
-                                size='lg'
-                                aria-label="Call Segun"
-                            />
-                        }
-                    />
-
-
-                    <Input name="password" value={form.password} 
-                 
-                 
-                    placeholder="Mínimo 6 caracteres" type={passwordType} required pattern={"^.{6,}"}  
-                    onChange={check} 
-                    />
-                </InputGroup>
-                <div style={{ display: `${display}` }}>As senhas não são iguais.</div>
-                
-                
-                <InputGroup>
-                    <InputRightElement
-                        children={
-                            <IconButton onClick={changeTypeCheckPassword}
-                                icon={hideCheckPassword ? <SlashEye /> : <Eye />}
-                                size='lg'
-                                aria-label="Call Segun"
-                            />
-                        }
-                    />
-                
-                
-                    <Input name="confirmPassword" value={formPassword.confirmPassword} onChange={checkPassword} placeholder="Confirme a senha anterior" type={confirmCheckPasswordType} required pattern={"^.{6,}"}
-                  
-                  
-                    />
-                </InputGroup> */}
-                <Button type='submit' text={'Criar'}/>
+                <Button type='submit' text='Criar'/>
             </Form>
         </Container>
     )
@@ -193,26 +149,4 @@ const SignUpPage = () => {
 
 export default SignUpPage
 
-// const Container = styled.div`
-// display:flex;
-// flex-direction:column;
-// margin:10vh auto;
-// align-items:center;
-// `
 
-
-
-
-const DivIsDifferentPassword = styled.div`
-height:1.125rem;
-width:13.063rem;
-color:#e02020;
-margin: 0.313rem 7.438rem 0 1rem;
-font-size:0.75rem;
-font-family: Roboto;
-font-weight: normal;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.29px
-`
