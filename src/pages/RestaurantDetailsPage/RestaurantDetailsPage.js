@@ -8,8 +8,10 @@ import { goToCartPage } from '../../routes/coordinator'
 import Loading from '../../components/Loading/Loading'
 import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
 import useForm from '../../hooks/useForm'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 function RestaurantDetailsPage() {
+  useProtectedPage()
   const params = useParams()
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
