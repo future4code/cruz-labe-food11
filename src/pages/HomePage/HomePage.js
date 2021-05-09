@@ -59,6 +59,7 @@ function HomePage() {
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
+
       <OverFlowContainer>
 
         <StyledBox
@@ -83,6 +84,8 @@ function HomePage() {
   })
 
   return (
+
+
     <Container>
       <Header text="Ifuture" />
       {!restaurants.restaurants ? <Loading /> :
@@ -93,7 +96,10 @@ function HomePage() {
           { isSearching ? <></> : <Footer activeHome="true" />}
         </>
       }
+
     </Container>
+
+
   )
 }
 

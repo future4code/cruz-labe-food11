@@ -10,12 +10,17 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
+import LoadingPage from '../pages/LoadingPage/LoadingPage'
 
 function Router() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/'>
+          <LoadingPage />
+        </Route>
+
+        <Route exact path='/HomePage'>
           <HomePage />
         </Route>
 
@@ -46,6 +51,7 @@ function Router() {
         <Route exact path='/restaurante/:id'>
           <RestaurantDetailsPage />
         </Route>
+
         
         <Route exact path='/carrinho'>
           <CartPage />
@@ -53,7 +59,7 @@ function Router() {
 
         <Route>
           <ErrorPage />
-        </Route> 
+        </Route>
       </Switch>
     </BrowserRouter>
   )
