@@ -18,7 +18,6 @@ function CartPage() {
 
   useEffect(() => {
     setCartProducts(JSON.parse(cartProductsString)  )
-    console.log('paymentMethod: ',paymentMethod)
   }, [cartProductsString])
 
 
@@ -92,9 +91,6 @@ function CartPage() {
         </RadioGroup>
         <RadioGroup>
           <Radio type={'radio'} value="creditcard"  name="payMethod" />Cartão de Crédito
-        </RadioGroup>
-        <RadioGroup>
-          <Radio type={'radio'} value="teste"  name="payMethod" />Teste
         </RadioGroup>
         
       </FormOfPayment>
