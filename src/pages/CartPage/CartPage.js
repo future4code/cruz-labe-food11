@@ -6,7 +6,16 @@ import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import useRequestData from '../../hooks/useRequestData'
-import { Text, Adress, NameRestaurant, CardItem, Main, DeliveryAdress, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, ContainerButton, Flex, Quantity, Shipping, Subtotal, SubtotalText, TitlePayment, FormOfPayment, Radio, RadioGroup, ButtonConfirm } from './styled'
+import {
+  Text, Adress, NameRestaurant,
+  CardItem, Main, DeliveryAdress, ImageItem,
+  ContainerInfoProducts, NameProduct,
+  DescriptionProduct, Price, Button, ContainerButton,
+  Flex, Quantity, Shipping, Subtotal, SubtotalText,
+  TitlePayment, FormOfPayment, Radio,
+  RadioGroup, ButtonConfirm, CenteredP
+} from './styled'
+import Loading from '../../components/Loading/Loading'
 
 function CartPage() {
   const params = useParams()
@@ -17,11 +26,13 @@ function CartPage() {
   const cartProductsString = localStorage.getItem('cart')
 
   useEffect(() => {
-    setCartProducts(JSON.parse(cartProductsString)  )
+    setCartProducts(JSON.parse(cartProductsString))
   }, [cartProductsString])
 
 
   const productsToOrder = cartProducts.map((item) => {
+
+    console.log('cartsProduct: ', cartProducts)
     return {
       quantity: item.quantity,
       id: item.id
@@ -33,6 +44,7 @@ function CartPage() {
   }
   let amount = 0
   const cartProductsList = cartProducts.map((product) => {
+    console.log('product q ta vindo do cartProductsList: ', product)
     amount += product.price * product.quantity
 
     return <CardItem key={product.id}>
@@ -61,6 +73,9 @@ function CartPage() {
   amount += restaurantInfos.restaurant && Number(restaurantInfos.restaurant.shipping)
 
   return <Container>
+    
+    {!restaurantInfos.restaurant ? <Loading/> :
+    <>
     <Header text="Meu carrinho" needHeader="true" />
     <Main>
       <DeliveryAdress>
@@ -68,8 +83,7 @@ function CartPage() {
         <Adress>{userInfos.user && userInfos.user.address}</Adress>
       </DeliveryAdress>
 
-
-      {!cartProductsList ? <p>Carrinho vazio</p> :
+      {cartProductsList.length === 0 ? <CenteredP>Carrinho vazio</CenteredP> :
         <>
           <NameRestaurant>{restaurantInfos.restaurant && restaurantInfos.restaurant.name}</NameRestaurant>
           <Text>{restaurantInfos.restaurant && restaurantInfos.restaurant.address}</Text>
@@ -77,26 +91,28 @@ function CartPage() {
           {cartProductsList}
         </>}
 
-      <Shipping>Frete R${restaurantInfos.restaurant && restaurantInfos.restaurant.shipping.toFixed(2)}</Shipping>
-      <Subtotal><SubtotalText>SUBTOTAL</SubtotalText> R${amount.toFixed(2)}</Subtotal>
+      <Shipping>Frete R${cartProductsList.length === 0 ? '00.00' : restaurantInfos.restaurant && restaurantInfos.restaurant.shipping.toFixed(2)}</Shipping>
+      <Subtotal><SubtotalText>SUBTOTAL</SubtotalText> R${cartProductsList.length === 0 ? '00.00' : amount.toFixed(2)}</Subtotal>
 
       <TitlePayment>Forma de pagamento</TitlePayment>
-      {/* <FormOfPayment onChange={setPaymentMethod} value={paymentMethod}> */}
-      <FormOfPayment onChange={event => {
-    console.log('paymentMethod: ',paymentMethod)
-   return setPaymentMethod(event.target.value)
-    }}  >
+      <FormOfPayment onChange={event => setPaymentMethod(event.target.value)}  >
         <RadioGroup>
-          <Radio type={'radio'} value="money"  name="payMethod" checked />Dinheiro
+          <Radio type={'radio'} value="money" name="payMethod" checked />Dinheiro
         </RadioGroup>
         <RadioGroup>
-          <Radio type={'radio'} value="creditcard"  name="payMethod" />Cartão de Crédito
+          <Radio type={'radio'} value="creditcard" name="payMethod" />Cartão de Crédito
         </RadioGroup>
-        
+
       </FormOfPayment>
-      <ButtonConfirm onClick={() => placeOrder(params.id, bodyApi)} bg={'red'} color={'white'}> Confirmar </ButtonConfirm>
+      <ButtonConfirm onClick={() => placeOrder(params.id, bodyApi)}
+        bg={'red'} color={'white'}
+        disabled={cartProductsList.length === 0 ? true : false} disable > Confirmar </ButtonConfirm>
       <Footer activeCart="true" />
     </Main>
+    
+    </>
+    }
+    
   </Container>
 }
 
