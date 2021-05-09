@@ -86,6 +86,10 @@ export const LI = styled.li `
 list-style: none;
 font-size: 1rem;
 margin: 1rem;
+color:black;
+&:hover{
+  cursor: pointer;
+}
 `
 
 export const ContainerSearchInput = styled.div`
