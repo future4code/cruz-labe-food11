@@ -46,7 +46,7 @@ function CartPage() {
   }
   let amount = 0
   const cartProductsList = cartProducts.map((product) => {
-    console.log('product q ta vindo do cartProductsList: ', product)
+    // console.log('product q ta vindo do cartProductsList: ', product)
     amount += product.price * product.quantity
 
     return <CardItem key={product.id}>

@@ -16,7 +16,7 @@ function ProductsByCategory(props) {
   const dessertFiltering = filterProductsByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Sorvete')
 
 
-  const mainProducts = mainFiltering && mainFiltering.map((product) => {
+  const mainProducts = mainFiltering && mainFiltering.map((product) => { 
     return <CardProduct
       key={product.id}
       photoUrl={product.photoUrl}

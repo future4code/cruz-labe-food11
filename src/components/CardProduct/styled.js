@@ -22,6 +22,7 @@ export const ContainerInfoProducts = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
+  position:relative;
 `
 
 export const NameProduct = styled.p`
