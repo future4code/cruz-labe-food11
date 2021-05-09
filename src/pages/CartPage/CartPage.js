@@ -6,7 +6,7 @@ import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import useRequestData from '../../hooks/useRequestData'
-import { Text, Adress, NameRestaurant, CardItem, Main, DeliveryAdress, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, ContainerButton, Flex, Quantity, Shipping, Subtotal, SubtotalText, TitlePayment, FormOfPayment, Radio, RadioGroup, ButtonConfirm} from './styled'
+import { Text, Adress, NameRestaurant, CardItem, Main, DeliveryAdress, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, ContainerButton, Flex, Quantity, Shipping, Subtotal, SubtotalText, TitlePayment, FormOfPayment, Radio, RadioGroup, ButtonConfirm } from './styled'
 
 function CartPage() {
   const params = useParams()
@@ -83,10 +83,10 @@ function CartPage() {
       <TitlePayment>Forma de pagamento</TitlePayment>
       <FormOfPayment onChange={setPaymentMethod} value={paymentMethod}>
         <RadioGroup>
-          <Radio type={'radio'} value="money" checked />Dinheiro
+          <Radio type={'radio'} value="money" name='paymentMethod' checked />Dinheiro
         </RadioGroup>
         <RadioGroup>
-          <Radio type={'radio'} value="creditcard" />Cartão de Crédito
+          <Radio type={'radio'} value="creditcard" name='paymentMethod' />Cartão de Crédito
         </RadioGroup>
       </FormOfPayment>
       <ButtonConfirm onClick={() => placeOrder(params.id, bodyApi)} bg={'red'} color={'white'}> Confirmar </ButtonConfirm>
