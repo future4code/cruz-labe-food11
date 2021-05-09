@@ -1,7 +1,7 @@
 import {useHistory} from 'react-router-dom'
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
-import PacmanLoader from 'react-spinners/PacmanLoader'
+// import PacmanLoader from 'react-spinners/PacmanLoader'
 import '../../App.css';
 
 
@@ -28,12 +28,12 @@ const LoadingPage = () => {
           
               
 
-                    <
+                    {/* <
                  
                         PacmanLoader
                         size={65}
                         color={'#D01802'}
-                    />
+                    /> */}
 
                    
          
