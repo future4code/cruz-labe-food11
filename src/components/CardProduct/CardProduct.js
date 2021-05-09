@@ -84,9 +84,6 @@ function CardProduct(props) {
 
 export default CardProduct
 
-
-
-
 const Quantityca = styled.p`
 width: 2.063rem;
 height: 2.063rem;
