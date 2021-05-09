@@ -28,8 +28,9 @@ export default Header
 
 const LogoutButton = styled(Logout)`
 position:relative;
-top:2rem;
+top:1rem;
 right:1rem;
+width:2.5rem;
 &:hover{
     cursor: pointer;
     color:red;
