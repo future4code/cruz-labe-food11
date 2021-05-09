@@ -8,7 +8,7 @@ import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
-import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer, UL, LI, SearchIcon ,ContainerSearchInput,Input,NotFoundMessage} from './styled'
+import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer, UL, LI, SearchIcon, ContainerSearchInput, Input, NotFoundMessage } from './styled'
 import Loading from '../../components/Loading/Loading'
 
 function HomePage() {
@@ -18,13 +18,12 @@ function HomePage() {
   const [isSearching, setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
-
+  const [activeCategory, setActiveCategory] = useState('')
 
   const goToDetails = (id) => {
     history.push(`/restaurante/${id}`)
   }
   useEffect(() => {
-    console.log("filtered: ", filteredRestaurants)
     setRestaurants()
   }, [])
 
@@ -35,7 +34,6 @@ function HomePage() {
       }
     })
     setFilteredRestaurants(response.data.restaurants)
-    console.log('res.data: ', response.data)
   }
 
 
@@ -50,62 +48,71 @@ function HomePage() {
     }
   }
 
+  const filterByType = (category) => {
+    const restaurantsByCategory = restaurants.restaurants.filter((restaurant) => category === restaurant.category)
+    setFilteredRestaurants(restaurantsByCategory)
+    setActiveCategory(category)
+  }
 
-  const category = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
-
-    return (
-      <LI>{restaurant.category}</LI>
-
-    )
-  })
-
-  const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
+  const category = restaurants && restaurants.restaurants && restaurants.restaurants.map((restaurant) => {
 
     return (
-
-      <OverFlowContainer>
-        <UL>
-          {category}
-        </UL>
-
-        <StyledBox
-          key={restaurant.key}
-          onClick={() => goToDetails(restaurant.id)}
-        >
-          <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
-          <DivInfos>
-            <H2Nome>{restaurant.name}</H2Nome>
-            <Div>
-              <H2>{restaurant.deliveryTime} min</H2>
-              <H2> Frete R$ {restaurant.shipping},00</H2>
-            </Div>
-          </DivInfos>
-        </StyledBox>
-      </OverFlowContainer>
-
+      
+     <LI style={activeCategory===restaurant.category ? {color:'red'} : {color:'black'} }
+      onClick={ () => filterByType(restaurant.category) }
+      > 
+     { restaurant.category }
+     </LI>
     )
-  })
+})
+
+const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
   return (
 
+    <OverFlowContainer>
 
-    <Container>
-       {  !isSearching ?  <Header text="iFuture" /> : <Header text="Busca" />}
-      {!restaurants.restaurants ? <Loading /> :
-        <>
-        <ContainerSearchInput>
-        <SearchIcon/>
-        <Input onChange={filterFunc} type='text' placeholder="Restaurante" />
-        
-        </ContainerSearchInput>
-        {console.log('activeOrder: ',activeOrder.order)}
-        {filteredRestaurants.length > 0 ? filtered : <NotFoundMessage> Não encontramos :(</NotFoundMessage>}
-          {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
-          { isSearching ? <></> : <Footer activeHome="true" />}
-        </>
-      }
-    </Container>
+
+      <StyledBox
+        key={restaurant.key}
+        onClick={() => goToDetails(restaurant.id)}
+      >
+        <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
+        <DivInfos>
+          <H2Nome>{restaurant.name}</H2Nome>
+          <Div>
+            <H2>{restaurant.deliveryTime} min</H2>
+            <H2> Frete R$ {restaurant.shipping},00</H2>
+          </Div>
+        </DivInfos>
+      </StyledBox>
+    </OverFlowContainer>
+
   )
+})
+
+return (
+
+
+  <Container>
+    {!restaurants.restaurants ? <Loading /> :
+      <>
+       {  !isSearching ? <Header text="iFuture" /> : <Header text="Busca" />}
+        <ContainerSearchInput>
+          <SearchIcon />
+          <Input onChange={filterFunc} type='text' placeholder="Restaurante" />
+
+        </ContainerSearchInput>
+        <UL>
+          {category}
+        </UL>
+        {filteredRestaurants.length > 0 ? filtered : <NotFoundMessage> Não encontramos :(</NotFoundMessage>}
+        {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
+        { isSearching ? <></> : <Footer activeHome="true" />}
+      </>
+    }
+  </Container>
+)
 }
 
 export default HomePage

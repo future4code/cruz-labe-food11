@@ -1,5 +1,12 @@
 import { Text, Box } from '@chakra-ui/react'
 import styled from 'styled-components'
+import { Container } from '../../components/Container/Container'
+
+export const ContainerProfilePage = styled(Container)`
+/* background-color:purple; */
+`
+
+
 
 
 export const PageDiv = styled(Box)`
@@ -17,9 +24,6 @@ export const HeaderDiv = styled(Box)`
   text-align: center;
   border-bottom: 2px solid;
   border-color: grey;
-
-
-
 `
 
 export const InfoDiv = styled(Box)`
@@ -36,6 +40,7 @@ position: relative;
 background-color: #eeeeee;`
 
 export const HistoryDiv = styled(Box)`
+display:initial;
 margin-left: 1rem;
 width: 23rem;
 margin-top: 2rem;
@@ -63,20 +68,19 @@ export const HeaderText = styled.h2`
 
 
 export const TextStyle = styled(Text)`
-    font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
-    width: 75%;
-    height: 1.125rem;
-    margin: 0.5rem 1rem 0.5rem;
-    font-family: Roboto;
-    font-size: 1rem;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    color: var(--black);
-
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  width: 75%;
+  height: 1.125rem;
+  margin: 0.5rem 1rem 0.5rem;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color:black;
 `
 
 export const SubText = styled(Text)`

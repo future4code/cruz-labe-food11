@@ -76,15 +76,21 @@ export const UL = styled.ul`
     margin: 1rem;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 95%;
     overflow-x: auto;
     white-space: nowrap;
+    scrollbar-width:none;
 `
 
 export const LI = styled.li `
 list-style: none;
 font-size: 1rem;
 margin: 1rem;
+color:black;
+&:hover{
+  cursor: pointer;
+}
+`
 
 export const ContainerSearchInput = styled.div`
 width: 20.5rem;

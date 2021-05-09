@@ -141,4 +141,12 @@ export const ButtonConfirm = styled.button`
   background: #e8222e;
   padding: .8rem;
   width: 100%;
+  &:disabled{
+    background-color: rgba(232, 34, 46, 0.5);
+    
+  }
+`
+
+export const CenteredP = styled.p`
+text-align:center;
 `

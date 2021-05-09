@@ -16,7 +16,8 @@ import {
   ContainerOrder,
   TitleOrder,
   DateOrder,
-  TotalValueOrder
+  TotalValueOrder,
+  ContainerProfilePage
 } from './styled'
 
 import Footer from '../../components/Footer/Footer'
@@ -47,9 +48,10 @@ function ProfilePage() {
 
   return (
 
-    <Container>
-      <Header text="Meu perfil" />
+    <ContainerProfilePage>
       {!profile.user ? <Loading /> :
+       <>
+       <Header text="Meu perfil" />
         <PageDiv>
           <InfoDiv>
             <EditDiv>
@@ -83,11 +85,17 @@ function ProfilePage() {
             {listOrderHistory}
 
           </CardsHistoryDiv>
-        </PageDiv>
-      }
 
+        </PageDiv>
+        
+     
+
+      </>
+      }
       <Footer activeAvatar='true' />
-    </Container>
+
+    </ContainerProfilePage>
+    
   )
 }
 
