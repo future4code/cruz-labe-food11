@@ -16,7 +16,7 @@ const Header = (props) => {
                 style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>
-            <LogoutButton onClick={() => logout(history)} />
+            <LogoutButton onClick={() => logout(history)} style={props.hideLogout !=='true' ? {display:'block'} : {display:'none'}} />
         </Container>
     )
 }
