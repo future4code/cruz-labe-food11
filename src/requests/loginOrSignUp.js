@@ -17,10 +17,12 @@ const loginOrSignUp = async (func, body, history, evt, isCompletedData, setShowE
                 }
             } catch (error) {
                 setShowErrorMessage(true)
+                // if(error.response)
+                console.log(error.response)
             }
         }
     }
 
-// }
+}
 
 export default loginOrSignUp
