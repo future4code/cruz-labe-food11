@@ -59,6 +59,7 @@ function HomePage() {
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
+
       <OverFlowContainer>
 
         <StyledBox
@@ -83,17 +84,22 @@ function HomePage() {
   })
 
   return (
+
+
     <Container>
       <Header text="Ifuture" />
       {!restaurants.restaurants ? <Loading /> :
         <>
           <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
-          {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
+          {filteredRestaurants.length > 0 ? filtered : <div> Não encontramos :(</div>}
           {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
           { isSearching ? <></> : <Footer activeHome="true" />}
         </>
       }
+
     </Container>
+
+
   )
 }
 

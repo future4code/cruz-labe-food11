@@ -12,10 +12,13 @@ import {
   HistoryDiv,
   CardsHistoryDiv,
   EditDiv,
-  TextHistoryStyle
+  TextHistoryStyle,
+  ContainerOrder,
+  TitleOrder,
+  DateOrder,
+  TotalValueOrder
 } from './styled'
 
-import { Box } from '@chakra-ui/react'
 import Footer from '../../components/Footer/Footer'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
@@ -24,14 +27,22 @@ import Loading from '../../components/Loading/Loading'
 
 function ProfilePage() {
   const profile = useRequestData({}, 'profile')
-  const ordersHistory = useRequestData({}, 'orders/history')
+  const ordersHistory = useRequestData([], 'orders/history')
   const history = useHistory()
-
+  const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+];
   const listOrderHistory = ordersHistory.orders && ordersHistory.orders.map((order) => {
-    return <Box border={'1px solid black'}>
-      <p>{order.restaurantName}</p>
-      <p>R${order.totalPrice.toFixed(2)}</p>
-    </Box>
+    const date = new Date(order.createdAt)
+    const day = date.getDate()
+    const month = monthNames[date.getMonth()]
+    const year = date.getFullYear()
+
+    return <ContainerOrder >
+      <TitleOrder>{order.restaurantName}</TitleOrder>
+      <TotalValueOrder>{day} de {month} de {year}</TotalValueOrder>
+      <DateOrder>SUBTOTAL R${order.totalPrice.toFixed(2)}</DateOrder>
+    </ContainerOrder>
   })
 
   return (
@@ -46,7 +57,7 @@ function ProfilePage() {
               <IconButton
                 bg={'none'}
                 onClick={() => goToEditProfilePage(history)}
-              icon={< EditIcon />} 
+                icon={< EditIcon />}
               />
             </EditDiv>
             <TextStyle>{profile.user && profile.user.email}</TextStyle>
@@ -59,7 +70,7 @@ function ProfilePage() {
               <IconButton
                 bg={'none'}
                 onClick={() => goToEditAdressPage(history)}
-              icon={< EditIcon />} 
+                icon={< EditIcon />}
               />
             </EditDiv>
             <TextStyle>{profile.user && profile.user.address}</TextStyle>

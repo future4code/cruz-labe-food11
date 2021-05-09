@@ -35,7 +35,7 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <Header/>
+            <Header hideLogout='true'/>
             <Logo />
             <Title text={'Entrar'} />
             <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>

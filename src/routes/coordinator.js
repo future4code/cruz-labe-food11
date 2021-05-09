@@ -16,7 +16,7 @@ export const goToLoginPage = (history) => {
 }
 
 export const goToHomePage = (history) => {
-    history.push('/')
+    history.push('/HomePage')
 }
 export const goToProfilePage = (history) => {
     history.push('/perfil')

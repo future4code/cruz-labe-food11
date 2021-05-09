@@ -21,6 +21,6 @@ const loginOrSignUp = async (func, body, history, evt, isCompletedData, setShowE
         }
     }
 
-}
+// }
 
 export default loginOrSignUp
