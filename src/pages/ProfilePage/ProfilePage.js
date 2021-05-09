@@ -19,7 +19,6 @@ import {
   TotalValueOrder
 } from './styled'
 
-import { Box } from '@chakra-ui/react'
 import Footer from '../../components/Footer/Footer'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
@@ -30,16 +29,18 @@ function ProfilePage() {
   const profile = useRequestData({}, 'profile')
   const ordersHistory = useRequestData([], 'orders/history')
   const history = useHistory()
-
+  const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+];
   const listOrderHistory = ordersHistory.orders && ordersHistory.orders.map((order) => {
     const date = new Date(order.createdAt)
     const day = date.getDate()
-    const month = date.getMonth()
+    const month = monthNames[date.getMonth()]
     const year = date.getFullYear()
 
     return <ContainerOrder >
       <TitleOrder>{order.restaurantName}</TitleOrder>
-      <TotalValueOrder>data do pedido: {day} {month} {year}</TotalValueOrder>
+      <TotalValueOrder>{day} de {month} de {year}</TotalValueOrder>
       <DateOrder>SUBTOTAL R${order.totalPrice.toFixed(2)}</DateOrder>
     </ContainerOrder>
   })

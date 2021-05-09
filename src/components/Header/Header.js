@@ -1,7 +1,8 @@
+import { Logout } from '@styled-icons/heroicons-outline'
 import React from 'react'
 import { useHistory } from 'react-router'
 import { Container, GoBackIcon, TitleHeader } from './styled'
-
+import styled from 'styled-components'
 const Header = (props) => {
     const history = useHistory()
 
@@ -11,10 +12,15 @@ const Header = (props) => {
             style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>
+            <LogoutButton/>
         </Container>
     )
 }
 
 export default Header
 
-
+const LogoutButton = styled(Logout)`
+position:relative;
+top:2rem;
+right:1rem;
+`

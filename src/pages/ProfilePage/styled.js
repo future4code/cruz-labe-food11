@@ -114,17 +114,13 @@ export const TextHistoryStyle = styled(Text)`
 `
 
 export const ContainerOrder = styled.div`
-  width: 20.5rem;
-
+width: 20.5rem;
 height: 6.375rem;
-
 margin: 0.438rem 0 0;
-
 padding: 1rem;
-
 border-radius: 8px;
-
 border: 1px solid   #b8b8b8;
+margin: 1rem auto 0;
 `
 
 export const TitleOrder = styled.p`
