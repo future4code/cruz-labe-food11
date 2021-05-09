@@ -41,7 +41,7 @@ const LoginPage = () => {
             <Form onSubmit={(evt) => loginOrSignUp('login', form, history, evt)}>
                 <Input name="email" value={form.email} onChange={onChange} placeholder="E-mail" type='email' required pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"} text="E-mail*"
                  title="Ex: jorgenicola@gmail.com"/>
-                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} text="Senha*"/>
+                <Input name="password" value={form.password} onChange={onChange} placeholder="Password" type={passwordType} required pattern={"^.{6,}"} icon={!hidePassword ? <SlashEye /> : <Eye />} onClick={changeTypePassword} text="Senha*"/>
                 <Button type="submit" text="Entrar"/>
             </Form>
             <ButtonCadastro onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />

@@ -13,12 +13,9 @@ const loginOrSignUp = async (func, body, history, evt, isCompletedData) => {
             const response = await axios.post(`${BASE_URL}${func}`, body)
             let token = response.data.token
             window.localStorage.setItem('token', token)
-            console.log(    'entrei na SignUpPage', response.data.token)
             if (response.data.user.hasAddress) {
-                alert("Usuário logado")
                 goToHomePage(history)
             } else {
-                alert('Usuário criado, agora falta preencher suas informações básicas')
                 goToRegisterAddressPage(history)
             }
         } catch (error) {
