@@ -13,6 +13,7 @@ import {
 
 
 function CardProduct(props) {
+  const initRef = React.useRef()
   return <CardItem>
     <ImageItem src={props.photoUrl} />
 
@@ -21,32 +22,49 @@ function CardProduct(props) {
       <DescriptionProduct>{props.description}</DescriptionProduct>
       <Flex>
         <Price>R${props.price}</Price>
-
-        <Popover>
+        <Popover closeOnBlur={false} placement="left" initialFocusRef={initRef}>
+      {({ isOpen, onClose }) => (
+        <>
           <PopoverTrigger>
-            <Button>adicionar</Button>
+          <Button>adicionar</Button>
           </PopoverTrigger>
           <Portal>
             <PopoverContent
-              padding={'2rem 1.5rem'}
-            >
+            padding={'2rem 1.5rem'}>
+              <PopoverCloseButton />
+              <PopoverBody>
               <PopoverArrow />
               <PopoverHeader>Selecione a quantidade desejada</PopoverHeader>
               <PopoverCloseButton />
-              <Input
+              <ContainerButton>
+                  <ButtonProvover  onClick={props.onClick }>ADICIONAR AO CARRINHO</ButtonProvover>
+                </ContainerButton>
+                <Input
                 type={'number'}
                 name={props.nameInput}
                 value={props.value}
                 onChange={props.onChange}
               />
-              <PopoverBody>
-                <ContainerButton>
-                  <ButtonProvover onClick={props.onClick}>ADICIONAR AO CARRINHO</ButtonProvover>
-                </ContainerButton>
+                <Button
+                  mt={4}
+                  colorScheme="blue"
+                  onClick={function(event){props.onClick();onClose()}}
+                  ref={initRef}
+                >
+                  ADICIONAR AO CARRINHO
+                </Button>
               </PopoverBody>
             </PopoverContent>
           </Portal>
-        </Popover>
+        </>
+      )}
+    </Popover>
+
+
+
+
+
+
 
       </Flex>
     </ContainerInfoProducts>
