@@ -1,8 +1,9 @@
 import { Logout } from '@styled-icons/heroicons-outline'
 import React from 'react'
 import { useHistory } from 'react-router'
-import { Container, GoBackIcon, TitleHeader } from './styled'
+import { Container, GoBackIcon, TitleHeader, ContainerLogout } from './styled'
 import styled from 'styled-components'
+
 const Header = (props) => {
     const history = useHistory()
     const logout = (history) => {
@@ -16,7 +17,9 @@ const Header = (props) => {
                 style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>
+            <ContainerLogout>
             <LogoutButton onClick={() => logout(history)} style={props.hideLogout !=='true' ? {display:'block'} : {display:'none'}} />
+            </ContainerLogout>
         </Container>
     )
 }

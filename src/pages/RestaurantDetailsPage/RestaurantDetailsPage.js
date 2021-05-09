@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import useRequestData from '../../hooks/useRequestData'
-import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, Title, ButtonCart } from './styled'
+import { CardRestaurant, Image, NameRestaurant, Category, DeliveryTime, Shipping, FlexContainer, Address, ButtonCart } from './styled'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import { goToCartPage } from '../../routes/coordinator'
 import Loading from '../../components/Loading/Loading'
 import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
 import useForm from '../../hooks/useForm'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 function RestaurantDetailsPage() {
+  useProtectedPage()
   const params = useParams()
   const history = useHistory()
   const restaurantDetails = useRequestData({}, `restaurants/${params.id}`)
@@ -19,7 +21,6 @@ function RestaurantDetailsPage() {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
   })
-
 
 
   return (
@@ -54,7 +55,7 @@ function RestaurantDetailsPage() {
             onChange={onChangeInput}
           />
 
-          <ButtonCart onClick={() => goToCartPage(history)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+          <ButtonCart onClick={() => goToCartPage(history, params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
         </div>
       }
     </Container >

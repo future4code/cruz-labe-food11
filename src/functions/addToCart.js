@@ -9,9 +9,7 @@ const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart) 
       price: productAddedToCart.price,
       quantity: quantity
     }
-    console.log('new productAdded: ',newProductAdded)
-    console.log('producstCart ate o momento: ',productsCart)
-    console.log('cart : ',localStorage.getItem('cart'))
+    
     setProductsCart([...productsCart, newProductAdded])
     alert('Adicionado ao carrinho')
   } else {
