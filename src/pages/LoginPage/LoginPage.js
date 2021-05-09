@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useHistory } from 'react-router'
 import useForm from '../../hooks/useForm'
 import { Eye } from '../../assets/icons/Eye'
@@ -19,7 +19,7 @@ import Header from '../../components/Header/Header'
 const LoginPage = () => {
     useUnprotectedPage ()
 
-    const [form, onChange, clear] = useForm({ email: '', password: '' })
+    const [form, onChange] = useForm({ email: '', password: '' })
     const [hidePassword, setHidePassword] = useState(true)
     const [passwordType, setPasswordType] = useState('password')
     const history = useHistory()

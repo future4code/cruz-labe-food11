@@ -13,12 +13,19 @@ import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
 import { DivIsDifferentPassword } from './styled'
+import {
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+    CloseButton
+} from "@chakra-ui/react"
 
 const SignUpPage = () => {
     useUnprotectedPage()
 
-    const [form, onChange, clear] = useForm({ name: '', email: '', password: '', cpf: '' })
-    const [formPassword, onChangePassword, clearPassword] = useForm({ confirmPassword: '' })
+    const [form, onChange] = useForm({ name: '', email: '', password: '', cpf: '' })
+    const [formPassword, onChangePassword] = useForm({ confirmPassword: '' })
     const history = useHistory()
     const [passwordType, setPasswordType] = useState('password')
     const [hidePassword, setHidePassword] = useState(true)
@@ -26,6 +33,7 @@ const SignUpPage = () => {
     const [hideCheckPassword, setHideCheckPassword] = useState(true)
     const [display, setDisplay] = useState('none')
     const [isCompletedData, setIsCompletedData] = useState(false)
+    const [showErrorMessage, setShowErrorMessage] = useState(false)
     useEffect(() => {
     }, [form.password])
 
@@ -44,8 +52,7 @@ const SignUpPage = () => {
 
     const check = (event) => {
         onChange(event)
-        console.log("onInput check: ", event.target.value)
-        if (event.target.value.length > 5 && form.password.length > 5 && formPassword.confirmPassword != event.target.value) {
+        if (event.target.value.length > 5 && form.password.length > 5 && formPassword.confirmPassword !== event.target.value) {
             setIsCompletedData(false)
             setDisplay('block')
         } else {
@@ -72,19 +79,23 @@ const SignUpPage = () => {
         }
     }
 
+    const closeErrorMessage = () => {
+        setShowErrorMessage(false)
+    }
+
     return (
         <Container>
-            <Header needHeader="true"/>
+            <Header needHeader="true" />
             <Logo />
             <Title text={'Cadastrar'} />
-            <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData)}>
+            <Form onSubmit={(evt) => loginOrSignUp('signup', form, history, evt, isCompletedData, setShowErrorMessage)}>
                 <Input
                     name="name"
                     value={form.name}
                     onChange={check}
                     placeholder="Nome e sobrenome" type='text'
                     required
-                    pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
+                    // pattern={"^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)"}
                     text={'Nome*'}
                     title="Ex: Jorge da Silva, nomes sem acentos."
                 />
@@ -106,7 +117,7 @@ const SignUpPage = () => {
                     onChange={onChange}
                     placeholder="000.000.000-00" type='text'
                     required
-                    pattern={'([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2})'}
+                    pattern={'([0-9]{3}[\\.][0-9]{3}[\\.][0-9]{3}[-][0-9]{2})'}
                     text={'CPF*'}
                     title="000.000.000.00 , Os pontos(.) e o traço(-) são obrigatórios"
                 />
@@ -138,9 +149,17 @@ const SignUpPage = () => {
                     text={'Confirmar*'}
                     title=""
                 />
-                <DivIsDifferentPassword style={{ display: `${display}` }}>Deve ser a mesma que a anterior.</DivIsDifferentPassword>
+                <DivIsDifferentPassword style={{ display: `${display}` }}>
+                    Deve ser a mesma que a anterior.
+                    </DivIsDifferentPassword>
 
-                <Button type='submit' text='Criar'/>
+                <Button type='submit' text='Criar' />
+                {showErrorMessage && <Alert width={'91%'} marginTop={'.8rem'} status="error">
+                    <AlertIcon />
+                    <AlertTitle mr={2}>Email ou CPF já cadastrados!</AlertTitle>
+                    <CloseButton onClick={closeErrorMessage} position="absolute" right="8px" top="8px" />
+                </Alert>}
+
             </Form>
         </Container>
     )
