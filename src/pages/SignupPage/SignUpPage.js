@@ -27,7 +27,6 @@ const SignUpPage = () => {
     const [display, setDisplay] = useState('none')
     const [isCompletedData, setIsCompletedData] = useState(false)
     useEffect(() => {
-        console.log("useEffect")
     }, [form.password])
 
 
@@ -120,7 +119,7 @@ const SignUpPage = () => {
                     type={passwordType}
                     required
                     pattern={"^.{6,}"}
-                    icon={hidePassword ? <SlashEye /> : <Eye />}
+                    icon={!hidePassword ? <SlashEye /> : <Eye />}
                     onClick={changeTypePassword}
                     text={'Senha*'}
                     title=""
@@ -135,7 +134,7 @@ const SignUpPage = () => {
                     required
                     pattern={"^.{6,}"}
                     onClick={changeTypeCheckPassword}
-                    icon={hideCheckPassword ? <SlashEye /> : <Eye />}
+                    icon={!hideCheckPassword ? <SlashEye /> : <Eye />}
                     text={'Confirmar*'}
                     title=""
                 />
