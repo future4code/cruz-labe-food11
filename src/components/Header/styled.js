@@ -32,5 +32,3 @@ height: 2.75rem;
 margin: 1.25rem 3.75rem 0 5.813rem;
 padding: 0.813rem 0.625rem 0.75rem;
 `
-
-export const ContainerLogout = styled.div``

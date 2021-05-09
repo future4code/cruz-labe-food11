@@ -50,11 +50,16 @@ function HomePage() {
     }
   }
 
+  const filterByType = (category) => {
+console.log('category q ta vindo  : ',category)
+const restaurantsByCategory =restaurants.restaurants.filter( (restaurant) => category ===restaurant.category)
+setFilteredRestaurants(restaurantsByCategory)
+}
 
-  const category = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
+  const category = restaurants && restaurants.restaurants && restaurants.restaurants.map((restaurant) => {
 
     return (
-      <LI>{restaurant.category}</LI>
+      <LI onClick={() => filterByType(restaurant.category)}> {restaurant.category}</LI>
 
     )
   })
@@ -64,9 +69,7 @@ function HomePage() {
     return (
 
       <OverFlowContainer>
-        <UL>
-          {category}
-        </UL>
+        
 
         <StyledBox
           key={restaurant.key}
@@ -98,7 +101,9 @@ function HomePage() {
         <Input onChange={filterFunc} type='text' placeholder="Restaurante" />
         
         </ContainerSearchInput>
-        {console.log('activeOrder: ',activeOrder.order)}
+        <UL>
+          {category}
+        </UL>
         {filteredRestaurants.length > 0 ? filtered : <NotFoundMessage> Não encontramos :(</NotFoundMessage>}
           {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
           { isSearching ? <></> : <Footer activeHome="true" />}
