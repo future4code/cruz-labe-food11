@@ -11,16 +11,17 @@ import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
-import { LogoRestaurant, StyledBox, H2Nome, H2, Div } from './styled'
+import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer } from './styled'
+import Loading from '../../components/Loading/Loading'
 
 function HomePage() {
   useProtectedPage()
   const activeOrder = useRequestData({}, 'active-order')
-  // console.log(activeOrder)
   const [filteredRestaurants, setFilteredRestaurants] = useState(useRequestData([], 'restaurants'))
   const [isSearching, setIsSearching] = useState(false)
   const restaurants = useRequestData([], 'restaurants')
   const history = useHistory()
+
 
   const goToDetails = (id) => {
     history.push(`/restaurante/${id}`)
@@ -37,6 +38,7 @@ function HomePage() {
       }
     })
     setFilteredRestaurants(response.data.restaurants)
+    console.log('res.data: ', response.data)
   }
 
 
@@ -58,18 +60,26 @@ function HomePage() {
 
     return (
 
-      <StyledBox
-        key={restaurant.key}
-        onClick={() => goToDetails(restaurant.id)}
-      >
-        <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
-        <H2Nome>{restaurant.name}</H2Nome>
-        <Div>
-          <H2>{restaurant.deliveryTime} min</H2>
-          <H2> Frete R$ {restaurant.shipping},00</H2>
-        </Div>
+      <OverFlowContainer>
 
-      </StyledBox>
+        <StyledBox
+          key={restaurant.key}
+          onClick={() => goToDetails(restaurant.id)}
+        >
+          <LogoRestaurant src={restaurant.logoUrl} alt={'logo do restaurante'} />
+          <DivInfos>
+            <H2Nome>{restaurant.name}</H2Nome>
+            <Div>
+              <H2>{restaurant.deliveryTime} min</H2>
+              <H2> Frete R$ {restaurant.shipping},00</H2>
+            </Div>
+          </DivInfos>
+
+
+
+        </StyledBox>
+      </OverFlowContainer>
+
     )
   })
 
@@ -78,11 +88,15 @@ function HomePage() {
 
     <Container>
       <Header text="Ifuture" />
+      {!restaurants.restaurants ? <Loading /> :
+        <>
+          <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
+          {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
+          {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
+          { isSearching ? <></> : <Footer activeHome="true" />}
+        </>
+      }
 
-      <Input onChange={filterFunc} type='text' placeholder="Restaurantes" />
-      {filteredRestaurants.length > 0 ? filtered : <div> Nada encontrado</div>}
-      {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
-      { isSearching ? <></> : <Footer activeHome="true" />}
     </Container>
 
 

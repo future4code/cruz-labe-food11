@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdEdit } from 'react-icons/md'
 import { IconButton } from '@chakra-ui/react'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
@@ -20,6 +19,8 @@ import { Box } from '@chakra-ui/react'
 import Footer from '../../components/Footer/Footer'
 import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
+import EditIcon from '../../components/EditIcon/EditIcon'
+import Loading from '../../components/Loading/Loading'
 
 function ProfilePage() {
   const profile = useRequestData({}, 'profile')
@@ -37,51 +38,44 @@ function ProfilePage() {
 
     <Container>
       <Header text="Meu perfil" />
-      <PageDiv>
-        <InfoDiv>
-          <EditDiv>
-            <TextStyle >{profile.user && profile.user.name}</TextStyle>
-            <IconButton
-              bg={'none'}
-              onClick={() => goToEditProfilePage(history)}
-              icon={< MdEdit />} />
-          </EditDiv>
-          <TextStyle>{profile.user && profile.user.email}</TextStyle>
-          <TextStyle >{profile.user && profile.user.cpf}</TextStyle>
+      {!profile.user ? <Loading /> :
+        <PageDiv>
+          <InfoDiv>
+            <EditDiv>
+              <TextStyle >{profile.user && profile.user.name}</TextStyle>
+              <IconButton
+                bg={'none'}
+                onClick={() => goToEditProfilePage(history)}
+              icon={< EditIcon />} 
+              />
+            </EditDiv>
+            <TextStyle>{profile.user && profile.user.email}</TextStyle>
+            <TextStyle >{profile.user && profile.user.cpf}</TextStyle>
 
-        </InfoDiv>
-        <Adressdiv>
-          <EditDiv>
-            <SubText >  Endereço Cadastrado: </SubText>
-            <IconButton
-              bg={'none'}
-              onClick={() => goToEditAdressPage(history)}
-              icon={< MdEdit />} />
-          </EditDiv>
-          <TextStyle>{profile.user && profile.user.address}</TextStyle>
+          </InfoDiv>
+          <Adressdiv>
+            <EditDiv>
+              <SubText >  Endereço Cadastrado: </SubText>
+              <IconButton
+                bg={'none'}
+                onClick={() => goToEditAdressPage(history)}
+              icon={< EditIcon />} 
+              />
+            </EditDiv>
+            <TextStyle>{profile.user && profile.user.address}</TextStyle>
 
-        </Adressdiv>
-        <HistoryDiv>
-          <TextHistoryStyle>Histórico de Pedidos</TextHistoryStyle>
-        </HistoryDiv>
-        <CardsHistoryDiv>
-          {listOrderHistory}
+          </Adressdiv>
+          <HistoryDiv>
+            <TextHistoryStyle>Histórico de Pedidos</TextHistoryStyle>
+          </HistoryDiv>
+          <CardsHistoryDiv>
+            {listOrderHistory}
 
-        </CardsHistoryDiv>
-      </PageDiv>
+          </CardsHistoryDiv>
+        </PageDiv>
+      }
 
-      {/* <p>{profile.user && profile.user.name}</p>
-      <p>{profile.user && profile.user.cpf}</p>
-      <p>{profile.user && profile.user.email}</p>
-      <Button  onClick={() => goToEditProfilePage(history)}>Editar perfil</Button>
-      <br /><br />
-      <b>Endereço: </b>
-      <p>{profile.user && profile.user.address}</p>
-      <Button  onClick={() => goToEditAdressPage(history)}>Editar endereço</Button>
-      <b>Histórico de pedidos</b> 
-      onSubmit={(evt) => loginOrSignUp('login', form, history, evt) */}
       <Footer activeAvatar='true' />
-
     </Container>
   )
 }

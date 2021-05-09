@@ -12,7 +12,6 @@ import Title from '../../components/Title/Title'
 import Logo from '../../components/Logo/Logo'
 import { Form } from '../../components/Form/Form'
 import { Container } from '../../components/Container/Container'
-import Footer from '../../components/Footer/Footer'
 import ButtonCadastro from '../../components/Inputs/ButtonCadastro'
 import Header from '../../components/Header/Header'
 
@@ -21,9 +20,9 @@ const LoginPage = () => {
     useUnprotectedPage ()
 
     const [form, onChange, clear] = useForm({ email: '', password: '' })
-    const history = useHistory()
     const [hidePassword, setHidePassword] = useState(true)
     const [passwordType, setPasswordType] = useState('password')
+    const history = useHistory()
 
     const changeTypePassword = () => {
         setHidePassword(!hidePassword)
@@ -46,7 +45,6 @@ const LoginPage = () => {
                 <Button type="submit" text="Entrar"/>
             </Form>
             <ButtonCadastro onClick={() => gotoSignUpPage(history)} text="Nao possui cadastro? Clique aqui" />
-            <Footer activeCart="true" />
         </Container>
     )
 }

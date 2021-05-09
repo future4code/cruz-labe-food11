@@ -52,7 +52,8 @@ function Router() {
           <RestaurantDetailsPage />
         </Route>
 
-        <Route exact path='/carrinho/:id'>
+        
+        <Route exact path='/carrinho'>
           <CartPage />
         </Route>
 

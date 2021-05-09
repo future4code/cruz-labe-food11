@@ -15,6 +15,7 @@ function CartPage() {
 
   useEffect(() => {
     setCartProducts(JSON.parse(cartProductsString))
+    console.log('o que vem no cart: ',localStorage.getItem('cart'))
   }, [cartProductsString])
 
 
