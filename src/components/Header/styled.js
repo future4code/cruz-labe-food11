@@ -14,6 +14,10 @@ background-color: #ffffff;
 display:flex;
 
 `
+
+export const ContainerLogout =  styled.div`
+`
+
 export const GoBackIcon = styled.button`
 background-image:url(${backIcon});
 width:1.5rem;
@@ -25,7 +29,7 @@ margin:1.85rem 0 0.625rem 1rem;
 export const TitleHeader = styled.div`
 width: 10.938rem;
 height: 2.75rem;
-margin: 1.25rem 5.75rem 0 5.813rem;
+margin: 1.25rem 3.75rem 0 5.813rem;
 padding: 0.813rem 0.625rem 0.75rem;
 `
 
