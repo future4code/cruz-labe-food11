@@ -68,3 +68,18 @@ export const H2 = styled.h2`
   letter-spacing: -0.39px;
   color: #b8b8b8;
 `
+
+export const UL = styled.ul`
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    overflow-x: auto;
+    white-space: nowrap;
+`
+
+export const LI = styled.li `
+list-style: none;
+font-size: 1rem;
+margin: 1rem;
+`
