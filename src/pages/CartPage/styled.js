@@ -123,7 +123,7 @@ export const TitlePayment = styled.p`
 
 `
 
-export const FormOfPayment = styled.div`
+export const FormOfPayment = styled.form`
   color: #000;
 
   display: flex;

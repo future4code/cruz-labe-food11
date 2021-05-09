@@ -1,13 +1,14 @@
 import React from 'react'
-
-function ActiveOrder(props) {
+import { ContainerOrder,StaticTextContainer,RestaurantNameContainer, PriceContainer } from './styled'
+const ActiveOrder = (props) => {
   return (
-    <div>
-      <b>pedidos ativos</b>
-      <p>{props.restaurantName}</p>
-      <p>R${props.totalPrice}</p>
-    </div>
+    <ContainerOrder>
+      <StaticTextContainer>Pedido em andamento</StaticTextContainer>
+      <RestaurantNameContainer>{props.restaurantName}</RestaurantNameContainer>
+      <PriceContainer>SUBTOTAL R${props.totalPrice}</PriceContainer>
+    </ContainerOrder>
   )
 }
 
 export default ActiveOrder
+

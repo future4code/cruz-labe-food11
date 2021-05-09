@@ -50,15 +50,11 @@ function HomePage() {
     }
   }
 
-
-
-
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
 
       <OverFlowContainer>
-
         <StyledBox
           key={restaurant.key}
           onClick={() => goToDetails(restaurant.id)}
@@ -71,9 +67,6 @@ function HomePage() {
               <H2> Frete R$ {restaurant.shipping},00</H2>
             </Div>
           </DivInfos>
-
-
-
         </StyledBox>
       </OverFlowContainer>
 
@@ -92,31 +85,14 @@ function HomePage() {
         <Input onChange={filterFunc} type='text' placeholder="Restaurante" />
         
         </ContainerSearchInput>
+        {console.log('activeOrder: ',activeOrder.order)}
         {filteredRestaurants.length > 0 ? filtered : <NotFoundMessage> Não encontramos :(</NotFoundMessage>}
           {activeOrder.order && <ActiveOrder restaurantName={activeOrder.order.restaurantName} totalPrice={activeOrder.order.totalPrice} />}
           { isSearching ? <></> : <Footer activeHome="true" />}
         </>
       }
-
     </Container>
-
-
   )
 }
 
 export default HomePage
-
-
-// const ContainerSearchInput = styled.div`
-//  width: 20.5rem;
-// height: 3.5rem;
-// padding: 1rem 0.503rem 1rem 1.063rem;
-// border-radius: 2px;
-// border: solid 1px #b8b8b8;
-// display:flex;
-// align-items:center;
-// `
-
-// const Input = styled.input`
- 
-// `
