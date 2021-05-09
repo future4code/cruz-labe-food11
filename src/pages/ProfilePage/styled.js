@@ -1,4 +1,4 @@
-import {Text, Box } from '@chakra-ui/react'
+import { Text, Box } from '@chakra-ui/react'
 import styled from 'styled-components'
 
 
@@ -45,7 +45,7 @@ border-color: black;
 export const CardsHistoryDiv = styled(Box)``
 
 
-export const EditDiv =styled(Box)`
+export const EditDiv = styled(Box)`
 width: 100%;
 height: 2.5rem;
 display: flex;
@@ -67,7 +67,7 @@ export const TextStyle = styled(Text)`
     font-family: 'Roboto', sans-serif;
     width: 75%;
     height: 1.125rem;
-    margin: 1rem 1rem 0.5rem;
+    margin: 0.5rem 1rem 0.5rem;
     font-family: Roboto;
     font-size: 1rem;
     font-weight: normal;
@@ -113,3 +113,51 @@ export const TextHistoryStyle = styled(Text)`
 
 `
 
+export const ContainerOrder = styled.div`
+width: 20.5rem;
+height: 6.375rem;
+margin: 0.438rem 0 0;
+padding: 1rem;
+border-radius: 8px;
+border: 1px solid   #b8b8b8;
+margin: 1rem auto 0;
+`
+
+export const TitleOrder = styled.p`
+width: 18.5rem;
+height: 1.125rem;
+margin: 0 0 0.563rem;
+font-family: Roboto;
+font-size: 1rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: -0.39px;
+color: #e8222e;
+`
+
+export const TotalValueOrder = styled.p`
+width: 18.5rem;
+margin: 0.563rem 0 0.438rem;
+font-family: Roboto;
+font-size: 0.75rem;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: -0.29px;
+`
+
+export const DateOrder = styled.p`
+width: 18.5rem;
+height: 1.125rem;
+margin: 0.438rem 0 0;
+font-family: Roboto;
+font-size: 1rem;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: -0.39px;
+`
