@@ -5,14 +5,18 @@ import { Container, GoBackIcon, TitleHeader } from './styled'
 import styled from 'styled-components'
 const Header = (props) => {
     const history = useHistory()
-
+    const logout = (history) => {
+        window.localStorage.removeItem('token')
+        alert("Logout realizado")
+        history.push('/login')
+    }
     return (
         <Container style={props.needHeader !== 'true' ? { boxShadow: 'none' } : { boxShadow: '0 0.5px 0 0 rgba(0, 0, 0, 0.25)' }}>
-            <GoBackIcon onClick={history.goBack} 
-            style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
+            <GoBackIcon onClick={history.goBack}
+                style={props.needHeader !== 'true' ? { backgroundImage: 'none' } : { display: 'flex' }}>
             </GoBackIcon>
             <TitleHeader>{props.text}</TitleHeader>
-            <LogoutButton/>
+            <LogoutButton onClick={() => logout(history)} />
         </Container>
     )
 }
