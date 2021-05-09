@@ -95,9 +95,9 @@ return (
 
 
   <Container>
-    {  !isSearching ? <Header text="iFuture" /> : <Header text="Busca" />}
     {!restaurants.restaurants ? <Loading /> :
       <>
+       {  !isSearching ? <Header text="iFuture" /> : <Header text="Busca" />}
         <ContainerSearchInput>
           <SearchIcon />
           <Input onChange={filterFunc} type='text' placeholder="Restaurante" />

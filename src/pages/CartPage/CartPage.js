@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import removeToCart from '../../functions/removeToCart'
 import placeOrder from '../../requests/placeOrder'
 import { Container } from '../../components/Container/Container'
@@ -24,6 +24,8 @@ function CartPage() {
   const [cartProducts, setCartProducts] = useState([])
   const [paymentMethod, setPaymentMethod] = useState('money')
   const cartProductsString = localStorage.getItem('cart')
+  const history = useHistory()
+
 
   useEffect(() => {
     setCartProducts(JSON.parse(cartProductsString))
@@ -104,7 +106,7 @@ function CartPage() {
         </RadioGroup>
 
       </FormOfPayment>
-      <ButtonConfirm onClick={() => placeOrder(params.id, bodyApi)}
+      <ButtonConfirm onClick={() => placeOrder(params.id, bodyApi,history)}
         bg={'red'} color={'white'}
         disabled={cartProductsList.length === 0 ? true : false} disable > Confirmar </ButtonConfirm>
       <Footer activeCart="true" />
