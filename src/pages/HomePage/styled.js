@@ -72,6 +72,19 @@ margin: 0 0.959rem 0 0;
 object-fit: contain;
 `
 
+export const UL = styled.ul`
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    overflow-x: auto;
+    white-space: nowrap;
+`
+
+export const LI = styled.li `
+list-style: none;
+font-size: 1rem;
+margin: 1rem;
 
 export const ContainerSearchInput = styled.div`
 width: 20.5rem;

@@ -8,7 +8,7 @@ import ActiveOrder from '../../components/ActiveOrder/ActiveOrder'
 import Header from '../../components/Header/Header'
 import { Container } from '../../components/Container/Container'
 import Footer from '../../components/Footer/Footer'
-import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer, SearchIcon ,ContainerSearchInput,Input,NotFoundMessage} from './styled'
+import { LogoRestaurant, StyledBox, H2Nome, H2, Div, DivInfos, OverFlowContainer, UL, LI, SearchIcon ,ContainerSearchInput,Input,NotFoundMessage} from './styled'
 import Loading from '../../components/Loading/Loading'
 
 function HomePage() {
@@ -50,11 +50,24 @@ function HomePage() {
     }
   }
 
+
+  const category = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
+
+    return (
+      <LI>{restaurant.category}</LI>
+
+    )
+  })
+
   const filtered = restaurants && restaurants.restaurants && filteredRestaurants.map((restaurant) => {
 
     return (
 
       <OverFlowContainer>
+        <UL>
+          {category}
+        </UL>
+
         <StyledBox
           key={restaurant.key}
           onClick={() => goToDetails(restaurant.id)}
