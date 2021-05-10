@@ -1,7 +1,7 @@
 
 <h1 align="center">Ifuture</h1>
 
-<p align="center">Neste proh=jeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
+<p align="center">Neste projeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
 React, Hooks (useState e useEffect), autenticação, uso de bibliotecas UI, aplicações com multiplas rotas usando o React Router e Formulários de validação.  </p>
 
 <h1 align="center">
