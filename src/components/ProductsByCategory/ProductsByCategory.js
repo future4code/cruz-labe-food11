@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import filterProductsByCategory from '../../functions/filterProductsByCategory'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import addToCart from '../../functions/addToCart'
@@ -34,61 +34,63 @@ function ProductsByCategory(props) {
     />
   })
 
-  // const accompaniments = accompanimentsFiltering && accompanimentsFiltering.map((product) => {
-  //   return <CardProduct
-  //     key={product.id}
-  //     photoUrl={product.photoUrl}
-  //     name={product.name}
-  //     description={product.description}
-  //     price={product.price.toFixed(2)}
-  //     onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
-  //     nameInput={props.name}
-  //     value={props.value}
-  //     onChange={props.onChange}
-  //   />
-  // })
+  const accompaniments = accompanimentsFiltering && accompanimentsFiltering.map((product) => {
+    return <CardProduct
+      key={product.id}
+      photoUrl={product.photoUrl}
+      name={product.name}
+      description={product.description}
+      price={product.price.toFixed(2)}
+      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
+      nameInput={props.name}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  })
 
-  // const drinks = drinksFiltering && drinksFiltering.map((product) => {
-  //   return <CardProduct
-  //     key={product.id}
-  //     photoUrl={product.photoUrl}
-  //     name={product.name}
-  //     description={product.description}
-  //     price={product.price.toFixed(2)}
-  //     onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
-  //     nameInput={props.name}
-  //     value={props.value}
-  //     onChange={props.onChange}
-  //   />
-  // })
+  const drinks = drinksFiltering && drinksFiltering.map((product) => {
+    return <CardProduct
+      key={product.id}
+      photoUrl={product.photoUrl}
+      name={product.name}
+      description={product.description}
+      price={product.price.toFixed(2)}
+      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
+      nameInput={props.name}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  })
 
-  // const desserts = dessertFiltering && dessertFiltering.map((product) => {
-  //   return <CardProduct
-  //     key={product.id}
-  //     photoUrl={product.photoUrl}
-  //     name={product.name}
-  //     description={product.description}
-  //     price={product.price.toFixed(2)}
-  //     onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
-  //     nameInput={props.name}
-  //     value={props.value}
-  //     onChange={props.onChange}
-  //   />
-  // })
+  const desserts = dessertFiltering && dessertFiltering.map((product) => {
+    return <CardProduct
+      key={product.id}
+      photoUrl={product.photoUrl}
+      name={product.name}
+      description={product.description}
+      price={product.price.toFixed(2)}
+      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
+      nameInput={props.name}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  })
 
+  console.log(desserts && desserts.length)
   return (
     <div>
       <Title>Principais</Title>
       {mainProducts}
 
-      {/* <Title>Acompanhamentos</Title>
-      {accompaniments}
+      {accompaniments && accompaniments.length !== 0 && <Title>Acompanhamentos</Title> }
+      {accompaniments && accompaniments.length !== 0 && accompaniments }
 
-      <Title>Bebidas</Title>
-      {drinks}
+      {drinks && drinks.length !== 0 &&  <Title>Bebidas</Title>}
+      {drinks && drinks.length !== 0 && drinks }
 
-      <Title>Sobremesas</Title>
-      {desserts} */}
+
+      {desserts && desserts.length !== 0 && <Title>Sobremesas</Title> }
+      {desserts && desserts.length !== 0 && desserts }
     </div>
 
 
