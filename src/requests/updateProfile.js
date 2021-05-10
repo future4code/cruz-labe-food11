@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useHistory } from 'react-router'
 import { BASE_URL } from '../constants/url'
 import { goToProfilePage } from '../routes/coordinator'
 const  updateProfile =(body,history)=> {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Header,  ContainerImg, LogoChef, ContainerButtons, ContainerTexto } from './styled'
-// import logo_img from '../../assets/logo-future-eats.png';
-import { goToHomePage, gotoSignUpPage, goToLoginPage } from '../../routes/coordinator';
+import { gotoSignUpPage, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router-dom';
 import {LoadingLogo} from '../../components/TelaInicial/styled'
 const ErrorPage = () => {

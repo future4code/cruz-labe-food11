@@ -16,7 +16,7 @@ const LoadingPage = () => {
         setTimeout(() => {
             token ? history.push("/homePage") : history.push("/login")
         }, 2000)
-    }, [])
+    }, [token,history])
 
 
     return (
