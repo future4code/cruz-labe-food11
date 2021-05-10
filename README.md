@@ -50,6 +50,9 @@ $ npm run dev:server
    * Chackra UI
    * React
 
+   ### Link do Surge
+pointless-soda.surge.sh
+
 
    ### Features
 
