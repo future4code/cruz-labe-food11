@@ -115,6 +115,10 @@ Finalizado
   </tr>
 </table>
 
+<https://github.com/NoellyCosta>
+<https://github.com/adryanefernandes>
+<https://github.com/NtFigueira>
+<https://github.com/tandersonf92>
 
 <!--te-->
 
