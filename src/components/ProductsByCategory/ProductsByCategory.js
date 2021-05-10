@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import filterProductsByCategory from '../../functions/filterProductsByCategory'
 import CardProduct from '../../components/CardProduct/CardProduct'
-import addToCart from '../../functions/addToCart'
 import { Title } from './styled'
 
 function ProductsByCategory(props) {
@@ -88,7 +87,6 @@ function ProductsByCategory(props) {
     />
   })
 
-  console.log(desserts && desserts.length)
   return (
     <div>
       <Title>Principais</Title>

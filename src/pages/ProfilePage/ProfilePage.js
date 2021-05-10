@@ -21,7 +21,6 @@ import {
 } from './styled'
 
 import Footer from '../../components/Footer/Footer'
-import { Container } from '../../components/Container/Container'
 import Header from '../../components/Header/Header'
 import EditIcon from '../../components/EditIcon/EditIcon'
 import Loading from '../../components/Loading/Loading'

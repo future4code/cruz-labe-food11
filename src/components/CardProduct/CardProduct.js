@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import addToCart from '../../functions/addToCart'
 import removeToCart from '../../functions/removeToCart'
 import { CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ContainerButton, ButtonProvover, Input, ButtonGroup, ButtonProvoverCancel } from './styled'
@@ -117,13 +116,6 @@ function CardProduct(props) {
             </>
           )}
         </Popover>
-
-
-
-
-
-
-
       </Flex>
     </ContainerInfoProducts>
   </CardItem>
@@ -131,16 +123,3 @@ function CardProduct(props) {
 
 export default CardProduct
 
-const Quantityca = styled.p`
-width: 2.063rem;
-height: 2.063rem;
-border-radius: 0 8px  0 8px;
-border: solid 1px #e8222e;
-position:absolute;
-top: 0;
-right:0;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#e8222e
-`

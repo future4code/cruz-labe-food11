@@ -20,10 +20,9 @@ function CartPage() {
   const [cartProducts, setCartProducts] = useState([])
   const userInfos = useRequestData({}, 'profile')
 
-  console.log(cartList)
   useEffect(() => {
     setCartProducts(cartList)
-  }, [cartList])
+  }, [])
 
   let amount = 0
   const listOfOrders = cartProducts && cartProducts.map((product) => {
