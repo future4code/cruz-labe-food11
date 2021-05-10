@@ -1,8 +1,8 @@
 import {useHistory} from 'react-router-dom'
-import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
-// import PacmanLoader from 'react-spinners/PacmanLoader'
 import '../../App.css';
+import TelaInicial from '../../components/TelaInicial/TelaInicial';
+import { Container } from '../../components/Container/Container';
 
 
 
@@ -16,35 +16,18 @@ const LoadingPage = () => {
         setLoading(true)
         setTimeout(() => {
             token ? history.push("/homePage") : history.push("/login")
-        }, 8000)
+        }, 2000)
     }, [])
 
    // setLoading(false)
 
     return (
+        <Container>
 
-        <div  className= 'lily'>
-             <Logo src='../../assets/logo-future-eats.png'/>
-          
-              
-
-                    {/* <
-                 
-                        PacmanLoader
-                        size={65}
-                        color={'#D01802'}
-                    /> */}
-
-                   
-         
-
-        </div>
+<TelaInicial/>
+        </Container>
+        
     );
 }
 
 export default LoadingPage;
-
-
-const Logo = styled.div`
-
-`
