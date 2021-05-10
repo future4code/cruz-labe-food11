@@ -14,7 +14,7 @@ function useRequestData(initialState, finalUrl) {
     .then((res) => {
       setData(res.data)
     }).catch((err) => {
-      alert(err)
+      alert(err.response.data.message)
     })
   }, [finalUrl])
 
