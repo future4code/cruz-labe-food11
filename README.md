@@ -1,7 +1,7 @@
 
 <h1 align="center">Ifuture</h1>
 
-<p align="center">Neste proh=jeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
+<p align="center">Neste projeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
 React, Hooks (useState e useEffect), autenticação, uso de bibliotecas UI, aplicações com multiplas rotas usando o React Router e Formulários de validação.  </p>
 
 <h1 align="center">
@@ -27,7 +27,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/future4code/cruz-labe-food11.git>
+$ git clone <https://github.com/tgmarinho/nlw1>
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd cruz-labe-food11
@@ -49,6 +49,9 @@ $ npm run dev:server
    * [Tecnologias](#tecnologias)
    * Chackra UI
    * React
+
+   ### Link do Surge
+pointless-soda.surge.sh
 
 
    ### Features
@@ -101,17 +104,23 @@ $ npm run dev:server
 Finalizado
 </h4>
 
-
-
-<!--te-->
-
 ### Contribuitors
+<br />
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/adryanefernandes"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/76170319?s=400&u=c79a37b29d25709e380c64ae9d9432b35f72638e&v=4" width="100px;" alt=""/><br /><sub><b>Adryane Fernandes</b></sub></a><br />
+    <td align="center"><a href="https://github.com/NoellyCosta"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59965675?v=4" width="100px;" alt=""/><br /><sub><b>Noelly Costa</b></sub></a><br />
+    <td align="center"><a href="https://github.com/NtFigueira"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77118438?v=4" width="100px;" alt=""/><br /><sub><b>Nathalia Figueira</b></sub></a><br />
+    <td align="center"><a href="https://github.com/tandersonf92"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/53446211?v=4" width="100px;" alt=""/><br /><sub><b>Anderson Henrique</b></sub></a><br />
+  </tr>
+</table>
 
 <https://github.com/NoellyCosta>
 <https://github.com/adryanefernandes>
 <https://github.com/NtFigueira>
 <https://github.com/tandersonf92>
 
+<!--te-->
 
 
 
