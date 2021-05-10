@@ -1,5 +1,5 @@
 
-<h1 align="center">Ifuture</h1>
+<h1 align="center">iFuture</h1>
 
 <p align="center">Neste projeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
 React, Hooks (useState e useEffect), autenticação, uso de bibliotecas UI, aplicações com multiplas rotas usando o React Router e Formulários de validação.  </p>
@@ -41,5 +41,10 @@ Nçao está responsivo.
 Nã tentativa de login, as x da erro de não autorizado.
 
 
+Integrantes: Adryane Fernandes
+             Anderson Oliveira
+             Nathália Figueira
+             Noelly Costa 
 
+SURGE: infamous-butter.surge.sh
 
