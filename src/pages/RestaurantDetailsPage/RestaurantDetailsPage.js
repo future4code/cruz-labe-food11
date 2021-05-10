@@ -9,6 +9,7 @@ import Loading from '../../components/Loading/Loading'
 import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
 import useForm from '../../hooks/useForm'
 import useProtectedPage from '../../hooks/useProtectedPage'
+import imageCart from '../../assets/shopping-cart-active.svg'
 
 function RestaurantDetailsPage() {
   useProtectedPage()
@@ -55,7 +56,7 @@ function RestaurantDetailsPage() {
             onChange={onChangeInput}
           />
 
-          <ButtonCart onClick={() => goToCartPage(history, params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+          <ButtonCart onClick={() => goToCartPage(history, params.id)} bg={"red"} color={'white'}><img src={imageCart} alt={'icon carrinho'}/></ButtonCart>
         </div>
       }
     </Container >
