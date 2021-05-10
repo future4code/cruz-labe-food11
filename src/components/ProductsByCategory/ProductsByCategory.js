@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import filterProductsByCategory from '../../functions/filterProductsByCategory'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import addToCart from '../../functions/addToCart'
@@ -33,7 +34,6 @@ function ProductsByCategory(props) {
       productId={product.id}
     />
   })
-
   const accompaniments = accompanimentsFiltering && accompanimentsFiltering.map((product) => {
     return <CardProduct
       key={product.id}
@@ -41,10 +41,14 @@ function ProductsByCategory(props) {
       name={product.name}
       description={product.description}
       price={product.price.toFixed(2)}
-      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
       nameInput={props.name}
       value={props.value}
       onChange={props.onChange}
+      product={product}
+      restaurantDetails={props.restaurantDetails}
+      listOfRequests={props.listOfRequests}
+      setListOfRequests={props.setListOfRequests}
+      productId={product.id}
     />
   })
 
@@ -55,10 +59,14 @@ function ProductsByCategory(props) {
       name={product.name}
       description={product.description}
       price={product.price.toFixed(2)}
-      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
       nameInput={props.name}
       value={props.value}
       onChange={props.onChange}
+      product={product}
+      restaurantDetails={props.restaurantDetails}
+      listOfRequests={props.listOfRequests}
+      setListOfRequests={props.setListOfRequests}
+      productId={product.id}
     />
   })
 
@@ -69,10 +77,14 @@ function ProductsByCategory(props) {
       name={product.name}
       description={product.description}
       price={product.price.toFixed(2)}
-      onClick={() => addToCart(props.value, product, listOfRequests, setListOfRequests)}
       nameInput={props.name}
       value={props.value}
       onChange={props.onChange}
+      product={product}
+      restaurantDetails={props.restaurantDetails}
+      listOfRequests={props.listOfRequests}
+      setListOfRequests={props.setListOfRequests}
+      productId={product.id}
     />
   })
 
@@ -82,15 +94,15 @@ function ProductsByCategory(props) {
       <Title>Principais</Title>
       {mainProducts}
 
-      {accompaniments && accompaniments.length !== 0 && <Title>Acompanhamentos</Title> }
-      {accompaniments && accompaniments.length !== 0 && accompaniments }
+      {accompaniments && accompaniments.length !== 0 && <Title>Acompanhamentos</Title>}
+      {accompaniments && accompaniments.length !== 0 && accompaniments}
 
-      {drinks && drinks.length !== 0 &&  <Title>Bebidas</Title>}
-      {drinks && drinks.length !== 0 && drinks }
+      {drinks && drinks.length !== 0 && <Title>Bebidas</Title>}
+      {drinks && drinks.length !== 0 && drinks}
 
 
-      {desserts && desserts.length !== 0 && <Title>Sobremesas</Title> }
-      {desserts && desserts.length !== 0 && desserts }
+      {desserts && desserts.length !== 0 && <Title>Sobremesas</Title>}
+      {desserts && desserts.length !== 0 && desserts}
     </div>
 
 

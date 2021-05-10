@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import addToCart from '../../functions/addToCart'
 import removeToCart from '../../functions/removeToCart'
@@ -16,7 +16,7 @@ import {
 
 
 function CardProduct(props) {
-  const { restaurantDetails, listOfRequests, setListOfRequests } = props
+  const {  listOfRequests, setListOfRequests } = props
   const initRef = React.useRef()
   const [cartProducts, setCartProducts] = useState([])
   const cartProductsString = localStorage.getItem('cart')
