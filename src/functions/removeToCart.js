@@ -1,4 +1,4 @@
-const removeToCart = (id, listProducts, setListProducts) => {
+const removeToCart = (id, listProducts, setListProducts, setIsInTheCart) => {
   const copyCartProducts = [...listProducts]
 
   const index = listProducts.findIndex((item) => {
@@ -12,6 +12,7 @@ const removeToCart = (id, listProducts, setListProducts) => {
   }
 
   setListProducts(copyCartProducts)
+  setIsInTheCart(false)
   localStorage.setItem('cart', JSON.stringify(copyCartProducts))
 }
 

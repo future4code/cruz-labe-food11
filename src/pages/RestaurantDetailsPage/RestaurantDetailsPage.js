@@ -21,16 +21,16 @@ function RestaurantDetailsPage() {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
   })
-
+  
 
   return (
     <Container>
+      <Header needHeader="true" text="Restaurante" />
       {!restaurantDetails.restaurant ? <Loading /> :
         <div>
 
 
           <restaurantDetails>
-            <Header needHeader="true" text="Restaurante" />
             <CardRestaurant>
               <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
               <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>

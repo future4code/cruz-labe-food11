@@ -7,8 +7,10 @@ padding: 0 0 1rem;
 border-radius: 8px;
 margin-top: 0.5rem;
 transition: transform 0.5s linear;
+
+cursor: pointer;
 &:hover{
-  transform: scale(1.1, 1);
+  transform: scale(1.1);
 }
 `
 
