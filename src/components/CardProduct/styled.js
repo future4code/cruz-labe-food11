@@ -54,19 +54,27 @@ export const Price = styled.p`
 
 export const Button = styled.button`
   align-self: flex-end;
-  border: 1px solid rgb(0, 0, 0);
+  border: ${(props) => props.border};
+  color: ${(props) => props.color};
   border-radius: 10px 0 10px 0;
   padding: .5rem 1.5rem;
 `
 
 //Provover
 export const ContainerButton = styled.div `
+  display: flex;
+`
+export const ButtonGroup = styled.div `
   text-align: right;
 `
 export const ButtonProvover = styled.button `
   color: #4f81a8;
+  margin: 0 .5rem;
 `
-
+export const ButtonProvoverCancel = styled(ButtonProvover) `
+  color: #000;
+  margin: 0 .5rem;
+`
 export const Input = styled.input `
   border: 1px solid #b8b8b8;
   padding: .8rem;

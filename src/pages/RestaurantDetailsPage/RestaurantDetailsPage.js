@@ -9,6 +9,7 @@ import Loading from '../../components/Loading/Loading'
 import ProductsByCategory from '../../components/ProductsByCategory/ProductsByCategory'
 import useForm from '../../hooks/useForm'
 import useProtectedPage from '../../hooks/useProtectedPage'
+import imageCart from '../../assets/shopping-cart-active.svg'
 
 function RestaurantDetailsPage() {
   useProtectedPage()
@@ -20,18 +21,17 @@ function RestaurantDetailsPage() {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
-  // })
-})
-
+  })
+  
 
   return (
     <Container>
+      <Header needHeader="true" text="Restaurante" />
       {!restaurantDetails.restaurant ? <Loading /> :
         <div>
 
 
           <restaurantDetails>
-            <Header needHeader="true" text="Restaurante" />
             <CardRestaurant>
               <Image src={restaurantDetails.restaurant && restaurantDetails.restaurant.logoUrl} alt={'logo restaurante'} />
               <NameRestaurant>{restaurantDetails.restaurant && restaurantDetails.restaurant.name}</NameRestaurant>
@@ -56,7 +56,7 @@ function RestaurantDetailsPage() {
             onChange={onChangeInput}
           />
 
-          <ButtonCart onClick={() => goToCartPage(history, params.id)} bg={"red"} color={'white'}>Carrinho</ButtonCart>
+          <ButtonCart onClick={() => goToCartPage(history, params.id)} bg={"red"} color={'white'}><img src={imageCart} alt={'icon carrinho'}/></ButtonCart>
         </div>
       }
     </Container >

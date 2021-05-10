@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ContainerButton, ButtonProvover, Input } from './styled'
+import addToCart from '../../functions/addToCart'
+import removeToCart from '../../functions/removeToCart'
+import { CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ContainerButton, ButtonProvover, Input, ButtonGroup, ButtonProvoverCancel } from './styled'
 import {
   Popover,
   PopoverTrigger,
@@ -14,14 +16,37 @@ import {
 
 
 function CardProduct(props) {
+  const {  listOfRequests, setListOfRequests } = props
   const initRef = React.useRef()
-  
+  const [cartProducts, setCartProducts] = useState([])
+  const cartProductsString = localStorage.getItem('cart')
+  const [isInTheCart, setIsInTheCart] = useState(false)
+
+  let textButtonAddOrRemove
+  if (isInTheCart) {
+    textButtonAddOrRemove = 'remover'
+  } else {
+    textButtonAddOrRemove = 'adicionar'
+  }
+
+  let colorButton, borderButton
+  if(isInTheCart){
+    colorButton = '#e8222f'
+    borderButton = '1px solid #e8222f'
+  } else {
+    colorButton = '#000'
+    borderButton = '1px solid #000'
+  }
+
+
+  useEffect(() => {
+    setCartProducts(JSON.parse(cartProductsString))
+  }, [cartProductsString])
 
   return <CardItem>
     <ImageItem src={props.photoUrl} />
 
     <ContainerInfoProducts>
-      {/* <Quantityca>{props.quantity>0? props.quantity : '12'}</Quantityca>  AQUI E ONDE VAI APAREER O N° */}
       <NameProduct>{props.name}</NameProduct>
       <DescriptionProduct>{props.description}</DescriptionProduct>
       <Flex>
@@ -30,13 +55,13 @@ function CardProduct(props) {
           {({ isOpen, onClose }) => (
             <>
               <PopoverTrigger>
-                <Button>adicionar</Button>
+                <Button border={borderButton} color={colorButton}>{textButtonAddOrRemove}</Button>
               </PopoverTrigger>
               <Portal>
                 <PopoverContent
                   padding={'2rem 1.5rem'}>
                   <PopoverCloseButton />
-                  <PopoverBody>
+                  {!isInTheCart ? <PopoverBody>
                     <PopoverArrow />
                     <PopoverHeader>Selecione a quantidade desejada</PopoverHeader>
                     <PopoverCloseButton />
@@ -51,12 +76,42 @@ function CardProduct(props) {
                     <ButtonProvover
                       mt={4}
                       colorScheme="blue"
-                      onClick={function (event) { props.onClick(); onClose() }}
+                      onClick={function (event) { addToCart(props.value, props.product, listOfRequests, setListOfRequests, setIsInTheCart); onClose() }}
                       ref={initRef}
                     >
-                      ADICIONAR AO CARRINHO
-                </ButtonProvover>
+                      ACICIONAR AO CARRINHO
+                    </ButtonProvover>
                   </PopoverBody>
+
+                    :
+
+
+                    <PopoverBody>
+                      <PopoverArrow />
+                      <PopoverHeader>Deseja mesmo remover item do carrinho?</PopoverHeader>
+                      <PopoverCloseButton />
+                      <ContainerButton>
+                      </ContainerButton>
+                      <ButtonGroup>
+                        <ButtonProvoverCancel
+                          mt={4}
+                          colorScheme="blue"
+                          onClick={function (event) { removeToCart(props.poductId, listOfRequests, setListOfRequests, setIsInTheCart); onClose() }}
+                          ref={initRef}
+                        >
+                          SIM
+                      </ButtonProvoverCancel>
+                        <ButtonProvover
+                          mt={4}
+                          colorScheme="blue"
+                          onClick={() => onClose()}
+                          ref={initRef}
+                        >
+                          CANCELAR
+                      </ButtonProvover>
+                      </ButtonGroup>
+                    </PopoverBody>
+                  }
                 </PopoverContent>
               </Portal>
             </>

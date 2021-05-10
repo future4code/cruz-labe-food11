@@ -41,22 +41,22 @@ export const Address = styled(description)``
 
 
 // Botão
-export const ButtonCart = styled.button `
-  background: #e8222f;
+export const ButtonCart = styled.button`
+  box-shadow: 1px 1px 10px gray;
   border-radius: 100%;
   position: fixed;
   bottom: 3rem;
   right: 3rem;
-  padding: .5rem;
+  padding: .8rem;
   color: white;
 
   &:hover{
-    background: rgba(190, 26, 38);
+    background: #c4c4c4;
     transform: scale(1.1)
   }
 
   &:active{
-    background: #e8222f;
+    background: #b8b8b8;
     transform: scale(1)
   }
 `

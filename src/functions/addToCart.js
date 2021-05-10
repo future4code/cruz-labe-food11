@@ -1,4 +1,4 @@
-const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart) => {
+const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart, setIsInTheCart) => {
   if (quantity > 0) {
     const newProductAdded = {
       category: productAddedToCart.category,
@@ -11,9 +11,7 @@ const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart) 
     }
     
     setProductsCart([...productsCart, newProductAdded])
-    // console.log('quantity: ',quantity)
-    // console.log('productCart: ',productsCart)
-    alert('Adicionado ao carrinho')
+    setIsInTheCart(true)
   } else {
     alert('Adicione quantidade válida (acima de 0)')
   }
