@@ -24,6 +24,10 @@ export const goToProfilePage = (history) => {
 export const goToCartPage = (history, id) => {
     history.push(`/carrinho/${id}`)
 }
+export const goToCartHomePage = (history) => {
+    history.push(`/carrinho`)
+}
+
 export const goToRegisterAddressPage = (history) => {
     history.push('/cadastro/endereco')
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import { goToCartPage, goToHomePage, goToProfilePage } from '../../routes/coordinator'
+import { goToCartHomePage, goToHomePage, goToProfilePage } from '../../routes/coordinator'
 import { Avatar, AvatarActive, BoxComponent, ContainerFooter, ContainerIcons, HomePage, HomePageActive, ShoppingCart, ShoppingCartActive } from './styled'
 
 const Footer = (props) => {
@@ -14,7 +14,7 @@ const history = useHistory()
                     
                 </BoxComponent>
 
-                <BoxComponent onClick={() =>goToCartPage(history)}>
+                <BoxComponent onClick={() =>goToCartHomePage(history)}>
                     {props.activeCart === 'true' ? <ShoppingCartActive /> : <ShoppingCart />}
                 </BoxComponent>
                 <BoxComponent onClick={() => goToProfilePage(history)}>

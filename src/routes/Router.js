@@ -11,6 +11,8 @@ import RegisterAddressPage from '../pages/RegisterAdressPage/RegisterAdressPage'
 import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 import EditAdressPage from '../pages/EditAdressPage/EditAdressPage'
 import LoadingPage from '../pages/LoadingPage/LoadingPage'
+import CartHomePage from '../pages/CartHomePage/CartHomePage'
+
 
 function Router() {
   return (
@@ -50,6 +52,10 @@ function Router() {
 
         <Route exact path='/restaurante/:id'>
           <RestaurantDetailsPage />
+        </Route>
+
+        <Route exact path='/carrinho'>
+          <CartHomePage />
         </Route>
 
         <Route exact path='/carrinho/:id'>

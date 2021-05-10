@@ -53,7 +53,6 @@ export const Flex = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* margin-top: auto; */
 `
 
 export const Price = styled.p`
@@ -91,16 +90,11 @@ export const NameRestaurant = styled.p`
   color: #e8222e;
 `
 
-export const Shipping = styled.p`
-  font-weight: bold;
-  text-align: right;
-  margin: .8rem 0;
-`
 
 export const Subtotal = styled.p`
   color: #e8222e;
   font-weight: 600;
-  margin: .8rem 0;
+  margin: 1.5rem 0;
   font-size: 1.3rem;
 
   display: flex;
@@ -113,39 +107,6 @@ export const SubtotalText = styled.span`
   font-weight: bold;
 `
 
-export const TitlePayment = styled.p`
-  width: 100%;
-  padding: .2rem 0;
-  margin: 1rem 0;
-  font-weight: 500;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  font-size: 1.2rem;
-
-`
-
-export const FormOfPayment = styled.form`
-  color: #000;
-
-  display: flex;
-  flex-direction: column;
-`
-export const RadioGroup = styled.div`
-  margin: .2rem;
-`
-export const Radio = styled.input`
-  margin-right: .5rem;
-`
-
-export const ButtonConfirm = styled.button`
-  margin-top: 1.5rem;
-  background: #e8222e;
-  padding: .8rem;
-  width: 100%;
-  &:disabled{
-    background-color: rgba(232, 34, 46, 0.5);
-    
-  }
-`
 
 export const CenteredP = styled.p`
 text-align:center;
