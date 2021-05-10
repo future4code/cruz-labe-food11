@@ -70,6 +70,11 @@ fabulous-yard.surge.sh
 - [x] Editar endereço
 
 
+Bugs: 
+Entrar no carrinho na 1° vez sem adicionar nada , da tela branca.
+Remover no simbolo carrinho alguma coisa não remove do cart realmente.
+container de adicionar ao carirnho passa do limite da tela.
+
 ## Para utilizar o nosso site acesse o link
 
 
