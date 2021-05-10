@@ -41,9 +41,9 @@ Nçao está responsivo.
 Nã tentativa de login, as x da erro de não autorizado.
 
 
-Integrantes: Adryane Fernandes
-             Anderson Oliveira
-             Nathália Figueira
+Integrantes: Adryane Fernandes <br>
+             Anderson Oliveira </br>
+             Nathália Figueira <br/>
              Noelly Costa 
 
 SURGE: infamous-butter.surge.sh
