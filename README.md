@@ -1,7 +1,7 @@
 
 <h1 align="center">Ifuture</h1>
 
-<p align="center">Neste proh=jeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
+<p align="center">Neste projeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
 React, Hooks (useState e useEffect), autenticação, uso de bibliotecas UI, aplicações com multiplas rotas usando o React Router e Formulários de validação.  </p>
 
 <h1 align="center">
@@ -29,6 +29,16 @@ Tabela de conteúdos
 <!--te-->
 
 
+
+### O que funciona
+Carrinho, enviar pedido, mostrar pedidos, logar, criar conta, ver perfil .
+
+### O que não funciona
+Ainda não é possível fazer o botao de adicionar/remover dinânimo nos pratos na hora de adicionar ao carrinho.
+Bug de função que ao invez de mandar para o carrinho, manda para undefined.
+Algumas pequenas falhas de estilização.
+Nçao está responsivo.
+Nã tentativa de login, as x da erro de não autorizado.
 
 
 
