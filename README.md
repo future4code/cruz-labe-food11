@@ -102,16 +102,13 @@ Finalizado
 </h4>
 
 ### Contribuitors
-
-
-https://github.com/tandersonf92
 <br />
 <table>
   <tr>
     <td align="center"><a href="https://github.com/adryanefernandes"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/76170319?s=400&u=c79a37b29d25709e380c64ae9d9432b35f72638e&v=4" width="100px;" alt=""/><br /><sub><b>Adryane Fernandes</b></sub></a><br />
     <td align="center"><a href="https://github.com/NoellyCosta"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59965675?v=4" width="100px;" alt=""/><br /><sub><b>Noelly Costa</b></sub></a><br />
     <td align="center"><a href="https://github.com/NtFigueira"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77118438?v=4" width="100px;" alt=""/><br /><sub><b>Nathalia Figueira</b></sub></a><br />
-    <td align="center"><a href="https://github.com/tandersonf92"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/53446211?v=4" width="100px;" alt=""/><br /><sub><b>Anderson Henrique Martins de Oliveira</b></sub></a><br />
+    <td align="center"><a href="https://github.com/tandersonf92"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/53446211?v=4" width="100px;" alt=""/><br /><sub><b>Anderson Henrique</b></sub></a><br />
   </tr>
 </table>
 
