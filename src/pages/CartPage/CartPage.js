@@ -32,7 +32,7 @@ function CartPage() {
   }, [cartProductsString])
 
 
-  const productsToOrder = cartProducts.map((item) => {
+  const productsToOrder = cartProducts.forEach((item) => {
 
     return {
       quantity: item.quantity,
