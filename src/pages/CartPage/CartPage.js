@@ -34,7 +34,6 @@ function CartPage() {
 
   const productsToOrder = cartProducts.map((item) => {
 
-    console.log('cartsProduct: ', cartProducts)
     return {
       quantity: item.quantity,
       id: item.id

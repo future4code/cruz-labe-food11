@@ -10,7 +10,7 @@ transition: transform 0.5s linear;
 
 cursor: pointer;
 &:hover{
-  transform: scale(1.1);
+  transform: scale(1.1,1);
 }
 `
 
@@ -81,7 +81,7 @@ export const UL = styled.ul`
     width: 95%;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width:none;
+    /* scrollbar-width:none; */
 `
 
 export const LI = styled.li `

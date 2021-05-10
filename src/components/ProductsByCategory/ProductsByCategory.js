@@ -88,7 +88,6 @@ function ProductsByCategory(props) {
     />
   })
 
-  console.log(desserts && desserts.length)
   return (
     <div>
       <Title>Principais</Title>

@@ -1,4 +1,4 @@
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import TelaInicial from '../../components/TelaInicial/TelaInicial';
@@ -11,7 +11,6 @@ const LoadingPage = () => {
     const token = localStorage.getItem("token");
     const [loading, setLoading] = useState(false)
 
-
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
@@ -19,14 +18,13 @@ const LoadingPage = () => {
         }, 2000)
     }, [])
 
-   // setLoading(false)
 
     return (
         <Container>
 
-<TelaInicial/>
+            <TelaInicial />
         </Container>
-        
+
     );
 }
 
