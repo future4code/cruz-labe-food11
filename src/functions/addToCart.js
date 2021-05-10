@@ -11,6 +11,8 @@ const addToCart = (quantity, productAddedToCart, productsCart, setProductsCart) 
     }
     
     setProductsCart([...productsCart, newProductAdded])
+    // console.log('quantity: ',quantity)
+    // console.log('productCart: ',productsCart)
     alert('Adicionado ao carrinho')
   } else {
     alert('Adicione quantidade válida (acima de 0)')

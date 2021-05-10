@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { CardItem, ImageItem, ContainerInfoProducts, NameProduct, DescriptionProduct, Price, Button, Flex, ContainerButton, ButtonProvover, Input } from './styled'
 import {
@@ -15,21 +15,13 @@ import {
 
 function CardProduct(props) {
   const initRef = React.useRef()
-  const [cartProducts, setCartProducts] = useState([])
-  const cartProductsString = localStorage.getItem('cart')
-
-
-
-  useEffect(() => {
-    setCartProducts(JSON.parse(cartProductsString))
-  }, [cartProductsString])
-
+  
 
   return <CardItem>
     <ImageItem src={props.photoUrl} />
 
     <ContainerInfoProducts>
-      <Quantityca>11</Quantityca>  {/* AQUI E ONDE VAI APAREER O N° */}
+      {/* <Quantityca>{props.quantity>0? props.quantity : '12'}</Quantityca>  AQUI E ONDE VAI APAREER O N° */}
       <NameProduct>{props.name}</NameProduct>
       <DescriptionProduct>{props.description}</DescriptionProduct>
       <Flex>
