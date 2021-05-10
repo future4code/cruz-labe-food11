@@ -115,10 +115,10 @@ Finalizado
   </tr>
 </table>
 
-<https://github.com/NoellyCosta>
-<https://github.com/adryanefernandes>
-<https://github.com/NtFigueira>
-<https://github.com/tandersonf92>
+<https://github.com/NoellyCosta> <br>
+<https://github.com/adryanefernandes> <br>
+<https://github.com/NtFigueira> <br>
+<https://github.com/tandersonf92> 
 
 <!--te-->
 
