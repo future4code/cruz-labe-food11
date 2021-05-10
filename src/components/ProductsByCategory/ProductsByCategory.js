@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import filterProductsByCategory from '../../functions/filterProductsByCategory'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import addToCart from '../../functions/addToCart'
@@ -16,7 +17,30 @@ function ProductsByCategory(props) {
   const dessertFiltering = filterProductsByCategory(restaurantDetails, listOfRequests, setListOfRequests, 'Sorvete')
 
 
+
+
+  const [cartProducts, setCartProducts] = useState([])
+  const cartProductsString = localStorage.getItem('cart')
+  const [mainEffectProducts,setMainEffectProducts] = useState([])
+
+
+  useEffect(() => {
+    setCartProducts(JSON.parse(cartProductsString))
+    // console.log('cartProducts ja convertido: ',cartProducts)
+  }, [cartProductsString,mainEffectProducts])
+
+
+
   const mainProducts = mainFiltering && mainFiltering.map((product) => { 
+const isQuantity = cartProducts.filter((productOnStorage) =>{ 
+  if(product.name === productOnStorage.name){
+    return product.quantity =productOnStorage.quantity
+  }})
+
+// console.log('vendo se ele ta pegando algo no filter: ',isQuantity)
+// console.log('cartProducts ver c vem : ',cartProducts)
+
+
     return <CardProduct
       key={product.id}
       photoUrl={product.photoUrl}
@@ -27,9 +51,10 @@ function ProductsByCategory(props) {
       nameInput={props.name}
       value={props.value}
       onChange={props.onChange}
+      // quantity={props.quantity}
+      quantity={product.quantity}
     />
   })
-
   const accompaniments = accompanimentsFiltering && accompanimentsFiltering.map((product) => {
     return <CardProduct
       key={product.id}

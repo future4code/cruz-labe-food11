@@ -20,7 +20,8 @@ function RestaurantDetailsPage() {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(listOfRequests))
-  })
+  // })
+})
 
 
   return (
