@@ -1,68 +1,134 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">Ifuture</h1>
 
-In the project directory, you can run:
+<p align="center">Neste projeto foi colocado em prática todo conteúdo passado durante o modulo de front-end, onde utilizamos:
+React, Hooks (useState e useEffect), autenticação, uso de bibliotecas UI, aplicações com multiplas rotas usando o React Router e Formulários de validação.  </p>
 
-### `npm start`
+<h1 align="center">
+    <a href="https://pt-br.reactjs.org/">🔗 React JS</a>
+</h1>
+<p align="center">🚀 lib para construir interfaces do usuário com componentes reutilizáveis</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="https://img.shields.io/static/v1?label=Ifuture&message=TurmaCruz&color=7159c1&style=for-the-badge&logo=ghost"/>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+Tabela de conteúdos
+=================
+<!--ts-->
+   * [Projeto segue conceitos básicos do mais popular App de Delivery do momento e inspirado nele com temas e funcionalidades ](#Sobre)
+   * [Instalação-- ](#instalacao)
+   * [Como usar](#como-usar)
+      * [Pre Requisitos](#pre-requisitos)
+     Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎲 Rodando o Back End (servidor)
 
-### `npm run build`
+```bash
+# Clone este repositório
+$ git clone <https://github.com/tgmarinho/nlw1>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd cruz-labe-food11
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Vá para a pasta server
+$ cd server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as dependências
+$ npm install
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev:server
 
-### `npm run eject`
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   * [Tests](#testes)
+   * Form de Cadastro
+   *  form de Login
+   * [Tecnologias](#tecnologias)
+   * Chackra UI
+   * React
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ### Link do Surge
+fabulous-yard.surge.sh
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ### Features
 
-## Learn More
+- [x] Tela Inicial
+- [x] Login
+- [x] Cadastro de endereço
+- [x] Sign Up
+- [x] Home Page
+- [x] Pesquisa
+- [x] Carrinho
+- [x] Restaurantes
+- [x] Pedidos em andamento
+- [x] Perfil
+- [x] Editar Perfil
+- [x] Editar endereço
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Bugs: 
+Entrar no carrinho na 1° vez sem adicionar nada , da tela branca.
+Remover no simbolo carrinho alguma coisa não remove do cart realmente.
+container de adicionar ao carirnho passa do limite da tela.
 
-### Code Splitting
+## Para utilizar o nosso site acesse o link
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+   * [Integração com os seguintes endpoints  da API Ifuture](#integração)
+   * Login
+   * SignUp
+   * Add Adress
+   * Get Full Adress
+   * Get Profile
+   * Update Profile
+   * Get Restaurantes
+   * Get Restaurants Details
+   * Place Order
+   * Get Active Order
+   * Orders History
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+   * [Imagens](#Imagens)
+ ![image](https://user-images.githubusercontent.com/59965675/117597248-91021c00-b11b-11eb-9be7-a908bcdc57ff.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597289-a2e3bf00-b11b-11eb-82b2-c82fa050de44.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597351-c73f9b80-b11b-11eb-9b74-799ff47c0ef7.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597401-e4746a00-b11b-11eb-9946-b2244e62232d.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597527-256c7e80-b11c-11eb-864e-9bcb404ac957.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597567-387f4e80-b11c-11eb-8851-465e9bf37ca2.png)
+ ![image](https://user-images.githubusercontent.com/59965675/117597601-4c2ab500-b11c-11eb-864b-6d2f9fab4326.png)
+ 
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+<h4 align="center"> 
+Finalizado
+</h4>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Contribuitors
+<br />
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/adryanefernandes"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/76170319?s=400&u=c79a37b29d25709e380c64ae9d9432b35f72638e&v=4" width="100px;" alt=""/><br /><sub><b>Adryane Fernandes</b></sub></a><br />
+    <td align="center"><a href="https://github.com/NoellyCosta"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59965675?v=4" width="100px;" alt=""/><br /><sub><b>Noelly Costa</b></sub></a><br />
+    <td align="center"><a href="https://github.com/NtFigueira"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77118438?v=4" width="100px;" alt=""/><br /><sub><b>Nathalia Figueira</b></sub></a><br />
+    <td align="center"><a href="https://github.com/tandersonf92"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/53446211?v=4" width="100px;" alt=""/><br /><sub><b>Anderson Henrique</b></sub></a><br />
+  </tr>
+</table>
 
-### `npm run build` fails to minify
+<https://github.com/NoellyCosta> <br>
+<https://github.com/adryanefernandes> <br>
+<https://github.com/NtFigueira> <br>
+<https://github.com/tandersonf92> 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<!--te-->
+
+
+
+
+
+
